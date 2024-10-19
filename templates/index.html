@@ -186,13 +186,14 @@
               Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. MistCoin was simple—its only functions were <code>transfer</code> and <code>balanceOf</code>. In July 2022, Daniel Bernstein extended MistCoin with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
               <!-- Liquidity for $WMC was locked for 3 years via a <a href="https://etherscan.io/address/0x67f85a924e4c72e05010a03502f0350cf10557c7">custom contract</a> -->
             </p>
-            <a href="https://etherscan.io/token/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79#balances" class="read-more">
-              <span>WMC Holders</span><i class="bi bi-arrow-right"></i>
-            </a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd#balances" class="read-more">
-              <span>MC Holders</span><i class="bi bi-arrow-right"></i>
-            </a>
+            <div class="button-group">
+              <a href="https://etherscan.io/token/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79#balances" class="read-more">
+                <span>WMC Holders</span><i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd#balances" class="read-more">
+                <span>MC Holders</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -536,10 +537,10 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Is MistCoin still in circulation today?</h3>
+                <h3>Why was MistCoin wrapped?</h3>
                 <div class="faq-content">
                   <p>
-                    MistCoin itself was a prototype and does not play an active role in today’s token economy. However, its influence on token standards, particularly the ERC-20 standard, remains crucial to how tokens are issued and managed today.
+                    MistCoin's original contract, deployed on November 3rd, 2015, only contains two simple functions. The ERC-20 standard calls for two functions that are needed for the token to be made tradable on decentralized exchanges: `approve` and `transferFrom`. The wrapper allows MistCoin holders to wrap (and unwrap) their coins into a contract that is tradable. Holders of MistCoin and Wrapped MistCoin tokens can interact with the wrapper contract to easily wrap and unwrap their tokens.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
