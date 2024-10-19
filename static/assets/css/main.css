@@ -87,6 +87,34 @@ h6 {
   font-family: var(--heading-font);
 }
 
+/* Ensure all buttons stack on top of each other by default */
+.button-group a {
+  display: block !important; /* Force display to block, stacking vertically */
+  width: 100% !important; /* Full width for each button */
+  text-align: center;
+  margin-bottom: 15px !important; /* Ensure space between buttons */
+  padding: 10px 20px;
+  box-sizing: border-box; /* Ensure padding doesn't break width */
+}
+
+.button-group a:last-child {
+  margin-bottom: 0 !important; /* No margin on the last button */
+}
+
+/* When screen width is greater than 768px (desktop), show buttons side by side */
+@media (min-width: 768px) {
+  .button-group {
+    display: flex !important; /* Flexbox to align buttons horizontally */
+    gap: 20px; /* Space between buttons */
+  }
+
+  .button-group a {
+    width: auto !important; /* Make buttons fit content */
+    margin-bottom: 0 !important; /* Remove margin between buttons */
+  }
+}
+
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
