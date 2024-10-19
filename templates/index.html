@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MistCoin</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+  
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='assets/img/favicon.ico') }}" rel="icon">
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/img/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='assets/img/site.webmanifest') }}">
+  
+    <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+  
+  </head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
+        <h1 class="sitename">MistCoin</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">MistCoin</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#buy">How to Buy</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/MistCoinEth" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://t.me/mistcoinchat" class="telegram"><i class="bi bi-telegram"></i></a>
+        <a href="https://discord.gg/XzGctWjS7z" class="discord"><i class="bi bi-discord"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="">
+        <h1>The <span>First</span> Blockchain Standard</h1>
+        <p>MistCoin is a historic Ethereum collectible and the origin of every ERC-20 token.</p>
+        <div class="d-flex">
+          <a href="#about" class="btn-get-started scrollto">Learn More</a>
+          <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" style="color: white;" class="btn-get-started scrollto btn-watch-video d-flex align-items-center">Buy Now</a>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/ethereum.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/coinbase-base.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/uni.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/gecko.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/dexscreen.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/dextool.png') }}" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>MistCoin</h2>
+        <p>
+          Shortly after Ethereum’s launch in 2015, the Mist team deployed MistCoin as a prototype to test the concept of standardized token creation. This experiment paved the way for the now widely adopted ERC-20 token standard, forever shaping the Ethereum ecosystem.
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              In November 2015, the Mist team demonstrated the potential of Ethereum by creating an easy-to-use interface within the Mist Browser for deploying tokens. This early success helped inspire the development of the ERC-20 standard by Vitalik Buterin and Fabian Vogelsteller, now used by the majority of tokens on Ethereum today.
+            </p>
+            <ul>
+              <li><i class="bi bi-code-slash"></i> <span><strong>MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a></span></li>
+              <li><i class="bi bi-code-slash"></i> <span><strong>Total Supply:</strong> 1,000,000 MistCoin (approx. 400,000 circulating)</span></li>
+              <li><i class="bi bi-code-slash"></i> <span><strong>Wrapped MistCoin Contract Address (WMC)</strong>: <a href="https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</a></span></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <p>
+              Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. MistCoin was simple—its only functions were <code>transfer</code> and <code>balanceOf</code>. In July 2022, Daniel Bernstein extended MistCoin with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap V3. Liquidity for $WMC was locked for 3 years via a <a href="https://etherscan.io/address/0x67f85a924e4c72e05010a03502f0350cf10557c7">custom contract</a>.
+            </p>
+            <a href="https://etherscan.io/token/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79#balances" class="read-more">
+              <span>WMC Holders</span><i class="bi bi-arrow-right"></i>
+            </a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd#balances" class="read-more">
+              <span>MC Holders</span><i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <img src="{{ url_for('static', filename='assets/img/mist_mentions.jpg') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>The creators of MistCoin, Fabian and Alex, mention MistCoin on Twitter/X.</h3>
+            <p class="fst-italic">
+              MistCoin was deployed to test the first implementation of the ERC-20 standard.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> The pioneering example of an ERC-20 token on Ethereum, long before it became a standard.</span></li>
+              <li><i class="bi bi-check"></i> <span> Helped shape the future of decentralized finance and tokenized assets.</span></li>
+              <li><i class="bi bi-check"></i> <span> MistCoin paved the way for the hundreds of millions of tokens now circulating on Ethereum.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{{ url_for('static', filename='assets/img/mist_contract_deployment.png') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+            <h3>A Milestone for Ethereum's Token Economy</h3>
+            <p class="fst-italic">
+              The introduction of MistCoin marked a major milestone in the development of Ethereum's smart contract capabilities, showing how tokens could be issued, transferred, and managed programmatically.
+            </p>
+            <p>
+              By leveraging the core principles that would define ERC-20, MistCoin highlighted the potential for customizable tokens to represent anything from currencies to assets and utilities, opening a new world of decentralized applications.
+            </p>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+            <img src="{{ url_for('static', filename='assets/img/mist_system.jpg') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7" data-aos="fade-up">
+            <h3>Influencing the Future of Tokenized Assets</h3>
+        <p>
+          MistCoin’s legacy lives on as a foundational experiment that inspired the development of major tokens like Tether, Shiba Inu, and countless others. Its role in solidifying the ERC-20 token standard cannot be understated.
+        </p>
+        <ul>
+          <li><i class="bi bi-check"></i> <span> Demonstrated the programmability and flexibility of Ethereum's smart contracts.</span></li>
+          <li><i class="bi bi-check"></i><span> Led to innovations that enabled decentralized finance (DeFi) and beyond.</span></li>
+          <li><i class="bi bi-check"></i> <span> The blueprint for how tokens are issued, governed, and transferred today.</span></li>
+        </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
+            <img src="{{ url_for('static', filename='assets/img/mist_etherscan.png') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+            <h3>The ERC-20 Standard: A Lasting Legacy</h3>
+            <p class="fst-italic">
+              As one of the earliest experiments in token creation, MistCoin played a pivotal role in shaping the standards for modern token contracts on Ethereum.
+            </p>
+            <p>
+              Today, the ERC-20 standard is the backbone of Ethereum's tokenized ecosystem, with MistCoin standing as a historical reference point for developers and enthusiasts exploring Ethereum’s evolution.
+            </p>
+          </div>
+        </div><!-- Features Item -->
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Why Us Section -->
+    <section id="timeline" class="why-us section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Timeline</h2>
+        <p>A historical journey through the development of MistCoin and the ERC-20 token standard.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="100">
+            <span><a href="https://etherscan.io/block/0">Jul. 30, 2015</a></span>
+            <h4>The Frontier</h4>
+            <p>Vitalik Buterin launches the Ethereum network and the first block is confirmed.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
+            <span><a href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7">Nov. 3, 2015</a></span>
+            <h4>ERC-20 is Born</h4>
+            <p>Fabian Vogelsteller, Alex Vande de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
+            <span><a href="https://eips.ethereum.org/EIPS/eip-20">Nov. 19, 2015</a></span>
+            <h4>ERC-20 Proposal</h4>
+            <p>Vitalik Buterin and Fabian published the ERC-20 token standard proposal.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span><a href="https://www.coindesk.com/markets/2017/09/11/ethereums-erc-20-token-standard-has-been-formalized/">Sep. 11, 2017</a></span>
+            <h4>ERC-20 Finalized</h4>
+            <p>The standard is formalized on the Ethereum GitHub page, signaling that all tokens built on Ethereum should conform to the standard.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span><a href="https://etherscan.io/tx/0x7f1c438a92b94798b273f56f530656986641fbdb57774e5a9b683a77be135ec3">Jul. 27, 2022</a></span>
+            <h4>MistCoin Wrapped</h4>
+            <p>Daniel "goatish" Bernstein deployed a wrapper contract to the 2015 contract to enable listing.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
+            <span><a href="https://etherscan.io/tx/0x7fd3bb6211926a1cee30a39e09ef77d5e83de6160861ac04f46f0898b227dd27">Jul. 28, 2022</a></span>
+            <h4>Uniswap LP Launched</h4>
+            <p>An LP was set up and funded. After 9 years, MistCoin, the first blockchain standard, can be bought by anyone freely!</p>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Wise words from folks on social media.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>The first ERC20 I did was MistCoin a fun creation to test tokens in the Ethereum Wallet. Right after somebody created “bitcoin” 🙀 I still own some super valuable MistCoin 😜</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <h3>Fabian Vogelsteller</h3>
+                <h4>MistCoin Creator</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>This is hilarious. MistCoin was a test coin we deployed for fun and gave away on Reddit to test our token implementation. And since fabian had just wrote the spec, it became the first erc20 compliant token.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url_for('static', filename='assets/img/team/avsa.jpg') }}" class="testimonial-img" alt="">
+                <h3>Alex Van de Sande</h3>
+                <h4>Ethereum Foundation Alumni & Mist Developer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>$Mist certainly has some historical value, as it marked the beginning of the wave of tokens on Ethereum and the rest of the Blockchain space.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <h3>Fabian Vogelsteller</h3>
+                <h4>MistCoin Creator</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>I just submitted a ticket to @etherscan about #MistCoin to add the tag "First ERC20 token". While doing that I realised, I actually deployed it 16 days before submitting the ERC proposal😁, as I used it to test the standard idea.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <h3>Fabian Vogelsteller</h3>
+                <h4>MistCoin Creator</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>MistCoin 2015 $WMC<br><br>Created by very smart nerds.<br><br>Collected by less-smart nerds.<br><br>Traded by total idiots..</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url_for('static', filename='assets/img/testimonials/goatish.jpg') }}" class="testimonial-img" alt="">
+                <h3>Daniel "goatish" Bernstein</h3>
+                <h4>Blockchain Enthusiast</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+</section><!-- /Buy Section -->
+
+    <!-- Pricing Section -->
+    <section id="buy" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Buy MistCoin</h2>
+        <p>Purchase MistCoin directly from Uniswap, the decentralized exchange.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-4 g-lg-0">
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pricing-item">
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-item">
+              <h3>Own Ethereum History</h3>
+              <h4>Buy Wrapped MistCoin (WMC)</h4>
+              <ul>
+                <li><i class="bi bi-check"></i> <span>1,000,000 Supply</span></li>
+                <li><i class="bi bi-check"></i> <span>0% Tax</span></li>
+                <li><i class="bi bi-check"></i> <span>Locked LP</span></li>
+                <li><i class="bi bi-check"></i> <span>Historic Coin</span></li>
+                <li><i class="bi bi-check"></i> <span>Unruggable</span></li>
+              </ul>
+              <div class="text-center"><a href="https://app.uniswap.org/explore/tokens/ethereum/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79" target="_blank" class="buy-btn">Buy Now</a></div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pricing-item">
+            </div>
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Pricing Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>FAQ</h2>
+        <p>Answers to common questions about MistCoin and the ERC-20 token standard</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-8">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>What is MistCoin, and why is it significant?</h3>
+                <div class="faq-content">
+                  <p>
+                    MistCoin was one of the first tokens deployed on Ethereum as a test for the ERC-20 standard. It served as a proof of concept for tokenized assets on Ethereum, influencing the development of countless tokens that followed.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>What is the ERC-20 token standard?</h3>
+                <div class="faq-content">
+                  <p>
+                    The ERC-20 standard defines a set of rules for creating tokens on the Ethereum blockchain. These rules ensure tokens are interoperable with each other and with decentralized applications (dApps), providing consistency in how tokens function across the Ethereum ecosystem.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>How did MistCoin contribute to the development of decentralized finance (DeFi)?</h3>
+                <div class="faq-content">
+                  <p>
+                    As one of the earliest experiments in token creation, MistCoin demonstrated the programmability and flexibility of Ethereum's smart contracts. This laid the groundwork for the tokens that would later drive the decentralized finance (DeFi) movement, enabling a wide range of financial applications on the blockchain.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Is MistCoin still in circulation today?</h3>
+                <div class="faq-content">
+                  <p>
+                    MistCoin itself was a prototype and does not play an active role in today’s token economy. However, its influence on token standards, particularly the ERC-20 standard, remains crucial to how tokens are issued and managed today.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>What makes ERC-20 tokens so important?</h3>
+                <div class="faq-content">
+                  <p>
+                    ERC-20 tokens are essential to the Ethereum ecosystem because they allow developers to create tokens that can be easily traded, transferred, and used within decentralized applications. The standard provides uniformity, enabling seamless integration with wallets, exchanges, and DeFi platforms.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+            <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center">
+                <span class="sitename">MistCoin</span>
+              </a>
+          <div class="social-links d-flex mt-4">
+            <a href="https://x.com/MistCoinEth"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://t.me/mistcoinchat"><i class="bi bi-telegram"></i></a>
+            <a href="https://discord.gg/XzGctWjS7z"><i class="bi bi-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4></h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
