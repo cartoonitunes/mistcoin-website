@@ -448,7 +448,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Scrapbook</h2>
-        <p>A collection of photos from the original Mist team!</p>
+        <p>A collection of photos and videos of the Ethereum Mist team!</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -494,6 +494,16 @@
                 <p>A sketch from 2014, where Alex Van de Sande was brainstorming concepts for Mist.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/2014_mist_sketch.jpg') }}" title="Original Mist Sketch" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/avsa/status/870037259768279040" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/simon-devcon-1.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Simon at Devcon 1</h4>
+                <p>Simon de la Rouviere from ConsenSys presents on token standardization at Devcon 1.</p>
+                <a href="{{ url_for('static', filename='assets/img/scrapbook/simon-devcon-1.png') }}" title="Simon at Devcon 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="https://x.com/ethereum/status/671623408166281216" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -679,6 +689,21 @@
                 <div class="faq-content">
                   <p>
                     ERC-20 tokens are essential to the Ethereum ecosystem because they allow developers to create tokens that can be easily traded, transferred, and used within decentralized applications. The standard provides uniformity, enabling seamless integration with wallets, exchanges, and DeFi platforms.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Can I wrap or unwrap my MistCoin anytime?</h3>
+                <div class="faq-content">
+                  <p>
+                    Yes! The wrapper contract allows you to wrap and unwrap tokens at will and safely. Here is how to do it: 
+                    <br /><br />1. <a href="https://etherscan.io/address/0x67c6ec7e6a0e2e2d345de398d3ac607364b0ed30#writeContract" style="color: white; text-decoration:underline">Write Contract:</a> createDropbox (create your dropbox where you will drop your OG MistCoin)
+                    <br />2. <a href="https://etherscan.io/address/0x67c6ec7e6a0e2e2d345de398d3ac607364b0ed30#readContract" style="color: white; text-decoration:underline">Read Contract:</a> dropBoxes (read out the dropbox address you just created)
+                    <br />3. <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" style="color: white; text-decoration:underline">Transfer OG MistCoin:</a>Transfer OG MistCoin using the transfer function to the Dropbox address from Step 2
+                    <br />4. <a href="https://etherscan.io/address/0x67c6ec7e6a0e2e2d345de398d3ac607364b0ed30#writeContract" style="color: white; text-decoration:underline">Write Contract:</a> wrap (custom decimals 2), wrapping 1 MistCoin = 100 in the input.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
