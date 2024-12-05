@@ -315,7 +315,7 @@
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
             <span><a href="https://etherscan.io/tx/0x7f1c438a92b94798b273f56f530656986641fbdb57774e5a9b683a77be135ec3">Jul. 27, 2022</a></span>
             <h4>MistCoin Wrapped</h4>
-            <p>Daniel "goatish" Bernstein deployed a wrapper contract to the 2015 contract to enable listing.</p>
+            <p>Daniel "goatish" Bernstein deployed a wrapper contract to the 2015 contract to enable trading.</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
@@ -574,6 +574,87 @@
       </div>
 
     </section><!-- /Portfolio Section -->
+  
+<!-- Team Section -->
+<section id="erc20-contributors" class="team section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Token Standard Contributors</h2>
+    <p>This incomplete list showcases some of the contributors to the ERC-20 standard.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Vitalik Buterin</h4>
+            <span>Co-Founder of the Ethereum Foundation</span>
+            <p>Vitalik began externally proposing the first standards in crypto in an Ethereum Wiki on June 17, 2015. Through July 5th, 2015, Vitalik continued to expand on his ideas on standardization, imagining standard Decentralized Exchanges and Registries. These were the building blocks for MetaMask, Uniswap, and ENS, to name a few. On November 19, 2015, Vitalik and Fabian propsed the ERC-20 standard.</p>
+            <div class="socials">
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/748c9b0a7f459ed5754420b6368bdd536bc4bdc4">First Edit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/_history?page=2">Later edits: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/dapp-bin/blob/master/standardized_contract_apis/currency.sol">Implementation: <i class="bi bi-github"></i></a><br />
+              <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20 Proposal: <i class="bi bi-globe"></i></a>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/fabian-mist.png') }}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Fabian Vogelsteller</h4>
+            <span>Lead Ethereum Dapp Developer: Mist</span>
+            <p>Fabian made both syntactical and function paramater changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first ERC-20: MistCoin alongside the feature to create standard tokens in the Ethereum Wallet: Mist. On November 19, 2015, Vitalik and Fabian propsed the ERC-20 standard.</p>
+            <div class="socials">
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/c12d533a9993b058bf891a1d0780a21742b7ec0f">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20 Proposal: <i class="bi bi-globe"></i></a>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/gavinwood.jpg') }}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Gavin Wood</h4>
+            <span>Co-Founder of the Ethereum Foundation</span>
+            <p>Gavin's work is replete throughout Ethereum repositories, but perhaps none so clear in his connection to coin standards as his implementation of GavCoin on February 19th, 2015.</p>
+            <div class="socials">
+              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/coin.sol">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/gavcoin.png">GavCoin Logo: <i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/simon.jpg') }}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Simon de la Rouviere</h4>
+            <span>ERC-20 Standard Contributor</span>
+            <p>Simon made several improvements to the ERC-20 standard, renaming 'sendCoin', 'sendCoinFrom', and 'disapprove' to the familiar 'transfer', 'transferFrom', and 'unapprove'. While working for ConsenSys, Simon gave a talk at Ethereum's Devcon 1 on token standard, worth a watch!</p>
+            <div class="socials">
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/9721a6be9f6207629d0c58f349aa90ce5890cd13">Latest Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://www.youtube.com/watch?v=kE5oGw8oKsY&list=PLJqWcTqh_zKHQUFX4IaVjWjfT2tbS4NVk">Devcon 1 Talk: <i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Team Section -->
 
 </section><!-- /Buy Section -->
 
