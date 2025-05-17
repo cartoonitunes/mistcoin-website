@@ -87,9 +87,10 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">MistCoin</a></li>
+          <li><a href="#contract">The Code</a></li>
           <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#chart">The Chart</a></li>
           <li><a href="#scrapbook">Scrapbook</a></li>
-          <li><a href="#buy">How to Buy</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -166,7 +167,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>MistCoin</h2>
         <p>
-          Shortly after Ethereum’s launch in 2015, Ethereum deployed MistCoin, a 1 million supply collectible coin, as a prototype to test the concept of standardized token creation. This experiment paved the way for the now widely adopted ERC-20 token standard, forever shaping the Ethereum ecosystem.
+          Shortly after Ethereum’s launch in 2015, Ethereum deployed MistCoin, a 1 million supply collectible coin, as a prototype to test the concept of standardized token creation now known as ERC-20. This experiment paved the way for the now widely adopted ERC-20 token standard, forever shaping the Ethereum ecosystem.
         </p>
       </div><!-- End Section Title -->
 
@@ -175,7 +176,7 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Weeks after MistCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard, now used by the majority of tokens on Ethereum today.
+              Sixteen days after MistCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard, now used by the majority of tokens on Ethereum today.
             </p>
             <ul>
               <li>💠&nbsp; <span><strong>MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a></span></li>
@@ -186,7 +187,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p>
-              Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. MistCoin was simple—its only functions were <code>transfer</code> and <code>balanceOf</code>. In July 2022, MistCoin was extended with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
+              On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. Fourteen days after MistCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen <a href="https://gist.github.com/frozeman/090ae32041bcfe120824">here</a> discussing the token standard. Two days later, Vitalik and Fabian proposed <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20: Token Standard</a>. In July 2022, MistCoin was extended with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
               <!-- Liquidity for $WMC was locked for 3 years via a <a href="https://etherscan.io/address/0x67f85a924e4c72e05010a03502f0350cf10557c7">custom contract</a> -->
             </p>
             <div class="button-group">
@@ -206,7 +207,7 @@
               <!-- Tokenomics Section -->
               <ul style="list-style: none; padding: 0; margin: 0;">
                   <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Locked Liquidity:</strong> V2 Liquidity for Wrapped MistCoin is locked until Nov 3, 2115. 
+                      <span><strong>💠 Locked Liquidity:</strong> V2 double-sided liquidity for Wrapped MistCoin is locked until Nov 3, 2115. 
                           <a href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50" style="color: #007bff;">[Source]</a>
                       </span>
                   </li>
@@ -231,12 +232,12 @@
                       </span>
                   </li>
                   <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Alex "Avsa" Van de Sande:</strong> The Mist Director and early Ethereum Foundation employee, Alex owns ~10% of the supply. Alex locked his supply for years. 
+                      <span><strong>💠 Alex "AvsA" Van de Sande:</strong> The former Ethereum Lead Designer, leader of Mist, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years. 
                           <a href="https://etherscan.io/address/0x73d245b211e51dbee8ed9c04b235262bc4845009#readContract" style="color: #007bff;">[Source]</a>
                       </span>
                   </li>
                   <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Doge Eth Bounty:</strong>In 2015, Avsa created a DAO with Vitalik Buterin, Ming Chan, Piper Merriam, Hudson Jameson, Ross Nicoll, and two others. The DAO owns 5% of the supply. 
+                      <span><strong>💠 Doge Eth Bounty:</strong>In 2015, AvsA created a DAO with Vitalik Buterin, Ming Chan, Piper Merriam, Hudson Jameson, Ross Nicoll, and two others. The DAO owns 5% of the supply. 
                           <a href="https://etherscan.io/address/0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb" style="color: #007bff;">[Source]</a>
                       </span>
                   </li>
@@ -246,6 +247,62 @@
       
       
       </div>
+    
+    <!-- /Contract Section -->
+    <section id="contract" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>MistCoin Original Contract</h2>
+        <p>This is the original MistCoin contract code from 2015 <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a>. Nearly 200 contracts were made with this exact same code thereafter and ERC-20 followed with many millions to date.</p>
+      </div>
+    
+      <div class="container" data-aos="fade-up" style="overflow-x: auto; background-color: #F6F7FF; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+        <pre style="margin: 0; font-family: 'Courier New', Courier, monospace;">
+    <code><span style="color:#0000ff;">contract</span> <span style="color:#795E26;">MyToken</span> {
+        <span style="color:#008000;">/* Public variables of the token */</span>
+        <span style="color:#0000ff;">string</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">name</span>;
+        <span style="color:#0000ff;">string</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">symbol</span>;
+        <span style="color:#0000ff;">uint8</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">decimals</span>;
+    
+        <span style="color:#008000;">/* This creates an array with all balances */</span>
+        <span style="color:#0000ff;">mapping</span> (<span style="color:#0000ff;">address</span> =&gt; <span style="color:#0000ff;">uint256</span>) <span style="color:#0000ff;">public</span> <span style="color:#001080;">balanceOf</span>;
+    
+        <span style="color:#008000;">/* This generates a public event on the blockchain that will notify clients */</span>
+        <span style="color:#0000ff;">event</span> <span style="color:#795E26;">Transfer</span>(<span style="color:#0000ff;">address</span> <span style="color:#0000ff;">indexed</span> from, <span style="color:#0000ff;">address</span> <span style="color:#0000ff;">indexed</span> to, <span style="color:#0000ff;">uint256</span> value);
+    
+        <span style="color:#008000;">/* Initializes contract with initial supply tokens to the creator of the contract */</span>
+        <span style="color:#0000ff;">function</span> <span style="color:#795E26;">MyToken</span>(<span style="color:#0000ff;">uint256</span> _supply, <span style="color:#0000ff;">string</span> _name, <span style="color:#0000ff;">string</span> _symbol, <span style="color:#0000ff;">uint8</span> _decimals) {
+            <span style="color:#008000;">/* if supply not given then generate 1 million of the smallest unit of the token */</span>
+            <span style="color:#0000ff;">if</span> (_supply == 0) _supply = 1000000;
+    
+            <span style="color:#008000;">/* Unless you add other functions these variables will never change */</span>
+            balanceOf[msg.sender] = _supply;
+            name = _name;
+            symbol = _symbol;
+    
+            <span style="color:#008000;">/* If you want a divisible token then add the amount of decimals the base unit has */</span>
+            decimals = _decimals;
+        }
+    
+        <span style="color:#008000;">/* Send coins */</span>
+        <span style="color:#0000ff;">function</span> <span style="color:#795E26;">transfer</span>(<span style="color:#0000ff;">address</span> _to, <span style="color:#0000ff;">uint256</span> _value) {
+            <span style="color:#008000;">/* if the sender doesn't have enough balance then stop */</span>
+            <span style="color:#0000ff;">if</span> (balanceOf[msg.sender] &lt; _value) <span style="color:#0000ff;">throw</span>;
+            <span style="color:#0000ff;">if</span> (balanceOf[_to] + _value &lt; balanceOf[_to]) <span style="color:#0000ff;">throw</span>;
+    
+            <span style="color:#008000;">/* Add and subtract new balances */</span>
+            balanceOf[msg.sender] -= _value;
+            balanceOf[_to] += _value;
+    
+            <span style="color:#008000;">/* Notify anyone listening that this transfer took place */</span>
+            Transfer(msg.sender, _to, _value);
+        }
+    }
+    </code>
+        </pre>
+      </div>
+    </section>    
+    
+    <!-- /End Contract Section -->
 
     <!-- Features Section -->
     <section id="features" class="features section">
@@ -374,6 +431,88 @@
       </div>
 
     </section><!-- /Why Us Section -->
+
+    <!-- Start Chart Section -->
+<section id="chart" class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>MistCoin Price Chart</h2>
+    <p>Track $WMC live on Ethereum or Base.</p>
+  </div>
+
+  <div class="container d-flex justify-content-center" data-aos="fade-up">
+    <iframe 
+      src="https://dexscreener.com/ethereum/0xf44876dbfa10609fcdd68cb4122c3a6e1d4acd8f?embed=1" 
+      frameborder="0" 
+      width="100%" 
+      height="480" 
+      style="border-radius: 10px;" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- End Chart Section -->
+
+<!-- Start Buy Section -->
+
+    <!-- Buy Section -->
+<section id="buy" class="section bg-light">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Buy MistCoin</h2>
+    <p>Get $WMC on Ethereum L1, Base L2, or from centralized exchanges like CoinEx and NonKyc.io.</p>
+  </div>
+
+  <div class="row g-4" data-aos="fade-up">
+
+    <!-- Ethereum L1 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 text-center p-4">
+        <h5 class="mb-3">Ethereum (L1)</h5>
+        <p class="text-muted">Trade $WMC on Ethereum mainnet</p>
+        <ul class="list-unstyled mb-3">
+          <li><i class="bi bi-check-circle me-2 text-success"></i> 1,000,000 Total Supply</li>
+          <li><i class="bi bi-check-circle me-2 text-success"></i> 457,183 Circulating</li>
+          <li><i class="bi bi-check-circle me-2 text-success"></i> 0% Tax</li>
+          <li><i class="bi bi-check-circle me-2 text-success"></i> Thick, Locked LP</li>
+        </ul>
+        <a href="https://app.uniswap.org/explore/tokens/ethereum/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79" target="_blank" class="btn btn-primary w-100 mb-2">Buy on Uniswap</a>
+        <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" class="btn btn-primary w-100">Buy on CowSwap</a>
+      </div>
+    </div>
+
+    <!-- Base L2 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 text-center p-4">
+        <h5 class="mb-3">Base (L2)</h5>
+        <p class="text-muted">Lower fees, same $WMC</p>
+        <ul class="list-unstyled mb-4">
+          <li><i class="bi bi-lightning-charge me-2 text-warning"></i> Fast & low gas</li>
+          <li><i class="bi bi-arrow-down-circle me-2 text-secondary"></i> Bridging required</li>
+          <li><i class="bi bi-arrow-down-circle me-2 text-secondary"></i> Low Liquidity</li>
+        </ul>
+        <a href="https://app.uniswap.org/explore/tokens/base/0x3d2eba645c44bbd32a34b7c017667711eb5b173c" target="_blank" class="btn btn-primary w-100 mb-2">Buy on Uniswap</a>
+        <a href="https://swap.cow.fi/#/8453/swap/ETH/WMC" target="_blank" class="btn btn-primary w-100">Buy on CowSwap</a>
+      </div>
+    </div>
+
+    <!-- Centralized Exchanges -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 text-center p-4">
+        <h5 class="mb-3">Centralized Exchanges</h5>
+        <p class="text-muted">No wallet? No problem.</p>
+        <ul class="list-unstyled mb-4">
+          <li><i class="bi bi-building me-2 text-info"></i> Easy onboarding</li>
+          <li><i class="bi bi-shield-check me-2 text-success"></i> No gas fees</li>
+        </ul>
+        <a href="https://www.coinex.com/en/info/wmc" target="_blank" class="btn btn-outline-primary w-100 mb-2">Buy on CoinEx</a>
+        <a href="https://nonkyc.io/market/WMC_USDT" target="_blank" class="btn btn-outline-primary w-100">Buy on NonKyc.io</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
@@ -644,6 +783,7 @@
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/748c9b0a7f459ed5754420b6368bdd536bc4bdc4">First Edit: <i class="bi bi-github"></i></a><br />
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/_history?page=2">Later edits: <i class="bi bi-github"></i></a><br />
               <a href="https://github.com/ethereum/dapp-bin/blob/master/standardized_contract_apis/currency.sol">Implementation: <i class="bi bi-github"></i></a><br />
+              <a href="https://gist.github.com/frozeman/090ae32041bcfe120824">ERC-20 Proposal Conversation: <i class="bi bi-github"></i></a><br />
               <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20 Proposal: <i class="bi bi-globe"></i></a><br />
               <a href="https://archive.devcon.org/archive/watch/1/standardization/?tab=YouTube">Devcon 1 | Standardization: <i class="bi bi-youtube"></i></a>
             </div>
@@ -660,6 +800,7 @@
             <p>Fabian made both syntactical and function paramater changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first ERC-20: MistCoin alongside the feature to create standard tokens in the Ethereum Wallet: Mist. On November 19, 2015, Vitalik and Fabian propsed the ERC-20 standard.</p>
             <div class="socials" style="font-size: 12px;">
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/c12d533a9993b058bf891a1d0780a21742b7ec0f">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://gist.github.com/frozeman/090ae32041bcfe120824">ERC-20 Proposal Conversation: <i class="bi bi-github"></i></a><br />
               <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20 Proposal: <i class="bi bi-globe"></i></a>
               <a href="https://github.com/ethereum/mist/releases/tag/0.3.5">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
               <a href="https://archive.devcon.org/archive/watch/1/standardization/">Devcon 1 | Standardization: <i class="bi bi-youtube"></i></a>
@@ -676,9 +817,9 @@
             <span>Head UX Designer | Ethereum Foundation</span>
             <p>Alex "avsa" led the Mist team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Mist Browser was monumental in the effort.</p>
             <div class="socials" style="font-size: 12px;">
-              <a href="https://github.com/ethereum/mist/releases/tag/0.3.5">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
-              <a href="https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/">Coin Standards: <i class="bi bi-reddit"></i></a><br />
-              <a href="https://archive.devcon.org/archive/watch/2/mist-vision-and-demo-updated/">Devcon 2 | Mist Vision and Demo: <i class="bi bi-youtube"></i></a>
+              <a href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
+              <a href="https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/" target="_blank">Coin Standards: <i class="bi bi-reddit"></i></a><br />
+              <a href="https://archive.devcon.org/archive/watch/2/mist-vision-and-demo-updated/" target="_blank">Devcon 2 | Mist Vision and Demo: <i class="bi bi-youtube"></i></a>
             </div>
           </div>
         </div>
@@ -692,8 +833,8 @@
             <span>Co-Founder of the Ethereum Foundation</span>
             <p>Gavin's work is replete throughout Ethereum repositories, but perhaps none so clear in his connection to coin standards as his implementation of GavCoin on February 19th, 2015.</p>
             <div class="socials" style="font-size: 12px;">
-              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/coin.sol">Commit: <i class="bi bi-github"></i></a><br />
-              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/gavcoin.png">GavCoin Logo: <i class="bi bi-github"></i></a>
+              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/coin.sol" target="_blank">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/gavcoin.png" target="_blank">GavCoin Logo: <i class="bi bi-github"></i></a>
             </div>
           </div>
         </div>
@@ -707,8 +848,8 @@
             <span>ERC-20 Standard Contributor</span>
             <p>Simon made several improvements to the ERC-20 standard, renaming 'sendCoin', 'sendCoinFrom', and 'disapprove' to the familiar 'transfer', 'transferFrom', and 'unapprove'. While working for ConsenSys, Simon gave a talk at Ethereum's Devcon 1 on token standard, worth a watch!</p>
             <div class="socials" style="font-size: 12px;">
-              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/9721a6be9f6207629d0c58f349aa90ce5890cd13">Latest Commit: <i class="bi bi-github"></i></a><br />
-              <a href="https://www.youtube.com/watch?v=kE5oGw8oKsY&list=PLJqWcTqh_zKHQUFX4IaVjWjfT2tbS4NVk">Devcon 1 Talk: <i class="bi bi-youtube"></i></a>
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/9721a6be9f6207629d0c58f349aa90ce5890cd13" target="_blank">Latest Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://www.youtube.com/watch?v=kE5oGw8oKsY&list=PLJqWcTqh_zKHQUFX4IaVjWjfT2tbS4NVk" target="_blank">Devcon 1 Talk: <i class="bi bi-youtube"></i></a>
             </div>
           </div>
         </div>
@@ -719,61 +860,6 @@
   </div>
 
 </section><!-- /Team Section -->
-
-</section><!-- /Buy Section -->
-
-    <!-- Pricing Section -->
-    <section id="buy" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Buy MistCoin</h2>
-        <p>Purchase MistCoin from any decentralized exchange, like Uniswap, or the centralized exchange CoinEx or NonKyc.</p>
-      </div><!-- End Section Title -->
-
-      <div class="row g-4 g-lg-0">
-
-        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="pricing-item">
-            <h3>Centralized Exchanges</h3>
-            <h4>Buy MistCoin $WMC on a CEX</h4>
-            <ul>
-            </ul>
-            <div class="text-center"><a href="https://www.coinex.com/en/" target="_blank" class="buy-btn">Buy on CoinEx</a></div>
-            <div class="text-center"><a href="https://nonkyc.io/market/WMC_USDT" target="_blank" class="buy-btn">Buy on NonKyc.io</a></div>
-          </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item">
-              <h3>Ethereum (L1)</h3>
-              <h4>Buy MistCoin $WMC</h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>1,000,000 Total Supply</span></li>
-                <li><i class="bi bi-check"></i> <span>405,000 Circulating Supply</span></li>
-                <li><i class="bi bi-check"></i> <span>0% Tax</span></li>
-                <li><i class="bi bi-check"></i> <span>Thick, Locked LP</span></li>
-              </ul>
-              <div class="text-center"><a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" class="buy-btn">Buy on CowSwap</a></div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Base (L2)</h3>
-              <h4>Buy MistCoin $WMC on Base</h4>
-              <ul>
-              </ul>
-              
-              <div class="text-center"><a href="https://swap.cow.fi/#/8453/swap/ETH/WMC" target="_blank" class="buy-btn">Buy on CowSwap</a></div>
-            </div>
-            </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Pricing Section -->
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
