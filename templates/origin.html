@@ -76,7 +76,7 @@
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
     
-          <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
             <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
             <h1 class="sitename">MistCoin</h1>
           </a>
@@ -96,7 +96,7 @@
     
           <div class="header-social-links">
             <a href="https://x.com/MistCoinEth" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-bluesky"></i></a>
+            <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
             <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
             <a href="https://t.me/MistCoinEth" class="telegram"><i class="bi bi-telegram"></i></a>
             <a href="https://discord.gg/XzGctWjS7z" class="discord"><i class="bi bi-discord"></i></a>
@@ -147,16 +147,16 @@
                 <div class="col-12 col-md-9 pe-md-3">
                   <h4 class="card-title mb-1">{{ name }} <small class="text-muted">(${{ symbol }})</small></h4>
                   <p class="mb-2">Deployed: <strong>{{ deployed_date }}</strong></p>
-                  <p class="mb-2">Chain: <strong>{{ chain_upper }}</strong></p>
-                  <p class="mb-2">Contract Type: <strong>ERC-20</strong></p>
+                  <p class="mb-2">Chain: ERC-20 on <strong>{{ chain_upper }}</strong></p>
                   <p class="mb-2">Price: <strong>${{ price }}</strong></p>
-                  <p class="mb-2">Market Cap: <strong>${{ "{:,.0f}".format(market_cap) }}</strong></p>
-                  <p class="mb-2">Origin: <strong>{{ origin }}</strong></p><br>
+                  <p class="mb-2">Market Cap: <strong>${{ "{:,.0f}".format(market_cap) }}</strong></p><br>
+                  <h5 class="mb-2"><u>{{ name }}'s Origin</u></h5>
+                  <strong>{{ origin }}</strong></p>
                   <p class="mb-2">MistCoin Price: <strong>${{ "{:,.2f}".format(mistcoin_price) }}</strong></p>
                   <p class="mb-2">MistCoin at {{ name }}'s Market Cap: <strong>${{ "{:,.2f}".format(new_mistcoin_price) }}</strong> &mdash;
                     Up <strong class="text-success">{{ "{:,.2f}".format(percent_up) }}%</strong>
                   </p>
-                  <p class="mb-2"><i>Deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard. MistCoin is the origin of {{name}}.</i></p>
+                  <p class="mb-2"><i>Deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard. MistCoin led to {{name}}.</i></p>
                 </div>
               </div>
             </div>
@@ -176,7 +176,7 @@
                   </a>
               <div class="social-links d-flex mt-4">
                 <a href="https://x.com/MistCoinEth"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-bluesky"></i></a>
+                <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
                 <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
                 <a href="https://t.me/MistCoinEth"><i class="bi bi-telegram"></i></a>
                 <a href="https://discord.gg/XzGctWjS7z"><i class="bi bi-discord"></i></a>
@@ -192,7 +192,7 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
   <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
   <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ url_for('static', filename='assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
