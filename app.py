@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import requests
 import os
 from datetime import datetime, UTC
+import re
 
 app = Flask(__name__)
 
@@ -13,6 +14,9 @@ MISTCOIN_TIMESTAMP = 1446552343
 ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
 BASESCAN_API_KEY = os.getenv("BASESCAN_API_KEY")
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
+
+def is_eth_address(address):
+    return bool(re.fullmatch(r'^0x[a-fA-F0-9]{40}$', address))
 
 @app.route('/')
 def index():
@@ -26,6 +30,10 @@ def origin_checker():
 
         if not contract:
             return render_template('origin.html', error="Please enter a contract address.")
+        
+        is_contract_eth_address = is_eth_address(contract)
+        if is_contract_eth_address == False:
+            return render_template('origin.html', error="Please enter a valid contract address.")
 
         # Step 1: Get deployment timestamp
         try:

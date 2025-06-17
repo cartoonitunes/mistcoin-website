@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>MistCoin | Token Origin Checker</title>
-        <meta name="description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+        <meta name="description" content="Use the MistCoin Token Origin Checker to verify the blockchain origin of any Ethereum-based token. Ensure its authenticity and trace its history." />
         <meta name="keywords" content="MistCoin, Blockchain, Collectible, ERC20, Ethereum, Crypto, Token, Coin" />
     
         <!-- Canonical Tag -->
-        <link rel="canonical" href="https://www.mistcoineth.com" />
+        <link rel="canonical" href="https://www.mistcoineth.com/origin-checker" />
         
         <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="MistCoin - The First Blockchain Standard Collectible" />
-        <meta property="og:description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+        <meta name="twitter:title" content="MistCoin | Token Origin Checker" />
+        <meta name="twitter:description" content="Verify the blockchain origin of any Ethereum-based token with MistCoin's Token Origin Checker." />
         <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg" />
         <meta property="og:url" content="https://www.mistcoineth.com" />
         <meta property="og:type" content="website" />
@@ -30,7 +30,7 @@
         <script type="application/ld+json">
           {
             "@context": "https://schema.org",
-            "@type": "Website",
+            "@type": "WebPage",
             "url": "https://www.mistcoineth.com",
             "name": "MistCoin",
             "description": "MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. The ERC20 prototype, it represents a significant milestone in the world of digital collectibles.",
@@ -131,11 +131,10 @@
             </div>
           </form>
       
-          {% if error %}
+          <div id="result-container">
+            {% if error %}
           <div class="alert alert-danger mt-4 text-center" data-aos="fade-in">{{ error }}</div>
           {% endif %}
-      
-          <div id="result-container">
           {% if name %}
           <div class="d-flex justify-content-center align-items-center mt-5" style="min-height: 300px;" data-aos="fade-up" data-aos-delay="200">
             <div class="card shadow border-0 mx-auto" style="max-width: 900px; width: 100%;">
@@ -209,24 +208,35 @@
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
       
+        const submitButton = form.querySelector("button[type='submit']");
+        submitButton.disabled = true;
+        submitButton.innerText = "Checking...";
+      
         if (preloader) preloader.style.display = "block";
       
         const formData = new FormData(form);
       
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-        });
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+          });
       
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const newResult = doc.getElementById("result-container");
+          const html = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const newResult = doc.getElementById("result-container");
       
-        document.getElementById("result-container").innerHTML = newResult.innerHTML;
-      
-        if (preloader) preloader.style.display = "none";
-      });});
+          document.getElementById("result-container").innerHTML = newResult.innerHTML;
+        } catch (err) {
+          console.error("Submission error:", err);
+        } finally {
+          if (preloader) preloader.style.display = "none";
+          submitButton.disabled = false;
+          submitButton.innerText = "Check";
+        }
+      });
+    });
       
   </script>
       
