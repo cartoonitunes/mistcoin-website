@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>MistCoin | Token Origin Checker</title>
+        <meta name="description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+        <meta name="keywords" content="MistCoin, Blockchain, Collectible, ERC20, Ethereum, Crypto, Token, Coin" />
+    
+        <!-- Canonical Tag -->
+        <link rel="canonical" href="https://www.mistcoineth.com" />
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="MistCoin - The First Blockchain Standard Collectible" />
+        <meta property="og:description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+        <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg" />
+        <meta property="og:url" content="https://www.mistcoineth.com" />
+        <meta property="og:type" content="website" />
+    
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:title" content="MistCoin - The First Blockchain Standard Collectible" />
+        <meta name="twitter:site" content="@MistCoinEth" /> <!-- Replace with the actual Twitter handle -->
+        <meta name="twitter:description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+        <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg" /> 
+        <meta name="twitter:image:alt" content="MistCoin">
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@MistCoinEth" /> 
+    
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Website",
+            "url": "https://www.mistcoineth.com",
+            "name": "MistCoin",
+            "description": "MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. The ERC20 prototype, it represents a significant milestone in the world of digital collectibles.",
+            "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg",
+            "sameAs": [
+              "https://twitter.com/MistCoinEth",
+              "https://t.me/MistCoinEth", <!-- Replace with the actual Telegram URL -->
+              "https://dexscreener.com/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
+              "https://www.dextools.io/app/en/ether/pair-explorer/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
+              "https://coinmarketcap.com/dexscan/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c/",
+              "https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd",
+              "https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
+            ]
+          }
+          </script>
+      
+        <!-- Favicons -->
+        <link href="{{ url_for('static', filename='assets/img/favicon.ico') }}" rel="icon">
+        <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/img/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='assets/img/site.webmanifest') }}">
+      
+        <!-- Fonts -->
+      <link href="https://fonts.googleapis.com" rel="preconnect">
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      
+        <!-- Vendor CSS Files -->
+        <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+      
+        <!-- Main CSS File -->
+        <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+      
+      </head>
+      
+<body class="index-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center me-auto me-xl-0">
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
+            <h1 class="sitename">MistCoin</h1>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="/#hero">Home</a></li>
+              <li><a href="/#about">MistCoin</a></li>
+              <li><a href="/#contract">The Code</a></li>
+              <li><a href="/#timeline">Timeline</a></li>
+              <li><a href="/#chart">The Chart</a></li>
+              <li><a href="/#scrapbook">Scrapbook</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+          <div class="header-social-links">
+            <a href="https://x.com/MistCoinEth" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
+            <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
+            <a href="https://t.me/MistCoinEth" class="telegram"><i class="bi bi-telegram"></i></a>
+            <a href="https://discord.gg/XzGctWjS7z" class="discord"><i class="bi bi-discord"></i></a>
+          </div>
+    
+        </div>
+      </header>
+      <main class="main">
+        <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" style="max-width: 150px; height: auto;" alt=""></div>
+      <section id="origin-check" class="py-5">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header text-center">
+            <h1>Token Origin Checker</h1>
+            <p class="lead">Discover the origin of your favorite token and compare it to MistCoin.</p>
+          </div>
+      
+          <form id="origin-form" action="{{ url_for('origin_checker') }}" method="POST" class="row justify-content-center gy-3" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="col-md-5">
+              <input type="text" name="contract" class="form-control" value="{{ contract }}" placeholder="Enter Contract Address" required>
+            </div>
+            <div class="col-md-3">
+                <select name="chain" class="form-select" required>
+                    <option value="eth" {% if chain == 'eth' %}selected{% endif %}>Ethereum</option>
+                    <option value="base" {% if chain == 'base' %}selected{% endif %}>Base</option>
+                    <!-- add more options similarly -->
+                    </select>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary w-100">Check</button>
+            </div>
+          </form>
+      
+          {% if error %}
+          <div class="alert alert-danger mt-4 text-center" data-aos="fade-in">{{ error }}</div>
+          {% endif %}
+      
+          <div id="result-container">
+          {% if name %}
+          <div class="d-flex justify-content-center align-items-center mt-5" style="min-height: 300px;" data-aos="fade-up" data-aos-delay="200">
+            <div class="card shadow border-0 mx-auto" style="max-width: 900px; width: 100%;">
+            <div class="card-body">
+                <div class="row justify-content-center text-center text-md-start g-4">
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center ps-md-3">
+                  <img src="{{ logo }}" alt="{{ name }} logo" class="img-fluid rounded-circle" style="max-height: 120px;">
+                </div>
+                <div class="col-12 col-md-9 pe-md-3">
+                  <h4 class="card-title mb-1">{{ name }} <small class="text-muted">(${{ symbol }})</small></h4>
+                  <p class="mb-2">Deployed: <strong>{{ deployed_date }}</strong></p>
+                  <p class="mb-2">Chain: <strong>{{ chain_upper }}</strong></p>
+                  <p class="mb-2">Contract Type: <strong>ERC-20</strong></p>
+                  <p class="mb-2">Price: <strong>${{ price }}</strong></p>
+                  <p class="mb-2">Market Cap: <strong>${{ "{:,.0f}".format(market_cap) }}</strong></p>
+                  <p class="mb-2">Origin: <strong>{{ origin }}</strong></p><br>
+                  <p class="mb-2">MistCoin Price: <strong>${{ "{:,.2f}".format(mistcoin_price) }}</strong></p>
+                  <p class="mb-2">MistCoin at {{ name }}'s Market Cap: <strong>${{ "{:,.2f}".format(new_mistcoin_price) }}</strong> &mdash;
+                    Up <strong class="text-success">{{ "{:,.2f}".format(percent_up) }}%</strong>
+                  </p>
+                  <p class="mb-2"><i>Deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard. MistCoin is the origin of {{name}}.</i></p>
+                </div>
+              </div>
+            </div>
+        </div>
+          </div>
+          {% endif %}
+        </div>
+        </div>
+      </section></main>
+      <footer id="footer" class="footer">
+
+        <div class="container footer-top">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+                <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center">
+                    <span class="sitename">MistCoin</span>
+                  </a>
+              <div class="social-links d-flex mt-4">
+                <a href="https://x.com/MistCoinEth"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
+                <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
+                <a href="https://t.me/MistCoinEth"><i class="bi bi-telegram"></i></a>
+                <a href="https://discord.gg/XzGctWjS7z"><i class="bi bi-discord"></i></a>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    
+      </footer>
+
+      <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("origin-form");
+      const preloader = document.getElementById("preloader");
+  
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+      
+        if (preloader) preloader.style.display = "block";
+      
+        const formData = new FormData(form);
+      
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+        });
+      
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const newResult = doc.getElementById("result-container");
+      
+        document.getElementById("result-container").innerHTML = newResult.innerHTML;
+      
+        if (preloader) preloader.style.display = "none";
+      });
+      
+  </script>
+      
+</body>
+</html>
