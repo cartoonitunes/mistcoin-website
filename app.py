@@ -133,7 +133,10 @@ def origin_checker():
             deployed_date=deployed_date
         )
 
-    return render_template('origin.html')
+    # GET: prefill form from query params if present
+    contract = request.args.get('contract', '')
+    chain = request.args.get('chain', 'eth')
+    return render_template('origin.html', contract=contract, chain=chain)
 
 @app.route('/<path:anything>')
 def catch_all(anything):
