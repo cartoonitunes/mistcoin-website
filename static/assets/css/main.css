@@ -1970,3 +1970,66 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* --- Origin Result Card Custom Styles --- */
+.origin-result-card {
+  max-width: 700px;
+  min-width: 340px;
+  min-height: 220px;
+  background: #f8fafc;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1.5px solid #e3e8ee;
+}
+.origin-result-img {
+  flex: 0 0 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.origin-result-info {
+  padding-left: 1.5rem;
+}
+.origin-result-card .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.origin-result-card strong, .origin-result-card u {
+  font-weight: 600;
+}
+.origin-result-card .btn-outline-primary {
+  border-radius: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  .origin-result-card .card-body {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+  }
+  .origin-result-info {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .origin-result-img {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .origin-result-card {
+    min-width: 0;
+    width: 100%;
+    max-width: 98vw;
+  }
+}
+
+.origin-result-img img, .origin-result-card img {
+  background: none !important;
+  border: none !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+}
