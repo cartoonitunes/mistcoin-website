@@ -85,7 +85,7 @@
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      max-width: 1170px;
+      max-width: 1110px;
       width: 100%;
       margin: 0 auto;
       overflow: hidden;
@@ -487,6 +487,22 @@
         flex: 1 1 auto !important;
       }
     }
+    .mist-sim-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: #f7f7f7;
+      border-radius: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      min-width: 370px;
+      max-width: 98vw;
+      width: 420px;
+      z-index: 1001;
+      padding: 36px 36px 24px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
   </style>
 </head>
 <body class="index-page">
@@ -594,6 +610,15 @@
     if (deployBtn) {
       deployBtn.addEventListener('click', function() {
         main.innerHTML = `
+          <div class="mist-sim-amount-row" style="width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 0 18px 0;border-bottom:1.5px solid #e3e8ee;margin-bottom:18px;">
+            <div style="display:flex;align-items:center;gap:10px;width:100%;">
+              <input type="number" id="etherAmount" name="etherAmount" min="0" step="0.00000001" value="0.00" style="font-size:1.5rem;font-weight:700;padding:8px 12px;width:360px;border-radius:8px;border:1.5px solid #e3e8ee;background:#f7f7f7;color:#444;">
+              <span style="font-size:1.25rem;font-weight:700;color:#bbb;">ETHER</span>
+            </div>
+            <div id="etherAmountLabel" style="font-size:1.08rem;color:#888;margin-top:2px;">
+              You want to send <b><span id="etherAmountValue">0</span> ETHER</b>.
+            </div>
+          </div>
           <div class="mist-sim-flex-row">
             <div class="mist-sim-editor">
               <div class="mist-sim-editor-tabs">
@@ -661,17 +686,32 @@
             <button class="mist-sim-send-btn" id="sendBtn">SEND</button>
           </div>
         `;
+        // Live update the label as the user types
+        const etherInput = document.getElementById('etherAmount');
+        const etherAmountValue = document.getElementById('etherAmountValue');
         const feeSlider = document.getElementById('feeSlider');
         const feeValue = document.getElementById('feeValue');
         const feeTotal = document.getElementById('feeTotal');
-        const sendBtn = document.getElementById('sendBtn');
-        const form = document.getElementById('mistSimForm');
+        function updateTotal() {
+          const ether = parseFloat(etherInput.value) || 0;
+          const fee = parseFloat(feeSlider.value) || 0;
+          const total = ether + fee;
+          feeTotal.textContent = total.toFixed(8) + ' ETHER';
+        }
+        etherInput.addEventListener('input', function() {
+          etherAmountValue.textContent = etherInput.value || '0';
+          updateTotal();
+        });
         if (feeSlider && feeValue && feeTotal) {
           feeSlider.addEventListener('input', function() {
             feeValue.textContent = Number(feeSlider.value).toFixed(8);
-            feeTotal.textContent = Number(feeSlider.value).toFixed(8) + ' ETHER';
+            updateTotal();
           });
         }
+        updateTotal();
+        // Attach SEND button event handler after rendering
+        const sendBtn = document.getElementById('sendBtn');
+        const form = document.getElementById('mistSimForm');
         if (sendBtn && form) {
           sendBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -680,27 +720,164 @@
             const nameVal = form.name.value;
             const symbolVal = form.symbol.value;
             const supplyVal = form.supply.value;
-            setTimeout(() => {
-              main.innerHTML = `
-                <div class='mist-sim-custom-tokens' style="background:#fff; border-radius:16px; max-width:900px; margin:40px auto 0 auto; padding:36px 32px 48px 32px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-                  <div style="font-size:2.1rem; font-weight:700; color:#888; margin-bottom:8px; letter-spacing:-1px;">Custom <span style='color:#222;'>Tokens</span></div>
-                  <div style="color:#666; font-size:0.85rem; margin-bottom:32px;">Tokens are currencies built on the Ethereum platform. Tokens should follow the <a href='https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs' style='color:#00aee9;text-decoration:underline;' target='_blank'>custom token standard</a>.<br>Create your own token by simply modifying <a href='https://github.com/ethereum/dapp-bin/blob/master/standards/token/Token.sol' style='color:#00aee9;text-decoration:underline;' target='_blank'>this example of a custom token contract</a>.</div>
-                  <div class='mist-sim-token-grid' style="display:flex; flex-wrap:wrap; gap:18px 24px; margin-bottom:32px;">
-                    <div class='mist-sim-token-card' style="background:#f3f5f7; border-radius:8px; box-shadow:0 1.5px 6px rgba(0,0,0,0.04); padding:18px 18px 12px 18px; min-width:220px; max-width:240px; flex:1 1 220px; display:flex; flex-direction:row; align-items:center; gap:16px; border:1.5px solid #e3e8ee;">
-                      <img src='https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg' alt='Token' style='width:44px; height:44px; border-radius:50%; background:#fff; border:1.5px solid #e3e8ee;'>
-                      <div style='display:flex; flex-direction:column; align-items:flex-start; gap:2px;'>
-                        <div style='font-weight:700; color:#00aee9; font-size:1.08rem; margin-bottom:0;'>${nameVal.toUpperCase()}</div>
-                        <div style='color:#888; font-size:1.05rem;'>${Number(supplyVal).toLocaleString()} ${symbolVal}</div>
+            const feeVal = document.getElementById('feeSlider').value;
+            const etherAmountVal = document.getElementById('etherAmount').value;
+            // Show modal overlay
+            const modal = document.createElement('div');
+            modal.id = 'mistSimModal';
+            modal.innerHTML = `
+              <div class='mist-sim-modal-overlay'></div>
+              <div class='mist-sim-modal'>
+                <div class='mist-sim-modal-header'>Create contract</div>
+                <div class='mist-sim-modal-body'>
+                  <div class='mist-sim-modal-row' style='display:flex;align-items:center;gap:18px;margin-bottom:18px;'>
+                    <div class='mist-sim-modal-avatar'></div>
+                    <div style='font-size:1.1rem;font-weight:700;color:#888;'>0xe1af...5b78</div>
+                    <div style='margin-left:auto;font-size:1.1rem;color:#888;font-weight:700;'>${Number(etherAmountVal).toFixed(2)} ETHER</div>
+                  </div>
+                  <div class='mist-sim-modal-row' style='margin-bottom:18px;'>You are about to create a contract from the provided data.</div>
+                  <div class='mist-sim-modal-row' style='font-size:1.05rem;color:#888;margin-bottom:6px;'>Estimated fee consumption <span style='float:right;color:#222;font-weight:700;'>${Number(feeVal).toFixed(8)} ether (322,620 gas)</span></div>
+                  <div class='mist-sim-modal-row' style='font-size:1.05rem;color:#888;margin-bottom:6px;'>Provided maximum fee <span style='float:right;color:#222;font-weight:700;'>0.01921 ether (422,620 gas)</span></div>
+                  <div class='mist-sim-modal-row' style='font-size:1.05rem;color:#888;margin-bottom:16px;'>Gas price <span style='float:right;color:#222;font-weight:700;'>0.04545 ether per million gas</span></div>
+                  <div class='mist-sim-modal-row' style='font-size:1.05rem;color:#888;margin-bottom:8px;'>Data</div>
+                  <div class='mist-sim-modal-data'>606060405260405161047e38038061047e833981016040528051600160a060020a033316600090815260208190526040902054825460018181018355600160a060020a031916600160a060020a03929092169190911790556002805460018181018355600160a060020a031916600160a060020a03929092169190911790556003805460018181018355600160a060020a031916600160a060020a03929092169190911790556004805460018181018355600160a060020a031916600160a060020a03929092169190911790556005805460018181018355600160a060020a031916600160a060020a03929092169190911790556006805460018181018355600160a060020a031916600160a060020a03929092169190911790556007805460018181018355600160a060020a031916600160a060020a03929092169190911790556008805460018181018355600160a060020a031916600160a060020a03929092169190911790556009805460018181018355600160a060020a031916600160a060020a0392909216919091179055600a805460018181018355600160a060020a031916600160a060020a0392909216919091179055600b805460018181018355600160a060020a031916600160a060020a0392909216919091179055600c805460018181018355600160a060020a031916600160a060020a0392909216919091179055600d805460018181018355600160a060020a031916600160a060020a0392909216919091179055600e805460018181018355600160a060020a031916600160a060020a0392909216919091179055600f805460018181018355600160a060020a031916600160a060020a0392909216919091179055</div>
+                  <input class='mist-sim-modal-password' type='password' placeholder='Enter password to confirm the transaction' disabled style='width:100%;margin:18px 0 0 0;padding:10px 12px;border-radius:6px;border:1.5px solid #e3e8ee;background:#f7f7f7;color:#bbb;font-size:1.05rem;'>
+                </div>
+                <div class='mist-sim-modal-footer'>
+                  <button id='mistSimModalCancel' class='mist-sim-modal-cancel'>CANCEL</button>
+                  <button id='mistSimModalSend' class='mist-sim-modal-send'>SEND TRANSACTION</button>
+                </div>
+              </div>
+            `;
+            document.body.appendChild(modal);
+            // Modal styles
+            const style = document.createElement('style');
+            style.innerHTML = `
+              .mist-sim-modal-overlay {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.18);
+                z-index: 1000;
+              }
+              .mist-sim-modal {
+                position: fixed;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                background: #f7f7f7;
+                border-radius: 6px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+                min-width: 370px;
+                max-width: 98vw;
+                width: 420px;
+                z-index: 1001;
+                padding: 36px 36px 24px 36px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+              }
+              .mist-sim-modal-header {
+                font-size: 2.1rem;
+                font-weight: 800;
+                color: #888;
+                margin-bottom: 18px;
+                letter-spacing: -1px;
+                text-align: left;
+              }
+              .mist-sim-modal-avatar {
+                width: 56px; height: 56px;
+                border-radius: 50%;
+                background: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg') #fff center/cover no-repeat;
+                border: 2px solid #e3e8ee;
+              }
+              .mist-sim-modal-body {
+                font-size: 1.08rem;
+                color: #444;
+                margin-bottom: 18px;
+              }
+              .mist-sim-modal-row {
+                margin-bottom: 0.5em;
+              }
+              .mist-sim-modal-data {
+                background: #fff;
+                border-radius: 8px;
+                font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
+                font-size: 0.92rem;
+                color: #888;
+                padding: 12px 10px;
+                margin-bottom: 12px;
+                max-height: 80px;
+                overflow-y: auto;
+                word-break: break-all;
+              }
+              .mist-sim-modal-password {
+                margin-top: 10px;
+              }
+              .mist-sim-modal-footer {
+                display: flex;
+                justify-content: flex-end;
+                gap: 18px;
+                margin-top: 18px;
+              }
+              .mist-sim-modal-cancel {
+                background: transparent;
+                color: #00aee9;
+                font-weight: 700;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 8px;
+                padding: 0 18px;
+                cursor: pointer;
+                transition: color 0.15s;
+              }
+              .mist-sim-modal-cancel:hover {
+                color: #007bb8;
+              }
+              .mist-sim-modal-send {
+                background: transparent;
+                color: #0070c9;
+                font-weight: 700;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 8px;
+                padding: 0 18px;
+                cursor: pointer;
+                transition: color 0.15s;
+              }
+              .mist-sim-modal-send:hover {
+                color: #00aee9;
+              }
+            `;
+            document.head.appendChild(style);
+            // Attach modal button listeners
+            document.getElementById('mistSimModalCancel').onclick = function() {
+              document.body.removeChild(modal);
+              sendBtn.textContent = 'SEND';
+              sendBtn.disabled = false;
+            };
+            document.getElementById('mistSimModalSend').onclick = function() {
+              document.body.removeChild(modal);
+              setTimeout(() => {
+                main.innerHTML = `
+                  <div class='mist-sim-custom-tokens' style="background:#fff; border-radius:16px; max-width:900px; margin:40px auto 0 auto; padding:36px 32px 48px 32px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+                    <div style="font-size:2.1rem; font-weight:700; color:#888; margin-bottom:8px; letter-spacing:-1px;">Custom <span style='color:#222;'>Tokens</span></div>
+                    <div style="color:#666; font-size:0.85rem; margin-bottom:32px;">Tokens are currencies built on the Ethereum platform. Tokens should follow the <a href='https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs' style='color:#00aee9;text-decoration:underline;' target='_blank'>custom token standard</a>.<br>Create your own token by simply modifying <a href='https://github.com/ethereum/dapp-bin/blob/master/standards/token/Token.sol' style='color:#00aee9;text-decoration:underline;' target='_blank'>this example of a custom token contract</a>.</div>
+                    <div class='mist-sim-token-grid' style="display:flex; flex-wrap:wrap; gap:18px 24px; margin-bottom:32px;">
+                      <div class='mist-sim-token-card' style="background:#f3f5f7; border-radius:8px; box-shadow:0 1.5px 6px rgba(0,0,0,0.04); padding:18px 18px 12px 18px; min-width:220px; max-width:240px; flex:1 1 220px; display:flex; flex-direction:row; align-items:center; gap:16px; border:1.5px solid #e3e8ee;">
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg' alt='Token' style='width:44px; height:44px; border-radius:50%; background:#fff; border:1.5px solid #e3e8ee;'>
+                        <div style='display:flex; flex-direction:column; align-items:flex-start; gap:2px;'>
+                          <div style='font-weight:700; color:#00aee9; font-size:1.08rem; margin-bottom:0;'>${nameVal.toUpperCase()}</div>
+                          <div style='color:#888; font-size:1.05rem;'>${Number(supplyVal).toLocaleString()} ${symbolVal}</div>
+                        </div>
                       </div>
                     </div>
+                    <button onclick='window.simReset()' style="display:flex;align-items:center;gap:12px;background:transparent;color:#00aee9;font-weight:700;font-size:1.1rem;border:none;border-radius:8px;padding:0;margin-top:8px;cursor:pointer;">
+                      <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
+                      <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>ADD TOKEN</span>
+                    </button>
                   </div>
-                  <button onclick='window.simReset()' style="display:flex;align-items:center;gap:12px;background:transparent;color:#00aee9;font-weight:700;font-size:1.1rem;border:none;border-radius:8px;padding:0;margin-top:8px;cursor:pointer;">
-                    <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
-                    <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>ADD TOKEN</span>
-                  </button>
-                </div>
-              `;
-            }, 800);
+                `;
+              }, 400);
+            };
           });
         }
       });
@@ -714,4 +891,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
