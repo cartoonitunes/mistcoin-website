@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mist Browser Simulator | MistCoin</title>
+  <meta name="description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
+  <meta name="keywords" content="MistCoin, Blockchain, Collectible, ERC20, Ethereum, Crypto, Token, Coin, Mist Browser, Simulator" />
+
+  <!-- Canonical Tag -->
+  <link rel="canonical" href="https://www.mistcoineth.com/mist-simulator" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta name="twitter:title" content="MistCoin | Mist Browser Simulator" />
+  <meta name="twitter:description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
+  <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg" />
+  <meta property="og:url" content="https://www.mistcoineth.com/mist-simulator" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:title" content="MistCoin - Mist Browser Simulator" />
+  <meta name="twitter:site" content="@MistCoinEth" />
+  <meta name="twitter:description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
+  <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg" /> 
+  <meta name="twitter:image:alt" content="MistCoin">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@MistCoinEth" /> 
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "https://www.mistcoineth.com/mist-simulator",
+      "name": "MistCoin Mist Browser Simulator",
+      "description": "Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!",
+      "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg",
+      "sameAs": [
+        "https://twitter.com/MistCoinEth",
+        "https://t.me/MistCoinEth",
+        "https://dexscreener.com/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
+        "https://www.dextools.io/app/en/ether/pair-explorer/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
+        "https://coinmarketcap.com/dexscan/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c/",
+        "https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd",
+        "https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
+      ]
+    }
+    </script>
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.ico') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/img/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='assets/img/site.webmanifest') }}">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+  <style>
+    .mist-sim-outer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background: #f8fafc;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      box-sizing: border-box;
+    }
+    .mist-sim-window {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      max-width: 1170px;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1.5px solid #e3e8ee;
+    }
+    .mist-sim-header {
+      background: #f3f5f7;
+      padding: 16px 24px;
+      border-bottom: 1.5px solid #e3e8ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .window-controls {
+      position: absolute;
+      left: 24px;
+      display: flex;
+      gap: 8px;
+    }
+    .window-controls span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff5f56;
+    }
+    .window-controls span:nth-child(2) {
+      background: #ffbd2e;
+    }
+    .window-controls span:nth-child(3) {
+      background: #27ca3f;
+    }
+    .mist-sim-header .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-left: 12px;
+    }
+    .mist-sim-content {
+      padding: 0;
+      min-height: 420px;
+    }
+    .mist-sim-toolbar {
+      display: flex;
+      align-items: center;
+      background: #f5f6fa;
+      border-bottom: 1px solid #e3e8ee;
+      padding: 0 32px;
+      height: 48px;
+      font-size: 1.1rem;
+      color: #b0b0b0;
+      gap: 36px;
+    }
+    .mist-sim-toolbar .active {
+      color: #444;
+      font-weight: 700;
+      border-bottom: 2.5px solid #b0b0b0;
+      padding-bottom: 4px;
+    }
+    .mist-sim-main {
+      padding: 36px 48px 32px 48px;
+    }
+    .mist-sim-section-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+    .mist-sim-btn-blue {
+      display: inline-block;
+      background: #00aee9;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 4px;
+      padding: 16px 18px;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      margin-right: 18px;
+      cursor: pointer;
+      transition: background 0.18s;
+      box-shadow: 0 2px 8px rgba(0,174,233,0.08);
+    }
+    .mist-sim-btn-blue:hover {
+      background: #007bb8;
+    }
+    .mist-sim-label {
+      display: inline-block;
+      background: #888;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 2px;
+      padding: 2px 10px;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      letter-spacing: 1px;
+    }
+    .mist-sim-desc {
+      color: #666;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      margin-top: 0;
+    }
+    .mist-sim-link {
+      color: #00aee9;
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .mist-sim-window { width: 99vw; padding: 0; }
+      .mist-sim-main { padding: 18px 6vw 24px 6vw; }
+    }
+    .mist-sim-flex-row {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: stretch;
+      width: 100%;
+      min-width: 0;
+      gap: 0;
+      overflow-x: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .mist-sim-editor {
+      flex: 1 1 55%;
+      min-width: 340px;
+      max-width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      background: #fff;
+      border-radius: 12px 0 0 12px;
+      border-right: 1.5px solid #e3e8ee;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .mist-sim-editor-tabs {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
+      border-bottom: 1.5px solid #e3e8ee;
+    }
+    .mist-sim-editor-tab {
+      text-transform: uppercase;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 12px 24px 12px 24px;
+      border-radius: 8px 8px 0 0;
+      margin-right: 2px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .mist-sim-editor-tab.active {
+      background: #ececec;
+      color: #888;
+    }
+    .mist-sim-editor-tab.inactive {
+      background: none;
+      color: #00aee9;
+    }
+    .mist-sim-code-area {
+      display: flex;
+      flex-direction: row;
+      background: #fff;
+      border-radius: 0 0 0 12px;
+      overflow-x: auto;
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+      font-size: 0.98rem;
+      color: #222;
+      padding: 0 0 0 0;
+      margin: 0;
+      min-height: 420px;
+      max-height: 520px;
+    }
+    .mist-sim-linenos {
+      background: #fff;
+      color: #bbb;
+      text-align: right;
+      padding: 16px 8px 16px 16px;
+      user-select: none;
+      font-size: 0.98rem;
+      border-right: 1px solid #ececec;
+      min-width: 32px;
+      max-width: 32px;
+      line-height: 1.6;
+    }
+    .mist-sim-code {
+      padding: 16px 0 16px 12px;
+      white-space: pre;
+      background: #fff;
+      border-radius: 0 0 0 0;
+      font-size: 0.98rem;
+      min-width: 0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    .mist-sim-form-mist {
+      flex: 1 1 45%;
+      min-width: 260px;
+      max-width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      background: #fff;
+      border-radius: 0 12px 12px 0;
+      padding: 32px 32px 32px 32px;
+      margin: 0;
+      border-left: 1.5px solid #e3e8ee;
+      box-sizing: border-box;
+    }
+    .mist-sim-form-mist-section {
+      color: #888;
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .mist-sim-form-mist label {
+      font-size: 0.98rem;
+      color: #888;
+      margin-bottom: 2px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .mist-sim-form-mist select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 5px;
+      border: 1.5px solid #e3e8ee;
+      font-size: 1rem;
+      background: #f5f6fa;
+      color: #00aee9;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .mist-sim-form-mist input {
+      width: 100%;
+      padding: 10px 10px;
+      border-radius: 5px;
+      border: 1.5px solid #e3e8ee;
+      font-size: 1rem;
+      background: #f5f6fa;
+      margin-bottom: 10px;
+      color: #222;
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .mist-sim-flex-row {
+        flex-direction: column;
+        border-radius: 12px;
+      }
+      .mist-sim-editor, .mist-sim-form-mist {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+      }
+      .mist-sim-fee-section {
+        padding: 18px 0 24px 0;
+        max-width: 99vw;
+      }
+    }
+    .mist-sim-fee-section {
+      background: #fff;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      margin-top: 0;
+      padding: 36px 0 32px 0;
+      max-width: 480px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: auto;
+      border-top: 1.5px solid #e3e8ee;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      position: relative;
+      left: 0;
+    }
+    .mist-sim-fee-label {
+      color: #888;
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+    }
+    .mist-sim-fee-value {
+      color: #888;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+    .mist-sim-fee-slider {
+      width: 100%;
+      margin: 0.5em 0 0.5em 0;
+    }
+    .mist-sim-fee-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      margin-bottom: 0.5em;
+    }
+    .mist-sim-fee-total-label {
+      color: #888;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-top: 1.5em;
+      margin-bottom: 0.2em;
+    }
+    .mist-sim-fee-total-value {
+      color: #888;
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5em;
+    }
+    .mist-sim-send-btn {
+      background: #00aee9;
+      color: #fff;
+      border: none;
+      padding: 18px 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      width: 220px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 0;
+      transition: background 0.18s;
+      box-shadow: 0 2px 8px rgba(0,174,233,0.08);
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .mist-sim-send-btn:active {
+      background: #007bb8;
+    }
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .mist-sim-window {
+        max-width: 95vw;
+        margin: 0 2.5vw;
+        border-radius: 12px;
+      }
+      
+      .mist-sim-flex-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .mist-sim-editor {
+        min-width: auto;
+        width: 100%;
+      }
+      
+      .mist-sim-form-mist {
+        width: 100%;
+        min-width: auto;
+      }
+      
+      .mist-sim-fee-section {
+        max-width: 100%;
+        width: 100%;
+      }
+      
+      .mist-sim-code-area {
+        flex-direction: column;
+      }
+      
+      .mist-sim-linenos {
+        display: none;
+      }
+      
+      .mist-sim-code {
+        font-size: 0.75rem !important;
+        padding: 16px;
+      }
+      
+      .mist-sim-custom-tokens {
+        margin: 20px 10px 0 10px !important;
+        padding: 24px 20px 36px 20px !important;
+      }
+      
+      .mist-sim-token-card {
+        min-width: auto !important;
+        max-width: none !important;
+        flex: 1 1 auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="index-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
+            <h1 class="sitename">MistCoin</h1>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="/#hero">Home</a></li>
+              <li><a href="/#about">MistCoin</a></li>
+              <li><a href="/#contract">The Code</a></li>
+              <li><a href="/#timeline">Timeline</a></li>
+              <li><a href="/#chart">The Chart</a></li>
+              <li><a href="/#scrapbook">Scrapbook</a></li>
+              <li><a href="/origin-checker">Origin Checker</a></li>
+              <!-- <li><a href="/mist-simulator" class="active">Mist Simulator</a></li> -->
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+          <div class="header-social-links">
+            <a href="https://x.com/MistCoinEth" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://bsky.app/profile/mistcoin.bsky.social" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://warpcast.com/mistcoin" target="_blank"><i class="bi bi-rainbow"></i></a>
+            <a href="https://t.me/MistCoinEth" class="telegram" target="_blank"><i class="bi bi-telegram"></i></a>
+            <a href="https://discord.gg/XzGctWjS7z" class="discord" target="_blank"><i class="bi bi-discord"></i></a>
+          </div>
+    
+        </div>
+      </header>
+      <main class="main">
+      <div class="mist-sim-outer">
+        <h1 style="margin-bottom: 0.5em; font-size: 2.1rem; font-weight: 800; text-align:center; width:100%;">Mist Browser Token Simulator</h1>
+        <p style="max-width: 600px; text-align: center; margin-bottom: 2em; color: #444;">A window into the past: Experience how MistCoin and the first ERC-20 tokens were born in the original Ethereum Mist Browser. <br>Inspired by <a href='https://github.com/ethereum/mist/releases/tag/0.3.5' target='_blank'>Wallet 0.3.5 (Beta 3)</a> and <a href='https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency' target='_blank'>this Ethereum Foundation blog post</a>.</p>
+        <div class="mist-sim-window">
+          <div class="mist-sim-header" style="justify-content: center;">
+            <div class="window-controls" style="position: absolute; left: 32px;">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="title" style="font-family: 'Nunito', 'Lato', 'Roboto', Arial, sans-serif; font-size: 1.25rem; letter-spacing: 0.5px; color: #444; text-align:center; width:100%;">&#926;thereum Wallet</span>
+          </div>
+          <div class="mist-sim-toolbar">
+            <span>WALLETS</span>
+            <span>SEND</span>
+            <span class="active" id="contractsTabBtn">CONTRACTS</span>
+            <span style="margin-left:auto; color:#888; font-size:1.05rem;">BALANCE <span style="color:#00aee9; font-weight:700;">1,869.42 ETHER</span></span>
+          </div>
+          <div class="mist-sim-content">
+            <div class="mist-sim-main" id="mistSimMain">
+              <div class="mist-sim-section-title">Contracts</div>
+              <button class="mist-sim-btn-blue" id="deployBtn" style="display:flex;align-items:center;gap:12px;background:transparent;color:#00aee9;font-weight:700;font-size:1.1rem;border:none;border-radius:8px;padding:0;margin-top:8px;cursor:pointer;">
+                <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
+                <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>DEPLOY NEW CONTRACT</span>
+              </button>
+              <div class="mist-sim-label">CUSTOM CONTRACTS</div>
+              <p class="mist-sim-desc">In order to watch and interact with a contract already deployed on the blockchain you need to know its address and description of its interface (in an ABI/JSON format)</p>
+              <button class="mist-sim-btn-blue" style="display:flex;align-items:center;gap:12px;background:transparent;color:#00aee9;font-weight:700;font-size:1.1rem;border:none;border-radius:8px;padding:0;margin-top:8px;cursor:pointer;opacity:0.6;" disabled>
+                <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
+                <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>WATCH CONTRACT</span>
+              </button>
+              <div class="mist-sim-label" style="margin-top:28px;">CUSTOM TOKENS</div>
+              <p class="mist-sim-desc">Tokens are currencies and other fungibles built on the Ethereum platform. In order for wallets and accounts to watch for tokens and send them, you have to add their address to this list. You can create your own token by simply modifying <a class='mist-sim-link' href='https://github.com/ethereum/dapp-bin/blob/master/standards/token/Token.sol' target='_blank'>this example of a custom token contract</a> or learning more on <a class='mist-sim-link' href='https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs' target='_blank'>Custom Token standard</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </main>
+      <footer id="footer" class="footer">
+        <div class="container footer-top">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+                <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center">
+                    <span class="sitename">MistCoin</span>
+                  </a>
+              <div class="social-links d-flex mt-4">
+                <a href="https://x.com/MistCoinEth" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://bsky.app/profile/mistcoin.bsky.social" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="https://warpcast.com/mistcoin" target="_blank"><i class="bi bi-rainbow"></i></a>
+                <a href="https://t.me/MistCoinEth" target="_blank"><i class="bi bi-telegram"></i></a>
+                <a href="https://discord.gg/XzGctWjS7z" target="_blank"><i class="bi bi-discord"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script>
+    const main = document.getElementById('mistSimMain');
+    const deployBtn = document.getElementById('deployBtn');
+    if (deployBtn) {
+      deployBtn.addEventListener('click', function() {
+        main.innerHTML = `
+          <div class="mist-sim-flex-row">
+            <div class="mist-sim-editor">
+              <div class="mist-sim-editor-tabs">
+                <button class="mist-sim-editor-tab active">SOLIDITY CONTRACT SOURCE CODE</button>
+              </div>
+              <div class="mist-sim-code-area">
+                <div class="mist-sim-linenos">47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76</div>
+                <pre class="mist-sim-code" style="font-size: 0.85rem;"><code>
+<span style="color: #d73a49;">event</span> Transfer(address indexed from, address indexed to, uint256 value);
+
+/* Initializes contract with initial supply tokens to the creator of the contract */
+<span style="color: #6f42c1;">function</span> <span style="color: #6f42c1;">MyToken</span>(uint256 _supply, string _name, string _symbol, uint8 _decimals) {
+    /* if supply not given then generate 1 million of the smallest unit of the token */
+    <span style="color: #d73a49;">if</span> (_supply == <span style="color: #005cc5;">0</span>) _supply = <span style="color: #005cc5;">1000000</span>;
+    
+    /* Unless you add other functions these variables will never change */
+    balanceOf[msg.sender] = _supply;
+    name = _name;     
+    symbol = _symbol;
+    
+    /* If you want a divisible token then add the amount of decimals the base unit has  */
+    decimals = _decimals;
+}
+
+/* Send coins */
+<span style="color: #6f42c1;">function</span> <span style="color: #6f42c1;">transfer</span>(address _to, uint256 _value) {
+    /* if the sender doenst have enough balance then stop */
+    <span style="color: #d73a49;">if</span> (balanceOf[msg.sender] &lt; _value) <span style="color: #d73a49;">throw</span>;
+    <span style="color: #d73a49;">if</span> (balanceOf[_to] + _value &lt; balanceOf[_to]) <span style="color: #d73a49;">throw</span>;
+    
+    /* Add and subtract new balances */
+    balanceOf[msg.sender] -= _value;
+    balanceOf[_to] += _value;
+    
+    /* Notifiy anyone listening that this transfer took place */
+    Transfer(msg.sender, _to, _value);
+}
+                </code></pre>
+              </div>
+            </div>
+            <form class="mist-sim-form-mist" id="mistSimForm">
+              <div class="mist-sim-form-mist-section">SELECT CONTRACT TO DEPLOY</div>
+              <select><option>MyToken</option></select>
+              <div class="mist-sim-form-mist-section">CONSTRUCTOR PARAMETERS</div>
+              <label for="supply">_supply - 256 bits unsigned integer</label>
+              <input type="number" id="supply" name="supply" value="1000000" min="1" required>
+              <label for="name">_name - String</label>
+              <input type="text" id="name" name="name" value="MistCoin" required>
+              <label for="symbol">_symbol - String</label>
+              <input type="text" id="symbol" name="symbol" value="MC" maxlength="8" required>
+              <label for="decimals">_decimals - 8 bits unsigned integer</label>
+              <input type="number" id="decimals" name="decimals" value="2" min="0" max="18" required>
+            </form>
+          </div>
+          <div class="mist-sim-fee-section">
+            <div class="mist-sim-fee-label">SELECT FEE</div>
+            <div class="mist-sim-fee-value"><span id="feeValue">0.01466455</span> ETHER</div>
+            <input type="range" min="0.005" max="0.03" step="0.00000001" value="0.01466455" class="mist-sim-fee-slider" id="feeSlider">
+            <div class="mist-sim-fee-row">
+              <span>CHEAPER</span>
+              <span>FASTER</span>
+            </div>
+            <div class="mist-sim-fee-total-label">TOTAL</div>
+            <div class="mist-sim-fee-total-value" id="feeTotal">0.01466455 ETHER</div>
+            <button class="mist-sim-send-btn" id="sendBtn">SEND</button>
+          </div>
+        `;
+        const feeSlider = document.getElementById('feeSlider');
+        const feeValue = document.getElementById('feeValue');
+        const feeTotal = document.getElementById('feeTotal');
+        const sendBtn = document.getElementById('sendBtn');
+        const form = document.getElementById('mistSimForm');
+        if (feeSlider && feeValue && feeTotal) {
+          feeSlider.addEventListener('input', function() {
+            feeValue.textContent = Number(feeSlider.value).toFixed(8);
+            feeTotal.textContent = Number(feeSlider.value).toFixed(8) + ' ETHER';
+          });
+        }
+        if (sendBtn && form) {
+          sendBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            sendBtn.textContent = 'SENDING...';
+            sendBtn.disabled = true;
+            const nameVal = form.name.value;
+            const symbolVal = form.symbol.value;
+            const supplyVal = form.supply.value;
+            setTimeout(() => {
+              main.innerHTML = `
+                <div class='mist-sim-custom-tokens' style="background:#fff; border-radius:16px; max-width:900px; margin:40px auto 0 auto; padding:36px 32px 48px 32px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+                  <div style="font-size:2.1rem; font-weight:700; color:#888; margin-bottom:8px; letter-spacing:-1px;">Custom <span style='color:#222;'>Tokens</span></div>
+                  <div style="color:#666; font-size:0.85rem; margin-bottom:32px;">Tokens are currencies built on the Ethereum platform. Tokens should follow the <a href='https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs' style='color:#00aee9;text-decoration:underline;' target='_blank'>custom token standard</a>.<br>Create your own token by simply modifying <a href='https://github.com/ethereum/dapp-bin/blob/master/standards/token/Token.sol' style='color:#00aee9;text-decoration:underline;' target='_blank'>this example of a custom token contract</a>.</div>
+                  <div class='mist-sim-token-grid' style="display:flex; flex-wrap:wrap; gap:18px 24px; margin-bottom:32px;">
+                    <div class='mist-sim-token-card' style="background:#f3f5f7; border-radius:8px; box-shadow:0 1.5px 6px rgba(0,0,0,0.04); padding:18px 18px 12px 18px; min-width:220px; max-width:240px; flex:1 1 220px; display:flex; flex-direction:row; align-items:center; gap:16px; border:1.5px solid #e3e8ee;">
+                      <img src='https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg' alt='Token' style='width:44px; height:44px; border-radius:50%; background:#fff; border:1.5px solid #e3e8ee;'>
+                      <div style='display:flex; flex-direction:column; align-items:flex-start; gap:2px;'>
+                        <div style='font-weight:700; color:#00aee9; font-size:1.08rem; margin-bottom:0;'>${nameVal.toUpperCase()}</div>
+                        <div style='color:#888; font-size:1.05rem;'>${Number(supplyVal).toLocaleString()} ${symbolVal}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick='window.simReset()' style="display:flex;align-items:center;gap:12px;background:transparent;color:#00aee9;font-weight:700;font-size:1.1rem;border:none;border-radius:8px;padding:0;margin-top:8px;cursor:pointer;">
+                    <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
+                    <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>ADD TOKEN</span>
+                  </button>
+                </div>
+              `;
+            }, 800);
+          });
+        }
+      });
+    }
+    window.simReset = function() {
+      location.reload(); // simplest way to reset to initial state
+    }
+    document.getElementById('contractsTabBtn').addEventListener('click', function() {
+      // re-render the initial contracts overview state
+      // (call the same function or code that renders the initial state)
+    });
+  </script>
+</body>
+</html> 
