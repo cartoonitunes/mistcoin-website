@@ -138,6 +138,10 @@ def origin_checker():
     chain = request.args.get('chain', 'eth')
     return render_template('origin.html', contract=contract, chain=chain)
 
+@app.route('/mist-simulator')
+def mist_simulator():
+    return render_template('mist_simulator.html')
+
 @app.route('/<path:anything>')
 def catch_all(anything):
     return redirect('/')
