@@ -207,9 +207,10 @@
       const contractInput = form.querySelector("input[name='contract']");
       const chainSelect = form.querySelector("select[name='chain']");
       const resultContainer = document.getElementById("result-container");
-      // Only auto-submit if the result card is NOT present
+      // Only auto-submit if the result card is NOT present and there is NO error alert
       const hasResult = resultContainer && resultContainer.querySelector('.origin-result-card');
-      if (contractInput && chainSelect && contractInput.value && chainSelect.value && !hasResult) {
+      const hasError = resultContainer && resultContainer.querySelector('.alert-danger');
+      if (contractInput && chainSelect && contractInput.value && chainSelect.value && !hasResult && !hasError) {
         setTimeout(() => form.requestSubmit(), 400);
       }
     }
