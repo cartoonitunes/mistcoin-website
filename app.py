@@ -146,5 +146,6 @@ def mist_simulator():
 def catch_all(anything):
     return redirect('/')
 
-
+if __name__ == '__main__':
+    app.run(debug=True) 
 
