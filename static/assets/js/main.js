@@ -210,4 +210,38 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Announcement Banner
+   */
+  function initAnnouncementBanner() {
+    const banner = document.querySelector('.announcement-banner');
+    if (!banner) return;
+
+    const closeBtn = banner.querySelector('.announcement-banner-close');
+    const bannerKey = 'mistcoin_announcement_banner_closed';
+
+    // Check if banner was previously closed
+    if (localStorage.getItem(bannerKey) === 'true') {
+      banner.classList.add('hidden');
+      document.body.classList.remove('has-announcement-banner');
+      return;
+    }
+
+    // Show banner and adjust body/header
+    document.body.classList.add('has-announcement-banner');
+    banner.classList.remove('hidden');
+
+    // Handle close button
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        banner.classList.add('hidden');
+        document.body.classList.remove('has-announcement-banner');
+        localStorage.setItem(bannerKey, 'true');
+      });
+    }
+  }
+
+  window.addEventListener('load', initAnnouncementBanner);
+  document.addEventListener('DOMContentLoaded', initAnnouncementBanner);
+
 })();
