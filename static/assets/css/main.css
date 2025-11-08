@@ -1123,6 +1123,40 @@ section,
   transform: translate(5px, 0);
 }
 
+/* Pitch Deck Button Enhancement */
+.pitch-deck-btn {
+  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), transparent 10%) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pitch-deck-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.pitch-deck-btn:hover::before {
+  left: 100%;
+}
+
+.pitch-deck-btn:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 5%) 0%, var(--accent-color) 100%);
+  box-shadow: 0 8px 25px rgba(59, 78, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1199px) {
+  #pitch-deck {
+    scroll-margin-top: 150px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
