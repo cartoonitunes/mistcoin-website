@@ -269,8 +269,19 @@ body.has-announcement-banner .header.sticky-top {
 }
 
 @media (max-width: 768px) {
+  /* On mobile, ensure header sits below the banner (accounting for potential text wrapping) */
   body.has-announcement-banner .header.sticky-top {
-    top: 44px;
+    top: 60px;
+  }
+  
+  /* Add padding to body on mobile when banner is visible to prevent content jump */
+  body.has-announcement-banner {
+    padding-top: 0;
+  }
+  
+  /* Ensure main content starts below header+banner on mobile */
+  body.has-announcement-banner .main {
+    padding-top: 0;
   }
 }
 
