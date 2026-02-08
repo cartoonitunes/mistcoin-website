@@ -1,10 +1,20 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory
 import requests
 import os
 from datetime import datetime, UTC
 import re
 
 app = Flask(__name__)
+
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
+
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
 
 # MistCoin reference
 MISTCOIN_CONTRACT = "0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79"

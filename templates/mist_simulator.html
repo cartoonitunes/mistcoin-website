@@ -208,8 +208,17 @@
       text-decoration: underline;
     }
     @media (max-width: 900px) {
-      .mist-sim-window { width: 99vw; padding: 0; }
-      .mist-sim-main { padding: 18px 6vw 24px 6vw; }
+      .mist-sim-outer {
+        align-items: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .mist-sim-window {
+        min-width: 900px;
+        width: 900px;
+      }
     }
     .mist-sim-flex-row {
       display: flex;
@@ -356,19 +365,8 @@
       font-weight: 600;
     }
     @media (max-width: 900px) {
-      .mist-sim-flex-row {
-        flex-direction: column;
-        border-radius: 12px;
-      }
-      .mist-sim-editor, .mist-sim-form-mist {
-        min-width: 0;
-        max-width: 100%;
-        width: 100%;
-        border-radius: 0;
-      }
       .mist-sim-fee-section {
         padding: 18px 0 24px 0;
-        max-width: 99vw;
       }
     }
     .mist-sim-fee-section {
@@ -446,56 +444,10 @@
     .mist-sim-send-btn:active {
       background: #007bb8;
     }
-    /* Mobile responsive adjustments */
+    /* Mobile: horizontal scroll preserving desktop layout */
     @media (max-width: 768px) {
       .mist-sim-window {
-        max-width: 95vw;
-        margin: 0 2.5vw;
         border-radius: 12px;
-      }
-      
-      .mist-sim-flex-row {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .mist-sim-editor {
-        min-width: auto;
-        width: 100%;
-      }
-      
-      .mist-sim-form-mist {
-        width: 100%;
-        min-width: auto;
-      }
-      
-      .mist-sim-fee-section {
-        max-width: 100%;
-        width: 100%;
-      }
-      
-      .mist-sim-code-area {
-        flex-direction: column;
-      }
-      
-      .mist-sim-linenos {
-        display: none;
-      }
-      
-      .mist-sim-code {
-        font-size: 0.75rem !important;
-        padding: 16px;
-      }
-      
-      .mist-sim-custom-tokens {
-        margin: 20px 10px 0 10px !important;
-        padding: 24px 20px 36px 20px !important;
-      }
-      
-      .mist-sim-token-card {
-        min-width: auto !important;
-        max-width: none !important;
-        flex: 1 1 auto !important;
       }
     }
     .mist-sim-modal {
