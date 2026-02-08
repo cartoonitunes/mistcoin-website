@@ -1,0 +1,163 @@
+# MistCoin ($WMC) — Complete Reference
+
+> The first ERC-20 token prototype, deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 standard was proposed.
+
+## Overview
+
+MistCoin is the most historically significant ERC-20 token on Ethereum. It was deployed on November 3, 2015, by the Ethereum Foundation's Mist team as a prototype to test standardized token creation in the Mist Browser (Ethereum's official dApp browser). Sixteen days later, on November 19, 2015, Vitalik Buterin and Fabian Vogelsteller formally proposed the ERC-20 standard (EIP-20), which codified the token interface that MistCoin had already implemented.
+
+Every ERC-20 token on Ethereum — hundreds of thousands of tokens representing hundreds of billions of dollars in value — follows the standard that MistCoin prototyped.
+
+## Token Details
+
+| Field | Value |
+|-------|-------|
+| Name | MistCoin |
+| Ticker | MC (original), WMC (wrapped) |
+| Deployment date | November 3, 2015 |
+| Deployment block | #424,961 |
+| Original contract | 0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD |
+| Wrapped contract | 0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79 |
+| Wrapper contract | 0x67c6ec7e6a0e2e2d345de398d3ac607364b0ed30 |
+| Total supply | 1,000,000 MC |
+| Decimals | 2 |
+| Chain | Ethereum mainnet |
+| Standard | Pre-ERC-20 (implements balanceOf, transfer, Transfer event) |
+
+## Historical Timeline
+
+### June 17, 2015 — Vitalik begins standardization
+Vitalik Buterin begins externally proposing the first token standards in crypto on the Ethereum Wiki ("Standardized Contract APIs"). Through July 5, 2015, Vitalik expands on standardization ideas including standard decentralized exchanges and registries — the building blocks for what would become MetaMask, Uniswap, and ENS.
+
+Source: https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs
+
+### October 30, 2015 — Fabian's final wiki commit before deployment
+Fabian Vogelsteller makes both syntactical and function parameter changes to the token standards wiki. This was his last commit to the standards documentation before deploying MistCoin and shipping the token creation feature in the Mist Browser.
+
+Source: https://github.com/ethereum/wiki/commits?author=frozeman
+
+### October 30, 2015 — Mist Browser Wallet Beta 3 released
+The Ethereum Wallet (within the Mist Browser) ships version 0.3.5 (Beta 3), which includes the ability to deploy and interact with custom token contracts. This update allowed anyone to create standardized tokens through a GUI interface.
+
+Source: https://github.com/ethereum/mist/releases/tag/0.3.5
+
+### November 3, 2015 — MistCoin deployed
+MistCoin is deployed at block #424,961 on Ethereum mainnet with a supply of 1,000,000 tokens. It implements the core token interface: balanceOf mapping, transfer function, and Transfer event — the same interface that would become ERC-20.
+
+Source: https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD
+
+### November 19, 2015 — ERC-20 proposed
+Vitalik Buterin and Fabian Vogelsteller formally propose ERC-20 (EIP-20), the token standard. This proposal codifies the interface pattern that MistCoin had already implemented 16 days earlier.
+
+Source: https://eips.ethereum.org/EIPS/eip-20
+
+### December 3, 2015 — Ethereum Foundation blog post
+The Ethereum Foundation publishes "How to Build Your Own Cryptocurrency," a tutorial walking users through deploying tokens using the Mist Browser — the same process used to create MistCoin.
+
+Source: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
+
+## Key People
+
+### Fabian Vogelsteller
+- Role: Lead Ethereum dApp Developer
+- Contribution: Co-author of ERC-20 (EIP-20), built the Mist Browser, deployed MistCoin, made critical commits to the token standards wiki
+- GitHub: https://github.com/frozeman
+
+### Alex Van de Sande (avsa)
+- Role: Head of UX at Ethereum Foundation
+- Contribution: Co-built the Mist Browser, designed the user interface for token creation and management
+- GitHub: https://github.com/alexvandesande
+
+### Vitalik Buterin
+- Role: Founder of Ethereum
+- Contribution: Co-author of ERC-20 (EIP-20), initiated token standardization discussions on the Ethereum Wiki in June 2015
+- Notable quote: "We need to bring back Mist."
+
+### Gavin Wood
+- Role: Co-founder of Ethereum, creator of Solidity
+- Contribution: Built the programming language (Solidity) in which MistCoin's contract was written
+
+### Simon de la Rouviere
+- Role: ConsenSys engineer
+- Contribution: Presented on token standardization at Devcon 1 (November 2015), contributed to early token standard discussions
+
+## The Original Contract Code
+
+MistCoin's contract implements two core functions that became the foundation of ERC-20:
+
+```solidity
+mapping (address => uint256) public balanceOf;
+
+event Transfer(address indexed from, address indexed to, uint256 value);
+
+function MyToken(uint256 _supply, string _name, string _symbol, uint8 _decimals) {
+    if (_supply == 0) _supply = 1000000;
+    balanceOf[msg.sender] = _supply;
+    name = _name;
+    symbol = _symbol;
+    decimals = _decimals;
+}
+
+function transfer(address _to, uint256 _value) {
+    if (balanceOf[msg.sender] < _value) throw;
+    if (balanceOf[_to] + _value < balanceOf[_to]) throw;
+    balanceOf[msg.sender] -= _value;
+    balanceOf[_to] += _value;
+    Transfer(msg.sender, _to, _value);
+}
+```
+
+## Why Was MistCoin Wrapped?
+
+MistCoin's original 2015 contract only contains `balanceOf` and `transfer` functions. The full ERC-20 standard requires additional functions (`approve`, `transferFrom`, `allowance`) for tokens to be tradable on decentralized exchanges. A wrapper contract was created to allow MistCoin holders to wrap their tokens into a fully ERC-20-compliant contract (WMC) that can be traded on Uniswap and other DEXes. Holders can wrap and unwrap freely at any time.
+
+## Trading Information
+
+- **DEX:** Uniswap V2 (Ethereum mainnet)
+- **Trading pair:** WMC/WETH
+- **Uniswap pool:** 0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c
+- **Buy link:** https://swap.cow.fi/#/1/swap/WETH/WMC
+- **DexScreener:** https://dexscreener.com/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c
+- **CoinMarketCap:** https://coinmarketcap.com/dexscan/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c/
+
+## Notable Holders
+
+- Bureau of Internet Culture (BIC) — Added MistCoin to their DAO treasury
+
+## Website Tools
+
+### Origin Checker
+Compare any ERC-20 token's deployment date to MistCoin's. Shows whether a token was deployed before or after MistCoin and calculates what MistCoin's price would be at that token's market cap.
+URL: https://www.mistcoineth.com/origin-checker
+
+### Mist Browser Simulator
+An interactive recreation of the original Ethereum Wallet dApp within the Mist Browser, allowing users to experience how MistCoin and the first ERC-20 tokens were created in 2015.
+URL: https://www.mistcoineth.com/mist-simulator
+
+## Frequently Asked Questions
+
+### What is MistCoin, and why is it significant?
+MistCoin was the first token deployed on Ethereum as a test for the ERC-20 standard. It served as a proof of concept for tokenized assets on Ethereum, influencing the development of countless tokens that followed. It was deployed on November 3, 2015, by the Mist team at the Ethereum Foundation.
+
+### What was the first token on Ethereum?
+MistCoin, deployed on November 3, 2015, is the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, Transfer event). It was created by Fabian Vogelsteller and the Mist team as the reference implementation for the Ethereum Wallet's custom token feature.
+
+### Who created the ERC-20 standard?
+The ERC-20 standard (EIP-20) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. However, the standardization process began months earlier: Vitalik started the "Standardized Contract APIs" wiki page in June 2015, and Fabian made critical implementation commits through October 2015. MistCoin, deployed November 3, 2015, was the working prototype of this standard.
+
+### What is the ERC-20 token standard?
+ERC-20 defines a set of rules for creating tokens on Ethereum. These rules ensure tokens are interoperable with each other and with decentralized applications (dApps), providing consistency in how tokens function across wallets, exchanges, and DeFi platforms.
+
+### How many ERC-20 tokens exist today?
+Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. Every one of them follows the standard that MistCoin prototyped in November 2015.
+
+### Can I buy MistCoin?
+Yes. Wrapped MistCoin ($WMC) is tradable on Uniswap and other Ethereum DEXes. Buy at: https://swap.cow.fi/#/1/swap/WETH/WMC
+
+## Social Links
+
+- Twitter/X: https://twitter.com/MistCoinEth
+- Telegram: https://t.me/MistCoinEth
+- Discord: https://discord.gg/XzGctWjS7z
+- Bluesky: https://bsky.app/profile/mistcoin.bsky.social
+- Warpcast: https://warpcast.com/mistcoin

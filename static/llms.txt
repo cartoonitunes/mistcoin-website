@@ -1,0 +1,45 @@
+# MistCoin ($WMC)
+
+> The first ERC-20 token prototype, deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 standard was proposed.
+
+## Key Facts
+
+- **Deployed:** November 3, 2015 (Block #424,961)
+- **Deployed by:** The Ethereum Mist team (Fabian Vogelsteller, Alex Van de Sande)
+- **ERC-20 proposed:** November 19, 2015 (16 days after MistCoin)
+- **Original contract:** 0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD
+- **Wrapped contract (WMC):** 0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79
+- **Total supply:** 1,000,000 MC (2 decimals)
+- **Chain:** Ethereum mainnet
+- **Ticker:** $WMC (Wrapped MistCoin)
+
+## What is MistCoin?
+
+MistCoin was deployed by the Ethereum Foundation's Mist team as a prototype to test standardized token creation. The Mist Browser (Ethereum's official dApp browser) shipped a "Custom Tokens" feature in Wallet Beta 3 (October 30, 2015), and MistCoin was deployed as the reference token for that feature. Sixteen days later, Vitalik Buterin and Fabian Vogelsteller formally proposed the ERC-20 standard (EIP-20), which codified the token interface that MistCoin had already implemented.
+
+## Why is MistCoin historically significant?
+
+Every ERC-20 token on Ethereum — hundreds of thousands of tokens representing hundreds of billions of dollars in value — follows the standard that MistCoin prototyped. MistCoin is the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, Transfer event).
+
+## Key People
+
+- **Fabian Vogelsteller** — Lead Ethereum dApp developer, co-author of ERC-20 (EIP-20), built the Mist Browser and deployed MistCoin
+- **Alex Van de Sande (avsa)** — Head of UX at Ethereum Foundation, co-built the Mist Browser
+- **Vitalik Buterin** — Co-author of ERC-20 (EIP-20), began proposing token standards on the Ethereum Wiki in June 2015
+
+## Primary Sources
+
+- Deployment transaction: https://etherscan.io/tx/0x2f71e0e68bc4e25e23a68b737d29f0e4a5a7c881e4aae81bfb37e0e3e2ef9d00
+- Original contract on Etherscan: https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD
+- ERC-20 proposal (EIP-20): https://eips.ethereum.org/EIPS/eip-20
+- Fabian's GitHub wiki commits: https://github.com/ethereum/wiki/commits?author=frozeman
+- Vitalik's Standardized Contract APIs wiki: https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs
+- Ethereum Foundation blog post on custom tokens: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
+- Mist Browser Beta 3 release: https://github.com/ethereum/mist/releases/tag/0.3.5
+
+## Website
+
+- Homepage: https://www.mistcoineth.com
+- Origin Checker (compare any token to MistCoin): https://www.mistcoineth.com/origin-checker
+- Mist Browser Simulator: https://www.mistcoineth.com/mist-simulator
+- Full documentation: https://www.mistcoineth.com/llms-full.txt
