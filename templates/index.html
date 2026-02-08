@@ -4,24 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>MistCoin</title>
-    <meta name="description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
-    <meta name="keywords" content="MistCoin, Blockchain, Collectible, ERC20, Ethereum, Crypto, Token, Coin" />
+    <title>MistCoin — The First ERC-20 Token on Ethereum (2015)</title>
+    <meta name="description" content="MistCoin was deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 proposal. The historic first token standard prototype. Every ERC-20 token traces back to this moment." />
+    <meta name="keywords" content="MistCoin, ERC-20, Ethereum history, first token, blockchain standard, WMC, Fabian Vogelsteller, Vitalik Buterin" />
 
     <!-- Canonical Tag -->
     <link rel="canonical" href="https://www.mistcoineth.com" />
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="MistCoin - The First Blockchain Standard Collectible" />
-    <meta property="og:description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+    <meta property="og:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
+    <meta property="og:description" content="Deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 proposal. Every token on Ethereum traces back to this moment." />
     <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
     <meta property="og:url" content="https://www.mistcoineth.com" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:title" content="MistCoin - The First Blockchain Standard Collectible" />
-    <meta name="twitter:site" content="@MistCoinEth" /> <!-- Replace with the actual Twitter handle -->
-    <meta name="twitter:description" content="MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. A unique ERC20 prototype, it represents a significant milestone in the world of digital collectibles." />
+    <meta name="twitter:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
+    <meta name="twitter:site" content="@MistCoinEth" />
+    <meta name="twitter:description" content="Deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 proposal. Every token on Ethereum traces back to this moment." />
     <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" /> 
     <meta name="twitter:image:alt" content="MistCoin">
     <meta name="twitter:card" content="summary_large_image" />
@@ -126,53 +126,29 @@
     <section id="hero" class="hero section">
 
       <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="">
-        <h1>The <span>First</span> Blockchain Standard</h1>
-        <p>MistCoin was created by Ethereum in 2015 to test the ERC-20 token standard.</p>
+        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="MistCoin logo">
+        <div class="hero-date">November 3, 2015</div>
+        <h1>Deployed by <span>Ethereum</span>. Before ERC-20 existed.</h1>
+        <p>The Mist team deployed MistCoin, the prototype that led to the ERC-20 token standard. Every token on Ethereum traces back to this moment.</p>
+        <div class="hero-day-counter" id="day-counter"></div>
         <div class="d-flex">
-          <a href="#about" class="btn-get-started scrollto">Learn More</a>
-          <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" style="color: white;" class="btn-get-started scrollto btn-watch-video d-flex align-items-center">Buy Now</a>
+          <a href="#about" class="btn-get-started scrollto">Explore the History</a>
+          <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" style="color: white;" class="btn-get-started scrollto btn-watch-video d-flex align-items-center">Own a Piece of History</a>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
 
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/ethereum.png') }}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/coinbase-base.png') }}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/uni.png') }}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/gecko.png') }}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/coinex_logo.png') }}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{{ url_for('static', filename='assets/img/clients/bic-type.svg') }}" class="img-fluid" alt="Bureau of Internet Culture">
-          </div><!-- End Client Item -->
-
-        </div>
-
+    <!-- Vitalik Pull Quote -->
+    <section class="vitalik-pullquote section">
+      <div class="container text-center" data-aos="fade-up">
+        <blockquote>
+          <img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="pullquote-avatar" alt="Vitalik Buterin">
+          <p>&ldquo;We need to bring back Mist.&rdquo;</p>
+          <cite>— Vitalik Buterin, Founder of Ethereum</cite>
+        </blockquote>
       </div>
-
-    </section><!-- /Clients Section -->
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -193,9 +169,9 @@
               Sixteen days after MistCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard, now used by the majority of tokens on Ethereum today.
             </p>
             <ul>
-              <li>💠&nbsp; <span><strong>MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a></span></li>
+              <li>💠&nbsp; <span><strong>MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a> <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
               <li>💠&nbsp; <span><strong>Total Supply:</strong> 1,000,000 MistCoin (approx. 400,000 circulating)</span></li>
-              <li>💠&nbsp; <span><strong>Wrapped MistCoin Contract Address (WMC)</strong>: <a href="https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</a></span></li>
+              <li>💠&nbsp; <span><strong>Wrapped MistCoin Contract Address (WMC)</strong>: <a href="https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</a> <button class="copy-btn" data-copy="0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
             </ul>
           </div>
 
@@ -216,52 +192,50 @@
         </div>
         
         <!-- Pitch Deck Button -->
-        <div id="pitch-deck" class="container text-center" style="margin-top: 50px; margin-bottom: 40px; scroll-margin-top: 180px;" data-aos="fade-up" data-aos-delay="300">
-          <a href="{{ url_for('static', filename='assets/pdfs/mistcoin-pitch-deck.pdf') }}" target="_blank" class="read-more pitch-deck-btn" style="font-size: 20px; padding: 16px 42px; box-shadow: 0 6px 20px rgba(59, 78, 248, 0.3); font-weight: 600; letter-spacing: 0.5px; border: 2px solid var(--accent-color);">
+        <div id="pitch-deck" class="container text-center pitch-deck-wrapper" data-aos="fade-up" data-aos-delay="300">
+          <a href="{{ url_for('static', filename='assets/pdfs/mistcoin-pitch-deck.pdf') }}" target="_blank" class="read-more pitch-deck-btn">
             <span>💠 MistCoin Pitch Deck</span>
-            <i class="bi bi-arrow-right" style="margin-left: 10px; font-size: 20px;"></i>
+            <i class="bi bi-arrow-right"></i>
           </a>
         </div>
         
-        <div class="container section-title" style="padding: 15px; margin: 0 auto; max-width: 100%; font-family: Arial, sans-serif; line-height: 1.6;">
-          <h2 style="font-size: 1.5rem; text-align: center; margin-bottom: 20px; padding-bottom: 10px;">Tokenomics</h2>
-          
+        <div class="container section-title tokenomics-section">
+          <h2>Tokenomics</h2>
+
           <div class="content">
-              <!-- Tokenomics Section -->
-              <ul style="list-style: none; padding: 0; margin: 0;">
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Locked Liquidity:</strong> V2 double-sided liquidity for Wrapped MistCoin is locked until Nov 3, 2115. 
-                          <a href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50" style="color: #007bff;">[Source]</a>
+              <ul class="tokenomics-list">
+                  <li>
+                      <span><strong>💠 Locked Liquidity:</strong> V2 double-sided liquidity for Wrapped MistCoin is locked until Nov 3, 2115.
+                          <a href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50">[Source]</a>
                       </span>
                   </li>
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Inactive and Lost Wallets:</strong> Approximately 20% of the total supply (200,000 MistCoins) resides in lost or inactive wallets, reducing the effective circulating supply. 
-                          <a href="https://dune.com/cart00n/mistcoin" style="color: #007bff;">[Source]</a>
+                  <li>
+                      <span><strong>💠 Inactive and Lost Wallets:</strong> Approximately 20% of the total supply (200,000 MistCoins) resides in lost or inactive wallets, reducing the effective circulating supply.
+                          <a href="https://dune.com/cart00n/mistcoin">[Source]</a>
                       </span>
                   </li>
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Circulating Supply:</strong> ~407,000 MistCoin available in active wallets and trading platforms. 
-                          <a href="https://www.coingecko.com/en/coins/wrapped-mistcoin" style="color: #007bff;">[Source]</a>
+                  <li>
+                      <span><strong>💠 Circulating Supply:</strong> ~407,000 MistCoin available in active wallets and trading platforms.
+                          <a href="https://www.coingecko.com/en/coins/wrapped-mistcoin">[Source]</a>
                       </span>
                   </li>
               </ul>
-      
-              <!-- Notable Holders Section -->
-              <h3 style="font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px;">Notable Holders</h3>
-              <ul style="list-style: none; padding: 0; margin: 0;">
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Fabian Vogelsteller:</strong> The MistCoin deployer, Ethereum developer, and creator of ERC-20 owns ~20-25% of the supply and is actively helping the project succeed. 
-                          <a href="https://lpvision.korkey.tech/positions/uni-v3#0x1E8Df08C55C7650E1Df68C6E666D3DFEF7366867" style="color: #007bff;">[Source]</a>
+
+              <h3 class="tokenomics-subheading">Notable Holders</h3>
+              <ul class="tokenomics-list">
+                  <li>
+                      <span><strong>💠 Fabian Vogelsteller:</strong> The MistCoin deployer, Ethereum developer, and creator of ERC-20 owns ~20-25% of the supply and is actively helping the project succeed.
+                          <a href="https://lpvision.korkey.tech/positions/uni-v3#0x1E8Df08C55C7650E1Df68C6E666D3DFEF7366867">[Source]</a>
                       </span>
                   </li>
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Alex "AvsA" Van de Sande:</strong> The former Ethereum Lead Designer, leader of Mist, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years. 
-                          <a href="https://etherscan.io/address/0x73d245b211e51dbee8ed9c04b235262bc4845009#readContract" style="color: #007bff;">[Source]</a>
+                  <li>
+                      <span><strong>💠 Alex "AvsA" Van de Sande:</strong> The former Ethereum Lead Designer, leader of Mist, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years.
+                          <a href="https://etherscan.io/address/0x73d245b211e51dbee8ed9c04b235262bc4845009#readContract">[Source]</a>
                       </span>
                   </li>
-                  <li style="margin-bottom: 20px; text-align:left">
-                      <span><strong>💠 Doge Eth Bounty:</strong>In 2015, AvsA created a DAO with Vitalik Buterin, Ming Chan, Piper Merriam, Hudson Jameson, Ross Nicoll, and two others. The DAO owns 5% of the supply. 
-                          <a href="https://etherscan.io/address/0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb" style="color: #007bff;">[Source]</a>
+                  <li>
+                      <span><strong>💠 Doge Eth Bounty:</strong> In 2015, AvsA created a DAO with Vitalik Buterin, Ming Chan, Piper Merriam, Hudson Jameson, Ross Nicoll, and two others. The DAO owns 5% of the supply.
+                          <a href="https://etherscan.io/address/0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb">[Source]</a>
                       </span>
                   </li>
               </ul>
@@ -270,15 +244,42 @@
       
       
       </div>
-    
-    <!-- /Contract Section -->
-    <section id="contract" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contract</h2>
-        <p>This is the original MistCoin contract code from 2015 <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a>. Hundreds of contracts were made with this exact same code thereafter and ERC-20 followed with many millions to date.</p>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/ethereum.png') }}" class="img-fluid" alt="Ethereum" loading="lazy">
+          </div>
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/coinbase-base.png') }}" class="img-fluid" alt="Coinbase Base" loading="lazy">
+          </div>
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/uni.png') }}" class="img-fluid" alt="Uniswap" loading="lazy">
+          </div>
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/gecko.png') }}" class="img-fluid" alt="CoinGecko" loading="lazy">
+          </div>
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/coinex_logo.png') }}" class="img-fluid" alt="CoinEx" loading="lazy">
+          </div>
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="{{ url_for('static', filename='assets/img/clients/bic-type.svg') }}" class="img-fluid" alt="Bureau of Internet Culture" loading="lazy">
+          </div>
+        </div>
       </div>
-    
-      <div class="container" data-aos="fade-up" style="overflow-x: auto; background-color: #F6F7FF; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+    </section><!-- /Clients Section -->
+
+    <!-- /Contract Section -->
+    <section id="contract" class="contract-artifact section dark-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>The Original Contract</h2>
+        <p>The code that started it all. Deployed November 3, 2015. <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a></p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+      <div class="artifact-frame">
         <pre style="margin: 0; font-family: 'Courier New', Courier, monospace;">
     <code><span style="color:#0000ff;">contract</span> <span style="color:#795E26;">MyToken</span> {
         <span style="color:#008000;">/* Public variables of the token */</span>
@@ -322,8 +323,10 @@
     }
     </code>
         </pre>
+        <div class="artifact-label">MyToken.sol — The ERC-20 Prototype — Block #424,961</div>
       </div>
-    </section>    
+      </div>
+    </section>
     
     <!-- /End Contract Section -->
 
@@ -334,7 +337,7 @@
 
         <div class="row gy-4 align-items-center features-item">
           <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{{ url_for('static', filename='assets/img/mist_mentions.jpg') }}" class="img-fluid" alt="">
+            <img src="{{ url_for('static', filename='assets/img/mist_mentions.jpg') }}" class="img-fluid" alt="Fabian and Alex mention MistCoin on Twitter" loading="lazy">
           </div>
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
             <h3>The creators of MistCoin, Fabian and Alex, mention MistCoin on Twitter/X.</h3>
@@ -351,7 +354,7 @@
 
         <div class="row gy-4 align-items-center features-item">
           <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{{ url_for('static', filename='assets/img/mist_contract_deployment.png') }}" class="img-fluid" alt="">
+            <img src="{{ url_for('static', filename='assets/img/mist_contract_deployment.png') }}" class="img-fluid" alt="MistCoin contract deployment" loading="lazy">
           </div>
           <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
             <h3>A Milestone for Ethereum's Token Economy</h3>
@@ -366,7 +369,7 @@
 
         <div class="row gy-4 align-items-center features-item">
           <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-            <img src="{{ url_for('static', filename='assets/img/mist_system.jpg') }}" class="img-fluid" alt="">
+            <img src="{{ url_for('static', filename='assets/img/mist_system.jpg') }}" class="img-fluid" alt="Mist system architecture" loading="lazy">
           </div>
           <div class="col-md-7" data-aos="fade-up">
             <h3>Influencing the Future of Tokenized Assets</h3>
@@ -383,7 +386,7 @@
 
         <div class="row gy-4 align-items-center features-item">
           <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-            <img src="{{ url_for('static', filename='assets/img/mist_etherscan.png') }}" class="img-fluid" alt="">
+            <img src="{{ url_for('static', filename='assets/img/mist_etherscan.png') }}" class="img-fluid" alt="MistCoin on Etherscan" loading="lazy">
           </div>
           <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
             <h3>The ERC-20 Standard: A Lasting Legacy</h3>
@@ -475,6 +478,35 @@
 </section>
 
 <!-- End Chart Section -->
+
+<!-- Interactive Tools CTA Section -->
+<section id="tools" class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Explore</h2>
+    <p>Interactive tools to experience Ethereum history firsthand.</p>
+  </div>
+
+  <div class="container">
+    <div class="row g-4" data-aos="fade-up">
+      <div class="col-md-6">
+        <div class="tool-card">
+          <div class="tool-card-icon"><i class="bi bi-search"></i></div>
+          <h3>Token Origin Checker</h3>
+          <p>Discover the origin of any ERC-20 token and compare it to MistCoin — the one that started it all.</p>
+          <a href="/origin-checker" class="btn-get-started">Try the Origin Checker <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tool-card">
+          <div class="tool-card-icon"><i class="bi bi-pc-display"></i></div>
+          <h3>Mist Simulator</h3>
+          <p>Experience what it felt like to deploy the first standard token using the Ethereum Mist browser in 2015.</p>
+          <a href="/mist-simulator" class="btn-get-started">Launch the Simulator <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Start Buy Section -->
 
@@ -665,7 +697,7 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_browser.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_browser.png') }}" class="img-fluid" alt="Mist Browser" loading="lazy">
               <div class="portfolio-info">
                 <h4>Mist Browser</h4>
                 <p>The update allowed anyone to easily make tokens.</p>
@@ -675,7 +707,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/fabian_presents_dapps.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/fabian_presents_dapps.jpg') }}" class="img-fluid" alt="Fabian at Devcon 1" loading="lazy">
               <div class="portfolio-info">
                 <h4>Fabian at Devcon 1</h4>
                 <p>Fabian Vogelsteller presents on "What are DApps and Why Meteor?" </p>
@@ -685,7 +717,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/what_is_mist.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/what_is_mist.png') }}" class="img-fluid" alt="Ethereum presents Mist" loading="lazy">
               <div class="portfolio-info">
                 <h4>Ethereum presents Mist</h4>
                 <p>Alex Van de Sande presents a sneak preview of Mist, the Ethereum decentralised application browser. </p>
@@ -695,7 +727,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/2014_mist_sketch.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/2014_mist_sketch.jpg') }}" class="img-fluid" alt="Original Mist sketch from 2014" loading="lazy">
               <div class="portfolio-info">
                 <h4>Original Mist Sketch</h4>
                 <p>A sketch from 2014, where Alex Van de Sande was brainstorming concepts for Mist.</p>
@@ -705,7 +737,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/simon-devcon-1.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/simon-devcon-1.png') }}" class="img-fluid" alt="Simon at Devcon 1" loading="lazy">
               <div class="portfolio-info">
                 <h4>Simon at Devcon 1</h4>
                 <p>Simon de la Rouviere from ConsenSys presents on token standardization at Devcon 1.</p>
@@ -715,7 +747,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_roadmap.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_roadmap.png') }}" class="img-fluid" alt="Mist Roadmap" loading="lazy">
               <div class="portfolio-info">
                 <h4>Mist Roadmap</h4>
                 <p>Fabian hilariously shares the Mist roadmap.</p>
@@ -725,7 +757,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_team.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_team.jpg') }}" class="img-fluid" alt="Mist Team 2017" loading="lazy">
               <div class="portfolio-info">
                 <h4>Mist Team</h4>
                 <p>The Mist team in 2017</p>
@@ -735,7 +767,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_devcon_2.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_devcon_2.jpg') }}" class="img-fluid" alt="Alex at Devcon 2" loading="lazy">
               <div class="portfolio-info">
                 <h4>Devcon 2 Mist Presentation</h4>
                 <p>Alex Van de Sande demoes the light client and 2min syncs.</p>
@@ -745,7 +777,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/run_mist.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/run_mist.png') }}" class="img-fluid" alt="Mist installation walkthrough" loading="lazy">
               <div class="portfolio-info">
                 <h4>Mist Installation Walkthrough</h4>
                 <p>A community-led walk through of installing and setting up Ethereum Mist for development.</p>
@@ -755,7 +787,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/og_mist_team.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/og_mist_team.jpg') }}" class="img-fluid" alt="The original Mist team" loading="lazy">
               <div class="portfolio-info">
                 <h4>The OG Mist Team</h4>
                 <p>The original Mist team enjoying some Thai food in February 2015, before Ethereum mainnet.</p>
@@ -765,7 +797,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_2015_presentation.png') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_2015_presentation.png') }}" class="img-fluid" alt="Mist brand principles presentation" loading="lazy">
               <div class="portfolio-info">
                 <h4>Mist Brand Principles</h4>
                 <p>A presentation soon after MistCoin teaching about smart contracts and showing the Mist Browser brand principles.</p>
@@ -797,7 +829,7 @@
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="img-fluid" alt=""></div>
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="img-fluid" alt="Vitalik Buterin" loading="lazy"></div>
           <div class="member-info">
             <h4>Vitalik Buterin</h4>
             <span>Co-Founder of the Ethereum Foundation</span>
@@ -816,7 +848,7 @@
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/fabian-mist.png') }}" class="img-fluid" alt=""></div>
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/fabian-mist.png') }}" class="img-fluid" alt="Fabian Vogelsteller" loading="lazy"></div>
           <div class="member-info">
             <h4>Fabian Vogelsteller</h4>
             <span>Lead Ethereum Dapp Developer | Mist</span>
@@ -834,7 +866,7 @@
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/avsa-mist.png') }}" class="img-fluid" alt=""></div>
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/avsa-mist.png') }}" class="img-fluid" alt="Alex Van de Sande" loading="lazy"></div>
           <div class="member-info">
             <h4>Alex Van de Sande</h4>
             <span>Head UX Designer | Ethereum Foundation</span>
@@ -850,7 +882,7 @@
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/gavinwood.jpg') }}" class="img-fluid" alt=""></div>
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/gavinwood.jpg') }}" class="img-fluid" alt="Gavin Wood" loading="lazy"></div>
           <div class="member-info">
             <h4>Gavin Wood</h4>
             <span>Co-Founder of the Ethereum Foundation</span>
@@ -865,7 +897,7 @@
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
         <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/simon.jpg') }}" class="img-fluid" alt=""></div>
+          <div class="pic"><img src="{{ url_for('static', filename='assets/img/team/simon.jpg') }}" class="img-fluid" alt="Simon de la Rouviere" loading="lazy"></div>
           <div class="member-info">
             <h4>Simon de la Rouviere</h4>
             <span>ERC-20 Standard Contributor</span>
@@ -988,9 +1020,10 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-            <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center">
                 <span class="sitename">MistCoin</span>
               </a>
+            <p>The first ERC-20 token prototype, deployed by the Ethereum team on November 3, 2015.</p>
           <div class="social-links d-flex mt-4">
             <a href="https://x.com/MistCoinEth"><i class="bi bi-twitter-x"></i></a>
             <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
@@ -1000,7 +1033,38 @@
           </div>
         </div>
 
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">About MistCoin</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#contract">The Code</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/origin-checker">Origin Checker</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator">Mist Simulator</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#buy">Buy $WMC</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Contract Addresses</h4>
+          <div class="footer-contract">
+            <p><strong>MistCoin (MC):</strong></p>
+            <div class="contract-copy-row">
+              <code class="contract-addr">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</code>
+              <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button>
+            </div>
+            <p class="mt-2"><strong>Wrapped MistCoin (WMC):</strong></p>
+            <div class="contract-copy-row">
+              <code class="contract-addr">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</code>
+              <button class="copy-btn" data-copy="0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" title="Copy address"><i class="bi bi-clipboard"></i></button>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>The first ERC-20 token on Ethereum. Deployed November 3, 2015.</p>
     </div>
 
   </footer>
@@ -1021,6 +1085,32 @@
 
   <!-- Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+  <script>
+    // Day counter since MistCoin deployment
+    (function() {
+      const deployDate = new Date('2015-11-03T00:00:00Z');
+      const now = new Date();
+      const days = Math.floor((now - deployDate) / (1000 * 60 * 60 * 24));
+      const counter = document.getElementById('day-counter');
+      if (counter) {
+        counter.textContent = days.toLocaleString() + ' days ago, Ethereum history was made';
+      }
+    })();
+
+    // Copy to clipboard buttons
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var text = this.getAttribute('data-copy');
+        navigator.clipboard.writeText(text).then(function() {
+          btn.innerHTML = '<i class="bi bi-check"></i>';
+          setTimeout(function() {
+            btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+          }, 2000);
+        });
+      });
+    });
+  </script>
 
 </body>
 

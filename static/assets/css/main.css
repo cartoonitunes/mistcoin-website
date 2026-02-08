@@ -17,24 +17,25 @@
   --nav-font: "Lato",  sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2d405f; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #3b4ef8; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+/* Global Colors */
+:root {
+  --background-color: #ffffff;
+  --default-color: #212529;
+  --heading-color: #1a2744;
+  --accent-color: #627EEA; /* Ethereum blue */
+  --accent-gold: #C9A96E; /* Heritage gold accent */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors */
 :root {
-  --nav-color: #212529;  /* The default color of the main navmenu links */
-  --nav-hover-color: #3b4ef8; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #3b4ef8; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #212529;
+  --nav-hover-color: #627EEA;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #212529;
+  --nav-dropdown-hover-color: #627EEA;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -115,58 +116,6 @@ h6 {
 }
 
 
-
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /*--------------------------------------------------------------
 # Announcement Banner
@@ -1134,40 +1083,6 @@ section,
   transform: translate(5px, 0);
 }
 
-/* Pitch Deck Button Enhancement */
-.pitch-deck-btn {
-  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), transparent 10%) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.pitch-deck-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.pitch-deck-btn:hover::before {
-  left: 100%;
-}
-
-.pitch-deck-btn:hover {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 5%) 0%, var(--accent-color) 100%);
-  box-shadow: 0 8px 25px rgba(59, 78, 248, 0.4);
-  transform: translateY(-2px);
-}
-
-@media (max-width: 1199px) {
-  #pitch-deck {
-    scroll-margin-top: 150px;
-  }
-}
-
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
@@ -1250,58 +1165,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  text-align: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  padding: 80px 20px;
-  transition: border ease-in-out 0.3s;
-  height: 100%;
-}
-
-.services .service-item .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: var(--accent-color);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: 0.3s;
-}
-
-.services .service-item .icon i {
-  color: var(--contrast-color);
-  font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
-
-.services .service-item h3 {
-  font-weight: 700;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-  transition: 0.3s;
-}
-
-.services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.services .service-item:hover {
-  border-color: var(--accent-color);
-}
-
-.services .service-item:hover h3 {
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
@@ -1344,8 +1207,13 @@ section,
   }
 }
 
+.portfolio.section {
+  overflow: visible;
+}
+
 .portfolio .portfolio-item {
   position: relative;
+  padding-bottom: 20px;
 }
 
 .portfolio .portfolio-item .portfolio-info {
@@ -1622,125 +1490,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
-.pricing .pricing-item {
-  background-color: var(--surface-color);
-  padding: 60px 40px;
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  position: relative;
-}
-
-.pricing h3 {
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.pricing h4 {
-  font-size: 48px;
-  color: var(--accent-color);
-  font-family: var(--heading-font);
-  font-weight: 400;
-}
-
-.pricing h4 sup {
-  font-size: 28px;
-}
-
-.pricing h4 span {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  font-size: 18px;
-}
-
-.pricing ul {
-  padding: 20px 0;
-  list-style: none;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  text-align: left;
-  line-height: 20px;
-}
-
-.pricing ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.pricing ul i {
-  color: #059652;
-  font-size: 24px;
-  padding-right: 3px;
-}
-
-.pricing ul .na {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na i {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na span {
-  text-decoration: line-through;
-}
-
-.pricing .buy-btn {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  background-color: var(--background-color);
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 4px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 60%);
-  transition: none;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: var(--heading-font);
-  transition: 0.3s;
-}
-
-.pricing .buy-btn:hover {
-  background: var(--accent-color);
-  border-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .featured {
-  z-index: 10;
-}
-
-.pricing .featured .pricing-item {
-  background: var(--accent-color);
-}
-
-@media (min-width: 992px) {
-  .pricing .featured .pricing-item {
-    transform: scale(1.02, 1.1);
-  }
-}
-
-.pricing .featured h3,
-.pricing .featured h4,
-.pricing .featured h4 span,
-.pricing .featured ul,
-.pricing .featured ul .na,
-.pricing .featured ul i,
-.pricing .featured ul .na i {
-  color: var(--contrast-color);
-}
-
-.pricing .featured .buy-btn {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border-color: var(--contrast-color);
-}
-
-.pricing .featured .buy-btn:hover {
-  background: color-mix(in srgb, var(--background-color), transparent 92%);
-}
-
-/*--------------------------------------------------------------
 # Faq Section
 --------------------------------------------------------------*/
 .faq .faq-container {
@@ -1839,289 +1588,6 @@ section,
   transform: rotate(90deg);
 }
 
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact .info-item+.info-item {
-  margin-top: 40px;
-}
-
-.contact .info-item i {
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  font-size: 20px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  margin-right: 15px;
-}
-
-.contact .info-item h3 {
-  padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
-}
-
-.contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.contact .php-email-form {
-  height: 100%;
-}
-
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.contact .php-email-form button[type=submit] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details Section
---------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.portfolio-details .portfolio-info {
-  background-color: var(--surface-color);
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-/*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .service-box {
-  background-color: var(--surface-color);
-  padding: 20px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-details .service-box+.service-box {
-  margin-top: 30px;
-}
-
-.service-details .service-box h4 {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.service-details .services-list {
-  background-color: var(--surface-color);
-}
-
-.service-details .services-list a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  margin-top: 15px;
-  transition: 0.3s;
-}
-
-.service-details .services-list a:first-child {
-  margin-top: 0;
-}
-
-.service-details .services-list a i {
-  font-size: 16px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .services-list a.active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.service-details .services-list a.active i {
-  color: var(--contrast-color);
-}
-
-.service-details .services-list a:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a {
-  color: var(--default-color);
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.service-details .download-catalog a:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.service-details .download-catalog a:last-child {
-  padding-bottom: 0;
-}
-
-.service-details .download-catalog a i {
-  font-size: 24px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a:hover {
-  color: var(--accent-color);
-}
-
-.service-details .help-box {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  margin-top: 30px;
-  padding: 30px 15px;
-}
-
-.service-details .help-box .help-icon {
-  font-size: 48px;
-}
-
-.service-details .help-box h4,
-.service-details .help-box a {
-  color: var(--contrast-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
 /* --- Origin Result Card Custom Styles --- */
 .origin-result-card {
   max-width: 700px;
@@ -2183,4 +1649,339 @@ section,
   background: none !important;
   border: none !important;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+}
+
+/*--------------------------------------------------------------
+# Hero Enhancements
+--------------------------------------------------------------*/
+.hero-date {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.hero-day-counter {
+  font-size: 16px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.hero h1 {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .hero-date {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero-day-counter {
+    font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Vitalik Pull Quote
+--------------------------------------------------------------*/
+.vitalik-pullquote {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #f0f2ff 0%, #faf6ee 100%);
+}
+
+.vitalik-pullquote blockquote {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.vitalik-pullquote .pullquote-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-gold);
+}
+
+.vitalik-pullquote blockquote p {
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--heading-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vitalik-pullquote blockquote cite {
+  font-size: 14px;
+  font-style: normal;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .vitalik-pullquote blockquote p {
+    font-size: 22px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Contract Artifact Section
+--------------------------------------------------------------*/
+.contract-artifact {
+  --background-color: #0d1117;
+  --default-color: #e6edf3;
+  --heading-color: #ffffff;
+  --surface-color: #161b22;
+  background-color: #0d1117;
+}
+
+.contract-artifact .section-title h2 {
+  color: #ffffff;
+}
+
+.contract-artifact .section-title h2:before,
+.contract-artifact .section-title h2:after {
+  background: var(--accent-gold);
+}
+
+.contract-artifact .section-title p {
+  color: #8b949e;
+}
+
+.contract-artifact .section-title p a {
+  color: var(--accent-gold);
+}
+
+.artifact-frame {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 40px rgba(98, 126, 234, 0.08), 0 0 80px rgba(201, 169, 110, 0.04);
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.artifact-frame pre {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  color: #e6edf3;
+}
+
+.artifact-frame code span {
+  /* Override inline colors for dark theme */
+}
+
+.artifact-label {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+/*--------------------------------------------------------------
+# Tool Cards Section
+--------------------------------------------------------------*/
+.tool-card {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 30px rgba(98, 126, 234, 0.12);
+  transform: translateY(-4px);
+}
+
+.tool-card-icon {
+  width: 64px;
+  height: 64px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tool-card-icon i {
+  font-size: 28px;
+  color: var(--accent-color);
+}
+
+.tool-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tool-card p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.tool-card .btn-get-started {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tool-card .btn-get-started:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--contrast-color);
+}
+
+/*--------------------------------------------------------------
+# Copy Button
+--------------------------------------------------------------*/
+.copy-btn {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: 0.2s;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.copy-btn:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Footer Contract & Enhancements
+--------------------------------------------------------------*/
+.footer-contract code {
+  font-size: 11px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  word-break: break-all;
+}
+
+.contract-copy-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contract-addr {
+  font-size: 11px;
+  word-break: break-all;
+}
+
+/*--------------------------------------------------------------
+# Tokenomics Section
+--------------------------------------------------------------*/
+.tokenomics-section {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+.tokenomics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tokenomics-list li {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.tokenomics-subheading {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+/*--------------------------------------------------------------
+# Pitch Deck
+--------------------------------------------------------------*/
+.pitch-deck-wrapper {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  scroll-margin-top: 180px;
+}
+
+.pitch-deck-btn {
+  font-size: 20px;
+  padding: 16px 42px;
+  box-shadow: 0 6px 20px rgba(98, 126, 234, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), transparent 10%) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pitch-deck-btn i {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.pitch-deck-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.pitch-deck-btn:hover::before {
+  left: 100%;
+}
+
+.pitch-deck-btn:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 5%) 0%, var(--accent-color) 100%);
+  box-shadow: 0 8px 25px rgba(98, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1199px) {
+  .pitch-deck-wrapper {
+    scroll-margin-top: 150px;
+  }
 }
