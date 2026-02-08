@@ -16,6 +16,16 @@ def robots():
 def sitemap():
     return send_from_directory('static', 'sitemap.xml')
 
+
+@app.route('/llms.txt')
+def llms_txt():
+    return send_from_directory('static', 'llms.txt', mimetype='text/plain')
+
+
+@app.route('/llms-full.txt')
+def llms_full_txt():
+    return send_from_directory('static', 'llms-full.txt', mimetype='text/plain')
+
 # MistCoin reference
 MISTCOIN_CONTRACT = "0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79"
 MISTCOIN_SUPPLY = 1_000_000

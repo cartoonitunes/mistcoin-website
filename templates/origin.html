@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <title>MistCoin | Token Origin Checker</title>
+        <title>Token Origin Checker — Compare Any ERC-20 to the First Token on Ethereum | MistCoin</title>
         <meta name="description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the first token standard prototype deployed by Ethereum in 2015." />
+        <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="keywords" content="MistCoin, ERC-20 origin, token checker, Ethereum history, blockchain origin, WMC, token comparison" />
     
         <!-- Canonical Tag -->
@@ -30,20 +31,13 @@
         <script type="application/ld+json">
           {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "url": "https://www.mistcoineth.com",
-            "name": "MistCoin",
-            "description": "MistCoin is the first blockchain standard collectible, launched on Ethereum in 2015. The ERC20 prototype, it represents a significant milestone in the world of digital collectibles.",
-            "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg",
-            "sameAs": [
-              "https://twitter.com/MistCoinEth",
-              "https://t.me/MistCoinEth",
-              "https://dexscreener.com/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
-              "https://www.dextools.io/app/en/ether/pair-explorer/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c",
-              "https://coinmarketcap.com/dexscan/ethereum/0x7c2caefe7ef6f5edf53cdcea8d60ea615f102e0c/",
-              "https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd",
-              "https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
-            ]
+            "@type": "WebApplication",
+            "url": "https://www.mistcoineth.com/origin-checker",
+            "name": "Token Origin Checker",
+            "description": "Compare any ERC-20 token's deployment date to MistCoin — the first token standard prototype deployed by Ethereum on November 3, 2015.",
+            "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg",
+            "applicationCategory": "Blockchain Tool",
+            "operatingSystem": "Web"
           }
           </script>
       
@@ -77,8 +71,8 @@
         <div class="container position-relative d-flex align-items-center justify-content-between">
     
           <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
-            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
-            <h1 class="sitename">MistCoin</h1>
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="MistCoin logo">
+            <span class="sitename">MistCoin</span>
           </a>
     
           <nav id="navmenu" class="navmenu">
@@ -107,7 +101,7 @@
       </header>
       <main class="main">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" style="max-width: 150px; height: auto;" alt=""></div>
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" style="max-width: 150px; height: auto;" alt="MistCoin logo"></div>
       <section id="origin-check" class="py-5">
         <div class="container" data-aos="fade-up">
           <div class="section-header text-center">
@@ -156,7 +150,10 @@
                   </div>
                   <div class="mb-2"><i>Deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard. MistCoin led to {{name}}.</i></div>
                   {% set share_url = 'https://www.mistcoineth.com/origin-checker?contract=' ~ contract ~ '&chain=' ~ chain %}
-                  <a href="https://twitter.com/intent/tweet?text=%F0%9F%95%B5%EF%B8%8F%20Curious%20about%20the%20true%20origin%20of%20%24{{ symbol }}%3F%0A%0ACompare%20{{ name }}%20to%20the%20legendary%20MistCoin%20$WMC%20%E2%80%94the%20coin%20deployed%20BY%20Ethereum%20in%202015%20to%20test%20ERC-20!%0A%0ASee%20the%20blockchain%20history%20instantly%3A%20{{ share_url|urlencode }}" target="_blank" class="btn btn-outline-primary mt-2"><i class="bi bi-twitter-x"></i> Share on X</a>
+                  <div class="d-flex gap-2 mt-2 flex-wrap">
+                    <a href="https://twitter.com/intent/tweet?text=%F0%9F%95%B5%EF%B8%8F%20Curious%20about%20the%20true%20origin%20of%20%24{{ symbol }}%3F%0A%0ACompare%20{{ name }}%20to%20the%20legendary%20MistCoin%20$WMC%20%E2%80%94the%20coin%20deployed%20BY%20Ethereum%20in%202015%20to%20test%20ERC-20!%0A%0ASee%20the%20blockchain%20history%20instantly%3A%20{{ share_url|urlencode }}" target="_blank" class="btn btn-outline-primary"><i class="bi bi-twitter-x"></i> Share on X</a>
+                    <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="bi bi-cart"></i> Buy $WMC</a>
+                  </div>
                 </div>
               </div>
             </div>

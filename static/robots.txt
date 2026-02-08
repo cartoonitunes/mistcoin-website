@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /static/assets/vendor/
+Disallow: /api/
 
 Sitemap: https://www.mistcoineth.com/sitemap.xml

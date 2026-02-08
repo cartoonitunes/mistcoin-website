@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mist Browser Simulator | MistCoin</title>
-  <meta name="description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
-  <meta name="keywords" content="MistCoin, Blockchain, Collectible, ERC20, Ethereum, Crypto, Token, Coin, Mist Browser, Simulator" />
+  <title>Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin</title>
+  <meta name="description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser from 2015." />
+  <meta name="keywords" content="MistCoin, Blockchain, ERC20, Ethereum, Mist Browser, Simulator, token deployment, Ethereum history" />
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
   <!-- Canonical Tag -->
   <link rel="canonical" href="https://www.mistcoineth.com/mist-simulator" />
-  
+
   <!-- Open Graph Meta Tags -->
-  <meta name="twitter:title" content="MistCoin | Mist Browser Simulator" />
-  <meta name="twitter:description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
+  <meta property="og:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
+  <meta property="og:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
   <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
   <meta property="og:url" content="https://www.mistcoineth.com/mist-simulator" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Meta Tags -->
-  <meta name="twitter:title" content="MistCoin - Mist Browser Simulator" />
+  <meta name="twitter:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
   <meta name="twitter:site" content="@MistCoinEth" />
-  <meta name="twitter:description" content="Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!" />
-  <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" /> 
-  <meta name="twitter:image:alt" content="MistCoin">
+  <meta name="twitter:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
+  <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
+  <meta name="twitter:image:alt" content="MistCoin Mist Browser Simulator">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@MistCoinEth" /> 
 
@@ -476,8 +477,8 @@
         <div class="container position-relative d-flex align-items-center justify-content-between">
     
           <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
-            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="">
-            <h1 class="sitename">MistCoin</h1>
+            <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="MistCoin logo">
+            <span class="sitename">MistCoin</span>
           </a>
     
           <nav id="navmenu" class="navmenu">
@@ -545,7 +546,7 @@
         <div class="container footer-top">
           <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
-                <a href="{{ url_for('static', filename='index.html') }}" class="logo d-flex align-items-center">
+                <a href="/" class="logo d-flex align-items-center">
                     <span class="sitename">MistCoin</span>
                   </a>
               <div class="social-links d-flex mt-4">
@@ -852,6 +853,13 @@
                       <span style='display:inline-flex;width:44px;height:52px;background:#00aee9;align-items:center;justify-content:center;'><span style='color:#fff;font-size:2rem;line-height:1;'>+</span></span>
                       <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>ADD TOKEN</span>
                     </button>
+                    <div style="margin-top:32px; padding:24px; background:#f0f4ff; border-radius:12px; border:1.5px solid #627EEA22; text-align:center;">
+                      <p style="font-size:1.1rem; color:#444; margin-bottom:16px; font-weight:400;">You just experienced how MistCoin was born in 2015.<br>The real MistCoin is still trading today.</p>
+                      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                        <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#627EEA; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none; transition:background 0.18s;">Buy $WMC</a>
+                        <a href="https://twitter.com/intent/tweet?text=I%20just%20deployed%20a%20token%20using%20the%202015%20Mist%20Browser%20Simulator%20%F0%9F%94%AE%0A%0AExperience%20how%20MistCoin%20and%20ERC-20%20were%20born%3A%20https%3A%2F%2Fwww.mistcoineth.com%2Fmist-simulator%0A%0A%40MistCoinEth" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#000; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none; transition:background 0.18s;"><span style="margin-right:6px;">&#120143;</span> Share on X</a>
+                      </div>
+                    </div>
                   </div>
                 `;
               }, 400);
