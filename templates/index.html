@@ -138,7 +138,7 @@
     <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
     <!-- Vendor CSS Files -->
     <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -177,11 +177,11 @@
       </nav>
 
       <div class="header-social-links">
-        <a href="https://x.com/MistCoinEth" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
-        <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
-        <a href="https://t.me/MistCoinEth" class="telegram"><i class="bi bi-telegram"></i></a>
-        <a href="https://discord.gg/XzGctWjS7z" class="discord"><i class="bi bi-discord"></i></a>
+        <a href="https://x.com/MistCoinEth" class="twitter" aria-label="Follow MistCoin on X"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky"><i class="bi bi-twitter"></i></a>
+        <a href="https://warpcast.com/mistcoin" aria-label="Follow MistCoin on Warpcast"><i class="bi bi-rainbow"></i></a>
+        <a href="https://t.me/MistCoinEth" class="telegram" aria-label="Join MistCoin Telegram"><i class="bi bi-telegram"></i></a>
+        <a href="https://discord.gg/XzGctWjS7z" class="discord" aria-label="Join MistCoin Discord"><i class="bi bi-discord"></i></a>
       </div>
 
     </div>
@@ -193,7 +193,7 @@
     <section id="hero" class="hero section">
 
       <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="MistCoin logo">
+        <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="MistCoin logo" width="300" height="345">
         <div class="hero-date">November 3, 2015</div>
         <h1>MistCoin: Deployed by <span>Ethereum</span>. Before ERC-20 Existed.</h1>
         <p>The Mist team deployed MistCoin, the prototype that led to the ERC-20 token standard. Every token on Ethereum traces back to this moment.</p>
@@ -282,7 +282,7 @@
                       </span>
                   </li>
                   <li>
-                      <span><strong>💠 Circulating Supply:</strong> ~407,000 MistCoin available in active wallets and trading platforms.
+                      <span><strong>💠 Circulating Supply:</strong> ~400,000 MistCoin available in active wallets and trading platforms.
                           <a href="https://www.coingecko.com/en/coins/wrapped-mistcoin">[Source]</a>
                       </span>
                   </li>
@@ -397,6 +397,35 @@
     
     <!-- /End Contract Section -->
 
+    <!-- Interactive Tools CTA Section -->
+    <section id="tools" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Explore</h2>
+        <p>Interactive tools to experience Ethereum history firsthand.</p>
+      </div>
+
+      <div class="container">
+        <div class="row g-4" data-aos="fade-up">
+          <div class="col-md-6">
+            <div class="tool-card">
+              <div class="tool-card-icon"><i class="bi bi-search"></i></div>
+              <h3>Token Origin Checker</h3>
+              <p>Discover the origin of any ERC-20 token and compare it to MistCoin — the one that started it all.</p>
+              <a href="/origin-checker" class="btn-get-started">Try the Origin Checker <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tool-card">
+              <div class="tool-card-icon"><i class="bi bi-pc-display"></i></div>
+              <h3>Mist Simulator</h3>
+              <p>Experience what it felt like to deploy the first standard token using the Ethereum Mist browser in 2015.</p>
+              <a href="/mist-simulator" class="btn-get-started">Launch the Simulator <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="features section">
 
@@ -492,7 +521,7 @@
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
             <span><a href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7">Nov. 3, 2015</a></span>
             <h4>ERC-20 is Born</h4>
-            <p>Fabian Vogelsteller, Alex Vande de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
+            <p>Fabian Vogelsteller, Alex Van de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
@@ -533,12 +562,14 @@
   </div>
 
   <div class="container d-flex justify-content-center" data-aos="fade-up">
-    <iframe 
-      src="https://dexscreener.com/ethereum/0xf44876dbfa10609fcdd68cb4122c3a6e1d4acd8f?embed=1" 
-      frameborder="0" 
-      width="100%" 
-      height="480" 
-      style="border-radius: 10px;" 
+    <iframe
+      src="https://dexscreener.com/ethereum/0xf44876dbfa10609fcdd68cb4122c3a6e1d4acd8f?embed=1"
+      frameborder="0"
+      width="100%"
+      height="480"
+      style="border-radius: 10px;"
+      loading="lazy"
+      title="DexScreener live chart for Wrapped MistCoin (WMC)"
       allowfullscreen>
     </iframe>
   </div>
@@ -546,36 +577,39 @@
 
 <!-- End Chart Section -->
 
-<!-- Interactive Tools CTA Section -->
-<section id="tools" class="section">
+<!-- Why Own MistCoin Section -->
+<section id="why-own" class="section">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Explore</h2>
-    <p>Interactive tools to experience Ethereum history firsthand.</p>
+    <h2>Why Own MistCoin?</h2>
+    <p>More than a token — a piece of blockchain history.</p>
   </div>
 
   <div class="container">
     <div class="row g-4" data-aos="fade-up">
-      <div class="col-md-6">
-        <div class="tool-card">
-          <div class="tool-card-icon"><i class="bi bi-search"></i></div>
-          <h3>Token Origin Checker</h3>
-          <p>Discover the origin of any ERC-20 token and compare it to MistCoin — the one that started it all.</p>
-          <a href="/origin-checker" class="btn-get-started">Try the Origin Checker <i class="bi bi-arrow-right"></i></a>
+      <div class="col-md-4">
+        <div class="text-center p-3">
+          <i class="bi bi-gem" style="font-size: 2.5rem; color: #627EEA;"></i>
+          <h5 class="mt-3">Historical Significance</h5>
+          <p>The first ERC-20 prototype ever deployed. Every token on Ethereum traces back to this code.</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tool-card">
-          <div class="tool-card-icon"><i class="bi bi-pc-display"></i></div>
-          <h3>Mist Simulator</h3>
-          <p>Experience what it felt like to deploy the first standard token using the Ethereum Mist browser in 2015.</p>
-          <a href="/mist-simulator" class="btn-get-started">Launch the Simulator <i class="bi bi-arrow-right"></i></a>
+      <div class="col-md-4">
+        <div class="text-center p-3">
+          <i class="bi bi-lock" style="font-size: 2.5rem; color: #627EEA;"></i>
+          <h5 class="mt-3">Scarce Supply</h5>
+          <p>Only ~400,000 circulating from a 1M total supply. Liquidity locked until 2115.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center p-3">
+          <i class="bi bi-people" style="font-size: 2.5rem; color: #627EEA;"></i>
+          <h5 class="mt-3">Creator Aligned</h5>
+          <p>Fabian Vogelsteller, the creator of ERC-20 itself, actively supports MistCoin.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Start Buy Section -->
 
     <!-- Buy Section -->
 <section id="buy" class="section bg-light">
@@ -593,7 +627,7 @@
         <p class="text-muted">Trade $WMC on Ethereum mainnet</p>
         <ul class="list-unstyled mb-3">
           <li><i class="bi bi-check-circle me-2 text-success"></i> 1,000,000 Total Supply</li>
-          <li><i class="bi bi-check-circle me-2 text-success"></i> 457,183 Circulating</li>
+          <li><i class="bi bi-check-circle me-2 text-success"></i> ~400,000 Circulating</li>
           <li><i class="bi bi-check-circle me-2 text-success"></i> 0% Tax</li>
           <li><i class="bi bi-check-circle me-2 text-success"></i> Thick, Locked LP</li>
         </ul>
@@ -641,8 +675,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Wise words from folks on social media.</p>
+        <h2>In Their Own Words</h2>
+        <p>What the builders and creators have to say about MistCoin.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -682,7 +716,7 @@
                   <span>The first ERC20 I did was MistCoin a fun creation to test tokens in the Ethereum Wallet. Right after somebody created "bitcoin" 🙀 I still own some super valuable MistCoin 😜</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
                 <h4>MistCoin Creator</h4>
               </div>
@@ -695,7 +729,7 @@
                   <span>This is hilarious. MistCoin was a test coin we deployed for fun and gave away on Reddit to test our token implementation. And since fabian had just wrote the spec, it became the first erc20 compliant token.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url_for('static', filename='assets/img/team/avsa.jpg') }}" class="testimonial-img" alt="">
+                <img src="{{ url_for('static', filename='assets/img/team/avsa.jpg') }}" class="testimonial-img" alt="Alex Van de Sande">
                 <h3>Alex Van de Sande</h3>
                 <h4>Ethereum Foundation Alumni & Mist Developer</h4>
               </div>
@@ -708,7 +742,7 @@
                   <span>$Mist certainly has some historical value, as it marked the beginning of the wave of tokens on Ethereum and the rest of the Blockchain space.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
                 <h4>MistCoin Creator</h4>
               </div>
@@ -721,7 +755,7 @@
                   <span>I just submitted a ticket to @etherscan about #MistCoin to add the tag "First ERC20 token". While doing that I realised, I actually deployed it 16 days before submitting the ERC proposal😁, as I used it to test the standard idea.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="">
+                <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
                 <h4>MistCoin Creator</h4>
               </div>
@@ -734,7 +768,7 @@
                   <span>We need to bring back Mist.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="testimonial-img" alt="">
+                <img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="testimonial-img" alt="Vitalik Buterin">
                 <h3>Vitalik Buterin</h3>
                 <h4>Founder of Ethereum</h4>
               </div>
@@ -1136,11 +1170,11 @@
               </a>
             <p>The first ERC-20 token prototype, deployed by the Ethereum team on November 3, 2015.</p>
           <div class="social-links d-flex mt-4">
-            <a href="https://x.com/MistCoinEth"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://bsky.app/profile/mistcoin.bsky.social"><i class="bi bi-twitter"></i></a>
-            <a href="https://warpcast.com/mistcoin"><i class="bi bi-rainbow"></i></a>
-            <a href="https://t.me/MistCoinEth"><i class="bi bi-telegram"></i></a>
-            <a href="https://discord.gg/XzGctWjS7z"><i class="bi bi-discord"></i></a>
+            <a href="https://x.com/MistCoinEth" aria-label="Follow MistCoin on X"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky"><i class="bi bi-twitter"></i></a>
+            <a href="https://warpcast.com/mistcoin" aria-label="Follow MistCoin on Warpcast"><i class="bi bi-rainbow"></i></a>
+            <a href="https://t.me/MistCoinEth" aria-label="Join MistCoin Telegram"><i class="bi bi-telegram"></i></a>
+            <a href="https://discord.gg/XzGctWjS7z" aria-label="Join MistCoin Discord"><i class="bi bi-discord"></i></a>
           </div>
         </div>
 
@@ -1198,14 +1232,25 @@
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
   <script>
-    // Day counter since MistCoin deployment
+    // Day counter since MistCoin deployment (animated count-up)
     (function() {
       const deployDate = new Date('2015-11-03T00:00:00Z');
       const now = new Date();
-      const days = Math.floor((now - deployDate) / (1000 * 60 * 60 * 24));
+      const targetDays = Math.floor((now - deployDate) / (1000 * 60 * 60 * 24));
       const counter = document.getElementById('day-counter');
       if (counter) {
-        counter.textContent = days.toLocaleString() + ' days ago, Ethereum history was made';
+        var current = 0;
+        var steps = 60;
+        var increment = targetDays / steps;
+        var interval = 2000 / steps;
+        var timer = setInterval(function() {
+          current += increment;
+          if (current >= targetDays) {
+            current = targetDays;
+            clearInterval(timer);
+          }
+          counter.textContent = Math.floor(current).toLocaleString() + ' days ago, Ethereum history was made';
+        }, interval);
       }
     })();
 
