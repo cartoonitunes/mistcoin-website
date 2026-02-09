@@ -72,3 +72,4 @@ venv.bak/
 
 # Ignore static asset cache
 static/assets/vendor/**/node_modules/ 
+.vercel
