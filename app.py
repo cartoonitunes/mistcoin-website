@@ -40,8 +40,12 @@ MISTCOIN_SUPPLY = 1_000_000
 MISTCOIN_TIMESTAMP = 1446552343
 
 ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
-BASESCAN_API_KEY = os.getenv("BASESCAN_API_KEY")
+BASESCAN_API_KEY = os.getenv("BASESCAN_API_KEY")  # legacy, V2 uses single key
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
+
+# Etherscan V2 unified API — single endpoint + key for all chains
+ETHERSCAN_V2_BASE = "https://api.etherscan.io/v2/api"
+CHAIN_IDS = {"eth": 1, "base": 8453}
 
 # Simple in-memory cache for MistCoin price (5 min TTL)
 _mist_price_cache = {"price": None, "expires": 0}
@@ -83,50 +87,38 @@ def origin_checker():
         if not is_eth_address(contract):
             return render_template('origin.html', error="Please enter a valid contract address.")
 
-        # Step 1: Get deployment timestamp via getcontractcreation
+        # Step 1: Get deployment timestamp via getcontractcreation (Etherscan V2)
         deployed_ts = None
         deployed_date = None
         origin = None
         try:
-            if chain == 'eth':
-                api_url = (
-                    f"https://api.etherscan.io/api"
-                    f"?module=contract&action=getcontractcreation"
-                    f"&contractaddresses={contract}"
-                    f"&apikey={ETHERSCAN_API_KEY}"
-                )
-            elif chain == 'base':
-                api_url = (
-                    f"https://api.basescan.org/api"
-                    f"?module=contract&action=getcontractcreation"
-                    f"&contractaddresses={contract}"
-                    f"&apikey={BASESCAN_API_KEY}"
-                )
-            else:
+            chain_id = CHAIN_IDS.get(chain)
+            if not chain_id:
                 return render_template('origin.html', error="Unsupported chain.")
+
+            api_key = ETHERSCAN_API_KEY
+
+            api_url = (
+                f"{ETHERSCAN_V2_BASE}"
+                f"?chainid={chain_id}"
+                f"&module=contract&action=getcontractcreation"
+                f"&contractaddresses={contract}"
+                f"&apikey={api_key}"
+            )
 
             tx_resp = requests.get(api_url, timeout=10).json()
 
             if tx_resp.get("status") != "1" or not tx_resp.get("result"):
                 # Fallback to txlist with pagination
-                if chain == 'eth':
-                    fallback_url = (
-                        f"https://api.etherscan.io/api"
-                        f"?module=account&action=txlist"
-                        f"&address={contract}"
-                        f"&startblock=0&endblock=99999999"
-                        f"&page=1&offset=1"
-                        f"&sort=asc&apikey={ETHERSCAN_API_KEY}"
-                    )
-                else:
-                    fallback_url = (
-                        f"https://api.basescan.org/api"
-                        f"?module=account&action=txlist"
-                        f"&address={contract}"
-                        f"&startblock=0&endblock=99999999"
-                        f"&page=1&offset=1"
-                        f"&sort=asc&apikey={BASESCAN_API_KEY}"
-                    )
+                fallback_url = (
+                    f"{ETHERSCAN_V2_BASE}"
+                    f"?chainid={chain_id}"
+                    f"&module=account&action=txlist"
+                    f"&address={contract}"
+                    f"&startblock=0&endblock=99999999"
+                    f"&page=1&offset=1"
+                    f"&sort=asc&apikey={api_key}"
+                )
                 fb_resp = requests.get(fallback_url, timeout=10).json()
                 if fb_resp.get("status") != "1" or not fb_resp.get("result"):
                     return render_template('origin.html', error="Could not find deployment transaction. Make sure this is a contract address.")
@@ -135,32 +127,24 @@ def origin_checker():
                 # Get the creation tx hash, then fetch its timestamp
                 creation_tx = tx_resp["result"][0].get("txHash")
                 if creation_tx:
-                    if chain == 'eth':
-                        tx_detail_url = (
-                            f"https://api.etherscan.io/api"
-                            f"?module=proxy&action=eth_getTransactionByHash"
-                            f"&txhash={creation_tx}"
-                            f"&apikey={ETHERSCAN_API_KEY}"
-                        )
-                        block_url_base = "https://api.etherscan.io/api"
-                    else:
-                        tx_detail_url = (
-                            f"https://api.basescan.org/api"
-                            f"?module=proxy&action=eth_getTransactionByHash"
-                            f"&txhash={creation_tx}"
-                            f"&apikey={BASESCAN_API_KEY}"
-                        )
-                        block_url_base = "https://api.basescan.org/api"
+                    tx_detail_url = (
+                        f"{ETHERSCAN_V2_BASE}"
+                        f"?chainid={chain_id}"
+                        f"&module=proxy&action=eth_getTransactionByHash"
+                        f"&txhash={creation_tx}"
+                        f"&apikey={api_key}"
+                    )
 
                     tx_detail = requests.get(tx_detail_url, timeout=10).json()
                     block_hex = tx_detail.get("result", {}).get("blockNumber")
                     if block_hex:
                         block_num = int(block_hex, 16)
                         block_url = (
-                            f"{block_url_base}"
-                            f"?module=block&action=getblockreward"
+                            f"{ETHERSCAN_V2_BASE}"
+                            f"?chainid={chain_id}"
+                            f"&module=block&action=getblockreward"
                             f"&blockno={block_num}"
-                            f"&apikey={ETHERSCAN_API_KEY if chain == 'eth' else BASESCAN_API_KEY}"
+                            f"&apikey={api_key}"
                         )
                         block_resp = requests.get(block_url, timeout=10).json()
                         deployed_ts = int(block_resp.get("result", {}).get("timeStamp", 0))
