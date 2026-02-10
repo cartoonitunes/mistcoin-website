@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if shitcoin %}
+  <title>Shit Browser Simulator — Deploy Shitcoins Like It's 2015 | ShitCoin</title>
+  <meta name="description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. 'Mist' means 'shit' in German." />
+  {% else %}
   <title>Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin</title>
   <meta name="description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser from 2015." />
+  {% endif %}
   <meta name="keywords" content="MistCoin, Blockchain, ERC20, Ethereum, Mist Browser, Simulator, token deployment, Ethereum history" />
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
@@ -12,20 +17,30 @@
   <link rel="canonical" href="https://www.mistcoineth.com/mist-simulator" />
 
   <!-- Open Graph Meta Tags -->
+  {% if shitcoin %}
+  <meta property="og:title" content="Shit Browser Simulator — Deploy Shitcoins Like It's 2015 💩" />
+  <meta property="og:description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. An interactive recreation of the Shit Browser." />
+  {% else %}
   <meta property="og:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
   <meta property="og:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
+  {% endif %}
   <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
-  <meta property="og:url" content="https://www.mistcoineth.com/mist-simulator" />
+  <meta property="og:url" content="https://www.mistcoineth.com/mist-simulator{% if shitcoin %}?shitcoin=true{% endif %}" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Meta Tags -->
+  {% if shitcoin %}
+  <meta name="twitter:title" content="Shit Browser Simulator — Deploy Shitcoins Like It's 2015 💩" />
+  <meta name="twitter:description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. An interactive recreation of the Shit Browser." />
+  {% else %}
   <meta name="twitter:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
-  <meta name="twitter:site" content="@MistCoinEth" />
   <meta name="twitter:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
+  {% endif %}
+  <meta name="twitter:site" content="@MistCoinEth" />
   <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
-  <meta name="twitter:image:alt" content="MistCoin Mist Browser Simulator">
+  <meta name="twitter:image:alt" content="{% if shitcoin %}ShitCoin Shit Browser Simulator{% else %}MistCoin Mist Browser Simulator{% endif %}">
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@MistCoinEth" /> 
+  <meta name="twitter:creator" content="@MistCoinEth" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -70,6 +85,10 @@
 
   <!-- Main CSS File -->
   <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- Shitcoin mode: apply class before paint to prevent flash -->
+  <script>if(localStorage.getItem('mistcoin_shitcoin_mode')==='true'||new URLSearchParams(window.location.search).get('shitcoin')==='true'){document.documentElement.classList.add('shitcoin-mode');localStorage.setItem('mistcoin_shitcoin_mode','true');}</script>
+
   <style>
     .mist-sim-outer, .mist-sim-outer * {
       font-family: 'Open Sans', sans-serif !important;
@@ -477,24 +496,26 @@
     
           <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
             <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="MistCoin logo">
-            <span class="sitename">MistCoin</span>
+            <span class="sitename" data-sc="ShitCoin">MistCoin</span>
           </a>
-    
+
           <nav id="navmenu" class="navmenu">
             <ul>
               <li><a href="/#hero">Home</a></li>
-              <li><a href="/#about">MistCoin</a></li>
+              <li><a href="/#about" data-sc="ShitCoin">MistCoin</a></li>
               <li><a href="/#contract">The Code</a></li>
-              <li><a href="/#timeline">Timeline</a></li>
+              <li><a href="/#timeline" data-sc="Shitline">Timeline</a></li>
               <li><a href="/#chart">The Chart</a></li>
-              <li><a href="/#scrapbook">Scrapbook</a></li>
+              <li><a href="/#scrapbook" data-sc="Crapbook">Scrapbook</a></li>
               <li><a href="/origin-checker">Origin Checker</a></li>
-              <li><a href="/mist-simulator" class="active">Mist Simulator</a></li>
+              <li><a href="/mist-simulator" class="active" data-sc="Shit Simulator">Mist Simulator</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
-    
+
           <div class="header-social-links">
+            <button id="shitcoin-toggle" class="shitcoin-toggle-btn" aria-label="Toggle Shitcoin Mode" title="Toggle Shitcoin Mode"><span class="sc-emoji">&#x1F4A9;</span></button>
+            <a href="#" id="shitcoin-share" class="shitcoin-share-btn" title="Copy shitcoin link">Share 💩</a>
             <a href="https://x.com/MistCoinEth" class="twitter" target="_blank" aria-label="Follow MistCoin on X"><i class="bi bi-twitter-x"></i></a>
             <a href="https://bsky.app/profile/mistcoin.bsky.social" target="_blank" aria-label="Follow MistCoin on Bluesky"><i class="bi bi-twitter"></i></a>
             <a href="https://warpcast.com/mistcoin" target="_blank" aria-label="Follow MistCoin on Warpcast"><i class="bi bi-rainbow"></i></a>
@@ -506,8 +527,8 @@
       </header>
       <main class="main">
       <div class="mist-sim-outer">
-        <h1 style="margin-bottom: 0.5em; font-size: 2.1rem; font-weight: 800; text-align:center; width:100%;">Mist Browser Simulator</h1>
-        <p style="max-width: 600px; text-align: center; margin-bottom: 2em; color: #444;">A window into the past: Experience how MistCoin and the first ERC-20 tokens were born in the original Ethereum Wallet dApp within the Mist Browser. <br>Inspired by <a href='https://github.com/ethereum/mist/releases/tag/0.3.5' target='_blank'>Wallet 0.3.5 (Beta 3)</a> and <a href='https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency' target='_blank'>this Ethereum Foundation blog post</a>.</p>
+        <h1 style="margin-bottom: 0.5em; font-size: 2.1rem; font-weight: 800; text-align:center; width:100%;" data-sc="Shit Browser Simulator">Mist Browser Simulator</h1>
+        <p style="max-width: 600px; text-align: center; margin-bottom: 2em; color: #444;" data-sc="A window into the past: Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet dApp within the Shit Browser." data-sc-html="true">A window into the past: Experience how MistCoin and the first ERC-20 tokens were born in the original Ethereum Wallet dApp within the Mist Browser. <br>Inspired by <a href='https://github.com/ethereum/mist/releases/tag/0.3.5' target='_blank'>Wallet 0.3.5 (Beta 3)</a> and <a href='https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency' target='_blank'>this Ethereum Foundation blog post</a>.</p>
         <div class="mist-sim-window">
           <div class="mist-sim-header" style="justify-content: center;">
             <div class="window-controls" style="position: absolute; left: 32px;">
@@ -540,8 +561,8 @@
           </div>
         </div>
         <div class="text-center mt-3 mb-2">
-          <p style="color: #666;">Curious how your favorite token compares to MistCoin?</p>
-          <a href="/origin-checker" style="display:inline-block; background:#627EEA; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none;"><i class="bi bi-search" style="margin-right:8px;"></i>Try the Origin Checker</a>
+          <p style="color: #666;" data-sc="Curious how your favorite shitcoin compares to the original?">Curious how your favorite token compares to MistCoin?</p>
+          <a href="/origin-checker" style="display:inline-block; background:#627EEA; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none;" data-sc="Try the Shit Checker" data-sc-html="true"><i class="bi bi-search" style="margin-right:8px;"></i>Try the Origin Checker</a>
         </div>
       </div>
       </main>
@@ -550,7 +571,7 @@
           <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="/" class="logo d-flex align-items-center">
-                    <span class="sitename">MistCoin</span>
+                    <span class="sitename" data-sc="ShitCoin">MistCoin</span>
                   </a>
               <div class="social-links d-flex mt-4">
                 <a href="https://x.com/MistCoinEth" target="_blank" aria-label="Follow MistCoin on X"><i class="bi bi-twitter-x"></i></a>
@@ -596,9 +617,9 @@
 <span style="color: #d73a49;">event</span> Transfer(address indexed from, address indexed to, uint256 value);
 
 /* Initializes contract with initial supply tokens to the creator of the contract */
-<span style="color: #6f42c1;">function</span> <span style="color: #6f42c1;">MyToken</span>(uint256 _supply, string _name, string _symbol, uint8 _decimals) {
+<span style="color: #8250df;">function</span> <span style="color: #8250df;">MyToken</span>(uint256 _supply, string _name, string _symbol, uint8 _decimals) {
     /* if supply not given then generate 1 million of the smallest unit of the token */
-    <span style="color: #d73a49;">if</span> (_supply == <span style="color: #005cc5;">0</span>) _supply = <span style="color: #005cc5;">1000000</span>;
+    <span style="color: #d73a49;">if</span> (_supply == <span style="color: #0550ae;">0</span>) _supply = <span style="color: #0550ae;">1000000</span>;
     
     /* Unless you add other functions these variables will never change */
     balanceOf[msg.sender] = _supply;
@@ -610,7 +631,7 @@
 }
 
 /* Send coins */
-<span style="color: #6f42c1;">function</span> <span style="color: #6f42c1;">transfer</span>(address _to, uint256 _value) {
+<span style="color: #8250df;">function</span> <span style="color: #8250df;">transfer</span>(address _to, uint256 _value) {
     /* if the sender doenst have enough balance then stop */
     <span style="color: #d73a49;">if</span> (balanceOf[msg.sender] &lt; _value) <span style="color: #d73a49;">throw</span>;
     <span style="color: #d73a49;">if</span> (balanceOf[_to] + _value &lt; balanceOf[_to]) <span style="color: #d73a49;">throw</span>;
@@ -632,9 +653,9 @@
               <label for="supply">_supply - 256 bits unsigned integer</label>
               <input type="number" id="supply" name="supply" value="1000000" min="1" required>
               <label for="name">_name - String</label>
-              <input type="text" id="name" name="name" value="MistCoin" required>
+              <input type="text" id="name" name="name" value="${document.body.classList.contains('shitcoin-mode') ? 'ShitCoin' : 'MistCoin'}" required>
               <label for="symbol">_symbol - String</label>
-              <input type="text" id="symbol" name="symbol" value="MC" maxlength="8" required>
+              <input type="text" id="symbol" name="symbol" value="${document.body.classList.contains('shitcoin-mode') ? 'SC' : 'MC'}" maxlength="8" required>
               <label for="decimals">_decimals - 8 bits unsigned integer</label>
               <input type="number" id="decimals" name="decimals" value="2" min="0" max="18" required>
             </form>
@@ -859,9 +880,9 @@
                       <span style='font-size:1.08rem; font-weight:700; color:#00aee9; letter-spacing:0.5px;'>ADD TOKEN</span>
                     </button>
                     <div style="margin-top:32px; padding:24px; background:#f0f4ff; border-radius:12px; border:1.5px solid #627EEA22; text-align:center;">
-                      <p style="font-size:1.1rem; color:#444; margin-bottom:16px; font-weight:400;">You just experienced how MistCoin was born in 2015.<br>The real MistCoin is still trading today.</p>
+                      <p style="font-size:1.1rem; color:#444; margin-bottom:16px; font-weight:400;">${document.body.classList.contains('shitcoin-mode') ? 'You just experienced how the first shitcoin was born in 2015.<br>The real ShitCoin is still trading today.' : 'You just experienced how MistCoin was born in 2015.<br>The real MistCoin is still trading today.'}</p>
                       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                        <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#627EEA; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none; transition:background 0.18s;">Buy $WMC</a>
+                        <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#627EEA; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none; transition:background 0.18s;">${document.body.classList.contains('shitcoin-mode') ? 'Buy $WSC' : 'Buy $WMC'}</a>
                         <a href="https://twitter.com/intent/tweet?text=I%20just%20deployed%20a%20token%20using%20the%202015%20Mist%20Browser%20Simulator%20%F0%9F%94%AE%0A%0AExperience%20how%20MistCoin%20and%20ERC-20%20were%20born%3A%20https%3A%2F%2Fwww.mistcoineth.com%2Fmist-simulator%0A%0A%40MistCoinEth" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#000; color:#fff; font-weight:700; border:none; border-radius:6px; padding:12px 24px; font-size:1.05rem; text-decoration:none; transition:background 0.18s;"><span style="margin-right:6px;">&#120143;</span> Share on X</a>
                       </div>
                     </div>
@@ -881,5 +902,9 @@
       // (call the same function or code that renders the initial state)
     });
   </script>
+
+  <!-- Shitcoin Mode -->
+  <script src="{{ url_for('static', filename='assets/js/shitcoin-mode.js') }}"></script>
+
 </body>
 </html>
