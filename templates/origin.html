@@ -3,29 +3,44 @@
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        {% if shitcoin %}
+        <title>Shitcoin Origin Checker — Compare Any Shitcoin to the First Shitcoin | ShitCoin</title>
+        <meta name="description" content="Discover the origin of any shitcoin and compare it to ShitCoin — the first literal shitcoin deployed on Ethereum in 2015. 'Mist' means 'shit' in German." />
+        {% else %}
         <title>Token Origin Checker — Compare Any ERC-20 to the First Token on Ethereum | MistCoin</title>
         <meta name="description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the first token standard prototype deployed by Ethereum in 2015." />
+        {% endif %}
         <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="keywords" content="MistCoin, ERC-20 origin, token checker, Ethereum history, blockchain origin, WMC, token comparison" />
-    
+
         <!-- Canonical Tag -->
         <link rel="canonical" href="https://www.mistcoineth.com/origin-checker" />
-        
+
         <!-- Open Graph Meta Tags -->
+        {% if shitcoin %}
+        <meta property="og:title" content="ShitCoin | Shitcoin Origin Checker 💩" />
+        <meta property="og:description" content="Discover the origin of any shitcoin and compare it to the Original Shit — deployed by Ethereum in 2015." />
+        {% else %}
         <meta property="og:title" content="MistCoin | Token Origin Checker" />
         <meta property="og:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the historic first token standard prototype." />
+        {% endif %}
         <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
-        <meta property="og:url" content="https://www.mistcoineth.com/origin-checker" />
+        <meta property="og:url" content="https://www.mistcoineth.com/origin-checker{% if shitcoin %}?shitcoin=true{% endif %}" />
         <meta property="og:type" content="website" />
 
         <!-- Twitter Meta Tags -->
+        {% if shitcoin %}
+        <meta name="twitter:title" content="ShitCoin | Shitcoin Origin Checker 💩" />
+        <meta name="twitter:description" content="Discover the origin of any shitcoin and compare it to the Original Shit — deployed by Ethereum in 2015." />
+        {% else %}
         <meta name="twitter:title" content="MistCoin | Token Origin Checker" />
-        <meta name="twitter:site" content="@MistCoinEth" />
         <meta name="twitter:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the historic first token standard prototype." />
-        <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" /> 
-        <meta name="twitter:image:alt" content="MistCoin">
+        {% endif %}
+        <meta name="twitter:site" content="@MistCoinEth" />
+        <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
+        <meta name="twitter:image:alt" content="{% if shitcoin %}ShitCoin{% else %}MistCoin{% endif %}">
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@MistCoinEth" /> 
+        <meta name="twitter:creator" content="@MistCoinEth" />
     
         <!-- Structured Data -->
         <script type="application/ld+json">
@@ -62,7 +77,10 @@
       
         <!-- Main CSS File -->
         <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
-      
+
+        <!-- Shitcoin mode: apply class before paint to prevent flash -->
+        <script>if(localStorage.getItem('mistcoin_shitcoin_mode')==='true'||new URLSearchParams(window.location.search).get('shitcoin')==='true'){document.documentElement.classList.add('shitcoin-mode');localStorage.setItem('mistcoin_shitcoin_mode','true');}</script>
+
       </head>
       
 <body class="index-page">
@@ -71,24 +89,26 @@
     
           <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
             <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="MistCoin logo">
-            <span class="sitename">MistCoin</span>
+            <span class="sitename" data-sc="ShitCoin">MistCoin</span>
           </a>
-    
+
           <nav id="navmenu" class="navmenu">
             <ul>
               <li><a href="/#hero">Home</a></li>
-              <li><a href="/#about">MistCoin</a></li>
+              <li><a href="/#about" data-sc="ShitCoin">MistCoin</a></li>
               <li><a href="/#contract">The Code</a></li>
-              <li><a href="/#timeline">Timeline</a></li>
+              <li><a href="/#timeline" data-sc="Shitline">Timeline</a></li>
               <li><a href="/#chart">The Chart</a></li>
-              <li><a href="/#scrapbook">Scrapbook</a></li>
+              <li><a href="/#scrapbook" data-sc="Crapbook">Scrapbook</a></li>
               <li><a href="/origin-checker" class="active">Origin Checker</a></li>
-              <li><a href="/mist-simulator">Mist Simulator</a></li>
+              <li><a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
-    
+
           <div class="header-social-links">
+            <button id="shitcoin-toggle" class="shitcoin-toggle-btn" aria-label="Toggle Shitcoin Mode" title="Toggle Shitcoin Mode"><span class="sc-emoji">&#x1F4A9;</span></button>
+            <a href="#" id="shitcoin-share" class="shitcoin-share-btn" title="Copy shitcoin link">Share 💩</a>
             <a href="https://x.com/MistCoinEth" class="twitter" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
             <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
             <a href="https://warpcast.com/mistcoin" aria-label="Follow MistCoin on Warpcast" target="_blank"><i class="bi bi-rainbow"></i></a>
@@ -104,8 +124,8 @@
       <section id="origin-check" class="py-5">
         <div class="container" data-aos="fade-up">
           <div class="section-header text-center">
-            <h1>Token Origin Checker</h1>
-            <p class="lead">Discover the origin of your favorite token and compare it to MistCoin.</p>
+            <h1 data-sc="Shitcoin Origin Checker">Token Origin Checker</h1>
+            <p class="lead" data-sc="Discover the origin of your favorite shitcoin and compare it to the Original Shit.">Discover the origin of your favorite token and compare it to MistCoin.</p>
           </div>
       
           <form id="origin-form" action="{{ url_for('origin_checker') }}" method="POST" class="row justify-content-center gy-3" data-aos="fade-up" data-aos-delay="100">
@@ -126,7 +146,7 @@
           </form>
 
           <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="200">
-            <p class="text-muted mb-2">Popular tokens to compare:</p>
+            <p class="text-muted mb-2" data-sc="Popular shitcoins to compare:">Popular tokens to compare:</p>
             <div class="d-flex flex-wrap justify-content-center gap-2">
               <a href="/origin-checker?contract=0xdac17f958d2ee523a2206206994597c13d831ec7&chain=eth" class="btn btn-sm btn-outline-secondary">USDT</a>
               <a href="/origin-checker?contract=0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE&chain=eth" class="btn btn-sm btn-outline-secondary">SHIB</a>
@@ -165,16 +185,16 @@
                   <div class="mb-2">Market Cap: <strong>${{ "{:,.0f}".format(market_cap) }}</strong></div>
                   {% endif %}
                   <div class="mb-2"><u>Origin</u>: <strong>{{ origin }}</strong></div>
-                  <div class="mb-2">{{ days_diff }} days {{ 'after' if origin == 'MistCoin $WMC' else 'before' }} MistCoin's deployment</div>
+                  <div class="mb-2" data-sc="{{ days_diff }} days {{ 'after' if origin == 'MistCoin $WMC' else 'before' }} ShitCoin's deployment" data-sc-html="true">{{ days_diff }} days {{ 'after' if origin == 'MistCoin $WMC' else 'before' }} MistCoin's deployment</div>
                   {% if cg_available and mistcoin_price %}
-                  <div class="mb-2">MistCoin Price: <strong>${{ "{:,.2f}".format(mistcoin_price) }}</strong></div>
+                  <div class="mb-2" data-sc="ShitCoin Price: ${{ '{:,.2f}'.format(mistcoin_price) }}" data-sc-html="true">MistCoin Price: <strong>${{ "{:,.2f}".format(mistcoin_price) }}</strong></div>
                   {% endif %}
                   {% if cg_available and new_mistcoin_price %}
-                  <div class="mb-2">MistCoin at {{ name }}'s Market Cap: <strong>${{ "{:,.2f}".format(new_mistcoin_price) }}</strong> &mdash;
+                  <div class="mb-2" data-sc="ShitCoin at {{ name }}'s Market Cap: ${{ '{:,.2f}'.format(new_mistcoin_price) }} — Up {{ '{:,.2f}'.format(percent_up) }}%" data-sc-html="true">MistCoin at {{ name }}'s Market Cap: <strong>${{ "{:,.2f}".format(new_mistcoin_price) }}</strong> &mdash;
                     Up <strong class="text-success">{{ "{:,.2f}".format(percent_up) }}%</strong>
                   </div>
                   {% endif %}
-                  <div class="mb-2"><i>MistCoin was deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard.</i></div>
+                  <div class="mb-2"><i data-sc="ShitCoin was deployed on 2015-11-03 by the Ethereum team, accidentally creating the first shitcoin.">MistCoin was deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard.</i></div>
                   {% set token_label = name if cg_available else contract[:10] ~ '...' %}
                   {% set token_symbol = symbol if cg_available else '' %}
                   {% set share_url = 'https://www.mistcoineth.com/origin-checker?contract=' ~ contract ~ '&chain=' ~ chain %}
@@ -189,8 +209,8 @@
           {% endif %}
 
           <div class="text-center mt-4 mb-3">
-            <p class="text-muted">Want to experience deploying a token like it's 2015?</p>
-            <a href="/mist-simulator" class="btn btn-outline-primary"><i class="bi bi-pc-display me-2"></i>Try the Mist Simulator</a>
+            <p class="text-muted" data-sc="Want to experience deploying a shitcoin like it's 2015?">Want to experience deploying a token like it's 2015?</p>
+            <a href="/mist-simulator" class="btn btn-outline-primary" data-sc="Try the Shit Simulator" data-sc-html="true"><i class="bi bi-pc-display me-2"></i>Try the Mist Simulator</a>
           </div>
 
         </div>
@@ -202,9 +222,9 @@
           <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="/" class="logo d-flex align-items-center">
-                    <span class="sitename">MistCoin</span>
+                    <span class="sitename" data-sc="ShitCoin">MistCoin</span>
                   </a>
-                <p>The first standard token on Ethereum, deployed on November 3, 2015.</p>
+                <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The first standard token on Ethereum, deployed on November 3, 2015.</p>
               <div class="social-links d-flex mt-4">
                 <a href="https://x.com/MistCoinEth" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
                 <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -217,10 +237,10 @@
             <div class="col-lg-4 col-md-6 footer-links">
               <h4>Quick Links</h4>
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="/#about">About MistCoin</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/#about" data-sc="About ShitCoin">About MistCoin</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="/#contract">The Code</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="/origin-checker">Origin Checker</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator">Mist Simulator</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
               </ul>
             </div>
 
@@ -228,7 +248,7 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-          <p>The first standard token on Ethereum. Deployed November 3, 2015.</p>
+          <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">The first standard token on Ethereum. Deployed November 3, 2015.</p>
         </div>
 
       </footer>
@@ -285,6 +305,7 @@
           const newResult = doc.getElementById("result-container");
       
           document.getElementById("result-container").innerHTML = newResult.innerHTML;
+          if (typeof window.reapplyShitcoinMode === 'function') window.reapplyShitcoinMode();
           tryAutoSubmitOriginForm();
         } catch (err) {
           console.error("Submission error:", err);
@@ -299,6 +320,9 @@
     });
       
   </script>
-      
+
+  <!-- Shitcoin Mode -->
+  <script src="{{ url_for('static', filename='assets/js/shitcoin-mode.js') }}"></script>
+
 </body>
 </html>

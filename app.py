@@ -73,19 +73,21 @@ def is_eth_address(address):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    shitcoin = request.args.get('shitcoin', '').lower() == 'true'
+    return render_template('index.html', shitcoin=shitcoin)
 
 @app.route('/origin-checker', methods=['GET', 'POST'])
 def origin_checker():
+    shitcoin = request.args.get('shitcoin', '').lower() == 'true' or request.form.get('shitcoin', '').lower() == 'true'
     if request.method == 'POST':
         contract = request.form.get('contract', '').strip().lower()
         chain = request.form.get('chain', 'eth').lower()
 
         if not contract:
-            return render_template('origin.html', error="Please enter a contract address.")
+            return render_template('origin.html', error="Please enter a contract address.", shitcoin=shitcoin)
 
         if not is_eth_address(contract):
-            return render_template('origin.html', error="Please enter a valid contract address.")
+            return render_template('origin.html', error="Please enter a valid contract address.", shitcoin=shitcoin)
 
         # Step 1: Get deployment timestamp via getcontractcreation (Etherscan V2)
         deployed_ts = None
@@ -94,7 +96,7 @@ def origin_checker():
         try:
             chain_id = CHAIN_IDS.get(chain)
             if not chain_id:
-                return render_template('origin.html', error="Unsupported chain.")
+                return render_template('origin.html', error="Unsupported chain.", shitcoin=shitcoin)
 
             api_key = ETHERSCAN_API_KEY
 
@@ -121,7 +123,7 @@ def origin_checker():
                 )
                 fb_resp = requests.get(fallback_url, timeout=10).json()
                 if fb_resp.get("status") != "1" or not fb_resp.get("result"):
-                    return render_template('origin.html', error="Could not find deployment transaction. Make sure this is a contract address.")
+                    return render_template('origin.html', error="Could not find deployment transaction. Make sure this is a contract address.", shitcoin=shitcoin)
                 deployed_ts = int(fb_resp["result"][0]["timeStamp"])
             else:
                 # Get the creation tx hash, then fetch its timestamp
@@ -151,15 +153,15 @@ def origin_checker():
 
                 if not deployed_ts:
                     # Final fallback
-                    return render_template('origin.html', error="Could not determine deployment date.")
+                    return render_template('origin.html', error="Could not determine deployment date.", shitcoin=shitcoin)
 
             deployed_date = datetime.fromtimestamp(deployed_ts, tz=UTC).strftime('%Y-%m-%d')
             origin = "MistCoin $WMC" if deployed_ts > MISTCOIN_TIMESTAMP else "Vitalik Buterin's Standard Docs"
 
         except requests.exceptions.Timeout:
-            return render_template('origin.html', error="Request timed out. Please try again.")
+            return render_template('origin.html', error="Request timed out. Please try again.", shitcoin=shitcoin)
         except Exception:
-            return render_template('origin.html', error="Error fetching deployment data. Please try again.")
+            return render_template('origin.html', error="Error fetching deployment data. Please try again.", shitcoin=shitcoin)
 
         is_wrapped_mistcoin = contract.lower() == MISTCOIN_CONTRACT.lower()
 
@@ -225,17 +227,19 @@ def origin_checker():
             percent_up=round(percent_up, 2) if percent_up is not None else None,
             deployed_date=deployed_date,
             days_diff=days_diff,
-            cg_available=cg_available
+            cg_available=cg_available,
+            shitcoin=shitcoin
         )
 
     # GET: prefill form from query params if present
     contract = request.args.get('contract', '')
     chain = request.args.get('chain', 'eth')
-    return render_template('origin.html', contract=contract, chain=chain)
+    return render_template('origin.html', contract=contract, chain=chain, shitcoin=shitcoin)
 
 @app.route('/mist-simulator')
 def mist_simulator():
-    return render_template('mist_simulator.html')
+    shitcoin = request.args.get('shitcoin', '').lower() == 'true'
+    return render_template('mist_simulator.html', shitcoin=shitcoin)
 
 @app.route('/<path:anything>')
 def catch_all(anything):

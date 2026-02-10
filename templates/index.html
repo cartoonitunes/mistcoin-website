@@ -4,27 +4,42 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    {% if shitcoin %}
+    <title>ShitCoin — The First Literal Shitcoin on Ethereum | Deployed by Ethereum (2015)</title>
+    <meta name="description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. Every shitcoin traces back to this glorious accident." />
+    {% else %}
     <title>MistCoin — The First ERC-20 Token Ever Created | Deployed by Ethereum (2015)</title>
     <meta name="description" content="MistCoin: Deployed Nov 3, 2015 by the co-creators of ERC-20 — 16 days before the standard existed. The most historically significant token on Ethereum." />
+    {% endif %}
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="keywords" content="MistCoin, ERC-20, Ethereum history, first token, blockchain standard, WMC, Fabian Vogelsteller, Vitalik Buterin" />
 
     <!-- Canonical Tag -->
     <link rel="canonical" href="https://www.mistcoineth.com" />
-    
+
     <!-- Open Graph Meta Tags -->
+    {% if shitcoin %}
+    <meta property="og:title" content="ShitCoin — The First Literal Shitcoin on Ethereum 💩" />
+    <meta property="og:description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. Every shitcoin traces back to this glorious accident." />
+    {% else %}
     <meta property="og:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
     <meta property="og:description" content="Deployed by the creator of ERC-20 on November 3, 2015 — 16 days before the standard was proposed. Every standard token on Ethereum traces back to this moment." />
+    {% endif %}
     <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
-    <meta property="og:url" content="https://www.mistcoineth.com" />
+    <meta property="og:url" content="https://www.mistcoineth.com{% if shitcoin %}?shitcoin=true{% endif %}" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Meta Tags -->
+    {% if shitcoin %}
+    <meta name="twitter:title" content="ShitCoin — The First Literal Shitcoin on Ethereum 💩" />
+    <meta name="twitter:description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. Every shitcoin traces back to this glorious accident." />
+    {% else %}
     <meta name="twitter:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
-    <meta name="twitter:site" content="@MistCoinEth" />
     <meta name="twitter:description" content="Deployed by the creator of ERC-20 on November 3, 2015 — 16 days before the standard was proposed. Every standard token on Ethereum traces back to this moment." />
-    <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" /> 
-    <meta name="twitter:image:alt" content="MistCoin">
+    {% endif %}
+    <meta name="twitter:site" content="@MistCoinEth" />
+    <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
+    <meta name="twitter:image:alt" content="{% if shitcoin %}ShitCoin{% else %}MistCoin{% endif %}">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@MistCoinEth" /> 
 
@@ -149,7 +164,10 @@
   
     <!-- Main CSS File -->
     <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
-  
+
+    <!-- Shitcoin mode: apply class before paint to prevent flash -->
+    <script>if(localStorage.getItem('mistcoin_shitcoin_mode')==='true'||new URLSearchParams(window.location.search).get('shitcoin')==='true'){document.documentElement.classList.add('shitcoin-mode');localStorage.setItem('mistcoin_shitcoin_mode','true');}</script>
+
   </head>
 
 <body class="index-page">
@@ -159,24 +177,26 @@
 
       <a href="/#" class="logo d-flex align-items-center me-auto me-xl-0">
         <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" alt="MistCoin logo">
-        <span class="sitename">MistCoin</span>
+        <span class="sitename" data-sc="ShitCoin">MistCoin</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">MistCoin</a></li>
+          <li><a href="#about" data-sc="ShitCoin">MistCoin</a></li>
           <li><a href="#contract">The Code</a></li>
-          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#timeline" data-sc="Shitline">Timeline</a></li>
           <li><a href="#chart">The Chart</a></li>
-          <li><a href="#scrapbook">Scrapbook</a></li>
+          <li><a href="#scrapbook" data-sc="Crapbook">Scrapbook</a></li>
           <li><a href="/origin-checker">Origin Checker</a></li>
-          <li><a href="/mist-simulator">Mist Simulator</a></li>
+          <li><a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
       <div class="header-social-links">
+        <button id="shitcoin-toggle" class="shitcoin-toggle-btn" aria-label="Toggle Shitcoin Mode" title="Toggle Shitcoin Mode"><span class="sc-emoji">&#x1F4A9;</span></button>
+        <a href="#" id="shitcoin-share" class="shitcoin-share-btn" title="Copy shitcoin link">Share 💩</a>
         <a href="https://x.com/MistCoinEth" class="twitter" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
         <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
         <a href="https://warpcast.com/mistcoin" aria-label="Follow MistCoin on Warpcast" target="_blank"><i class="bi bi-rainbow"></i></a>
@@ -194,13 +214,13 @@
 
       <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
         <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="MistCoin logo" width="300" height="345">
-        <div class="hero-date">November 3, 2015</div>
-        <h1>MistCoin: Deployed by the <span>Creator of ERC-20</span>. Before the Standard Existed.</h1>
-        <p>The Mist team deployed MistCoin, the prototype that led to the ERC-20 token standard. Every standard token on Ethereum traces back to this moment.</p>
+        <div class="hero-date" data-sc="November 3, 2015 — The First Shit Was Minted">November 3, 2015</div>
+        <h1 data-sc="ShitCoin: The World's First Literal Shitcoin. Before Anyone Knew What That Meant." data-sc-html="true">MistCoin: Deployed by the <span>Creator of ERC-20</span>. Before the Standard Existed.</h1>
+        <p data-sc="The Mist team accidentally created the first shitcoin in history. 'Mist' means 'shit' in German. Every shitcoin on Ethereum traces back to this glorious accident.">The Mist team deployed MistCoin, the prototype that led to the ERC-20 token standard. Every standard token on Ethereum traces back to this moment.</p>
         <div class="hero-day-counter" id="day-counter"></div>
         <div class="d-flex">
-          <a href="#about" class="btn-get-started scrollto">Explore the History</a>
-          <a href="#buy" style="color: white;" class="btn-get-started scrollto btn-watch-video d-flex align-items-center">Own a Piece of History</a>
+          <a href="#about" class="btn-get-started scrollto" data-sc="Explore the Shit">Explore the History</a>
+          <a href="#buy" style="color: white;" class="btn-get-started scrollto btn-watch-video d-flex align-items-center" data-sc="Own a Piece of Shit">Own a Piece of History</a>
         </div>
       </div>
 
@@ -211,8 +231,8 @@
       <div class="container text-center" data-aos="fade-up">
         <blockquote>
           <img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="pullquote-avatar" alt="Vitalik Buterin">
-          <p>&ldquo;We need to bring back Mist.&rdquo;</p>
-          <cite>— Vitalik Buterin, Founder of Ethereum</cite>
+          <p data-sc="&ldquo;We need to bring back Shit.&rdquo;" data-sc-html="true">&ldquo;We need to bring back Mist.&rdquo;</p>
+          <cite data-sc="— Vitalik Buterin, Unwitting Shitcoin Godfather">— Vitalik Buterin, Founder of Ethereum</cite>
         </blockquote>
       </div>
     </section>
@@ -222,8 +242,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>MistCoin</h2>
-        <p>
+        <h2 data-sc="ShitCoin">MistCoin</h2>
+        <p data-sc="Shortly after Ethereum's launch in 2015, a team of idealistic developers deployed ShitCoin — literally named after 'shit' in German — as a prototype token. They had no idea they were creating the mother of all shitcoins. This accident paved the way for millions of shitcoins that followed.">
           Shortly after Ethereum's launch in 2015, Ethereum deployed MistCoin, a 1 million supply collectible coin, as a prototype to test the concept of standardized token creation now known as ERC-20. This experiment paved the way for the now widely adopted ERC-20 token standard, forever shaping the Ethereum ecosystem.
         </p>
       </div><!-- End Section Title -->
@@ -232,27 +252,27 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
+            <p data-sc="Sixteen days after ShitCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard. They probably regret the name.">
               Sixteen days after MistCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard, now used by the majority of tokens on Ethereum today.
             </p>
             <ul>
-              <li>💠&nbsp; <span><strong>MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" target="_blank">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a> <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
-              <li>💠&nbsp; <span><strong>Total Supply:</strong> 1,000,000 MistCoin (approx. 400,000 circulating)</span></li>
-              <li>💠&nbsp; <span><strong>Wrapped MistCoin Contract Address (WMC)</strong>: <a href="https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" target="_blank">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</a> <button class="copy-btn" data-copy="0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
+              <li>💠&nbsp; <span><strong data-sc="ShitCoin Contract Address (SC)">MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" target="_blank">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a> <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
+              <li>💠&nbsp; <span><strong>Total Supply:</strong> <span data-sc="1,000,000 ShitCoin (approx. 400,000 floating in circulation)">1,000,000 MistCoin (approx. 400,000 circulating)</span></span></li>
+              <li>💠&nbsp; <span><strong data-sc="Wrapped ShitCoin Contract Address (WSC)">Wrapped MistCoin Contract Address (WMC)</strong>: <a href="https://etherscan.io/token/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" target="_blank">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</a> <button class="copy-btn" data-copy="0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>
+            <p data-sc="On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Shit team, deployed ShitCoin as one of the earliest shitcoins on Ethereum. Fourteen days after ShitCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen discussing the shitcoin standard. Two days later, Vitalik and Fabian proposed the shitcoin standard. In July 2022, ShitCoin was extended with a wrapper contract that implemented modern shitcoin functionality, enabling ShitCoin to be traded as $WSC on Uniswap." data-sc-html="true">
               On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. Fourteen days after MistCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen <a href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">here</a> discussing the token standard. Two days later, Vitalik and Fabian proposed <a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20: Token Standard</a>. In July 2022, MistCoin was extended with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
               <!-- Liquidity for $WMC was locked for 3 years via a <a href="https://etherscan.io/address/0x67f85a924e4c72e05010a03502f0350cf10557c7">custom contract</a> -->
             </p>
             <div class="button-group">
               <a href="https://etherscan.io/token/0x7fd4d7737597e7b4ee22acbf8d94362343ae0a79#balances" class="read-more" target="_blank">
-                <span>WMC Holders</span><i class="bi bi-arrow-right"></i>
+                <span data-sc="WSC Holders">WMC Holders</span><i class="bi bi-arrow-right"></i>
               </a>
               <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd#balances" class="read-more" target="_blank">
-                <span>MC Holders</span><i class="bi bi-arrow-right"></i>
+                <span data-sc="SC Holders (OG Shitholders)">MC Holders</span><i class="bi bi-arrow-right"></i>
               </a>
             </div>
           </div>
@@ -261,42 +281,42 @@
         <!-- Pitch Deck Button -->
         <div id="pitch-deck" class="container text-center pitch-deck-wrapper" data-aos="fade-up" data-aos-delay="300">
           <a href="{{ url_for('static', filename='assets/pdfs/mistcoin-pitch-deck.pdf') }}" target="_blank" class="read-more pitch-deck-btn">
-            <span>💠 MistCoin Pitch Deck</span>
+            <span data-sc="💠 ShitCoin Pitch Deck (Yes, Really)">💠 MistCoin Pitch Deck</span>
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
         
         <div class="container section-title tokenomics-section">
-          <h2>Tokenomics</h2>
+          <h2 data-sc="Shitonomics">Tokenomics</h2>
 
           <div class="content">
               <ul class="tokenomics-list">
                   <li>
-                      <span><strong>💠 Locked Liquidity:</strong> V2 double-sided liquidity for Wrapped MistCoin is locked until Nov 3, 2115.
+                      <span data-sc="💠 Locked Liquidity: V2 double-sided liquidity for Wrapped ShitCoin is locked until Nov 3, 2115."><strong>💠 Locked Liquidity:</strong> V2 double-sided liquidity for Wrapped MistCoin is locked until Nov 3, 2115.
                           <a href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50" target="_blank">[Source]</a>
                       </span>
                   </li>
                   <li>
-                      <span><strong>💠 Inactive and Lost Wallets:</strong> Approximately 20% of the total supply (200,000 MistCoins) resides in lost or inactive wallets, reducing the effective circulating supply.
+                      <span data-sc="💠 Inactive and Lost Wallets: Approximately 20% of the total supply (200,000 ShitCoins) resides in lost or inactive wallets, reducing the effective circulating supply."><strong>💠 Inactive and Lost Wallets:</strong> Approximately 20% of the total supply (200,000 MistCoins) resides in lost or inactive wallets, reducing the effective circulating supply.
                           <a href="https://dune.com/cart00n/mistcoin" target="_blank">[Source]</a>
                       </span>
                   </li>
                   <li>
-                      <span><strong>💠 Circulating Supply:</strong> ~400,000 MistCoin available in active wallets and trading platforms.
+                      <span data-sc="💠 Circulating Supply: ~400,000 ShitCoin available in active wallets and trading platforms."><strong>💠 Circulating Supply:</strong> ~400,000 MistCoin available in active wallets and trading platforms.
                           <a href="https://www.coingecko.com/en/coins/wrapped-mistcoin" target="_blank">[Source]</a>
                       </span>
                   </li>
               </ul>
 
-              <h3 class="tokenomics-subheading">Notable Holders</h3>
+              <h3 class="tokenomics-subheading" data-sc="Proud Shitholders">Notable Holders</h3>
               <ul class="tokenomics-list">
                   <li>
-                      <span><strong>💠 Fabian Vogelsteller:</strong> The MistCoin deployer, Ethereum developer, and creator of ERC-20 owns ~20-25% of the supply and is actively helping the project succeed.
+                      <span data-sc="💠 Fabian Vogelsteller: The ShitCoin deployer, Ethereum developer, and creator of ERC-20 owns ~20-25% of the supply and is actively helping the project succeed."><strong>💠 Fabian Vogelsteller:</strong> The MistCoin deployer, Ethereum developer, and creator of ERC-20 owns ~20-25% of the supply and is actively helping the project succeed.
                           <a href="https://lpvision.korkey.tech/positions/uni-v3#0x1E8Df08C55C7650E1Df68C6E666D3DFEF7366867" target="_blank">[Source]</a>
                       </span>
                   </li>
                   <li>
-                      <span><strong>💠 Alex "AvsA" Van de Sande:</strong> The former Ethereum Lead Designer, leader of Mist, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years.
+                      <span data-sc="💠 Alex &quot;AvsA&quot; Van de Sande: The former Ethereum Lead Designer, leader of Shit, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years."><strong>💠 Alex "AvsA" Van de Sande:</strong> The former Ethereum Lead Designer, leader of Mist, co-founder of ENS, and one of the earliest Ethereum Foundation employees, Alex owns ~6% of the supply. Alex locked 50k of his supply for years.
                           <a href="https://etherscan.io/address/0x73d245b211e51dbee8ed9c04b235262bc4845009#readContract" target="_blank">[Source]</a>
                       </span>
                   </li>
@@ -341,56 +361,56 @@
     <!-- /Contract Section -->
     <section id="contract" class="contract-artifact section dark-background">
       <div class="container section-title" data-aos="fade-up">
-        <h2>The Original Contract</h2>
-        <p>The code that started it all. Deployed November 3, 2015. <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a></p>
+        <h2 data-sc="The Original Shit">The Original Contract</h2>
+        <p data-sc="The code that started it all. The OG shit. Deployed November 3, 2015." data-sc-html="true">The code that started it all. Deployed November 3, 2015. <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a></p>
       </div>
 
       <div class="container" data-aos="fade-up">
       <div class="artifact-frame">
         <pre style="margin: 0; font-family: 'Courier New', Courier, monospace;">
-    <code><span style="color:#0000ff;">contract</span> <span style="color:#795E26;">MyToken</span> {
-        <span style="color:#008000;">/* Public variables of the token */</span>
-        <span style="color:#0000ff;">string</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">name</span>;
-        <span style="color:#0000ff;">string</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">symbol</span>;
-        <span style="color:#0000ff;">uint8</span> <span style="color:#0000ff;">public</span> <span style="color:#001080;">decimals</span>;
+    <code><span style="color:#79B8FF;">contract</span> <span style="color:#FBBF24;">MyToken</span> {
+        <span style="color:#6A9955;">/* Public variables of the token */</span>
+        <span style="color:#79B8FF;">string</span> <span style="color:#79B8FF;">public</span> <span style="color:#D8B4FE;">name</span>;
+        <span style="color:#79B8FF;">string</span> <span style="color:#79B8FF;">public</span> <span style="color:#D8B4FE;">symbol</span>;
+        <span style="color:#79B8FF;">uint8</span> <span style="color:#79B8FF;">public</span> <span style="color:#D8B4FE;">decimals</span>;
     
-        <span style="color:#008000;">/* This creates an array with all balances */</span>
-        <span style="color:#0000ff;">mapping</span> (<span style="color:#0000ff;">address</span> =&gt; <span style="color:#0000ff;">uint256</span>) <span style="color:#0000ff;">public</span> <span style="color:#001080;">balanceOf</span>;
+        <span style="color:#6A9955;">/* This creates an array with all balances */</span>
+        <span style="color:#79B8FF;">mapping</span> (<span style="color:#79B8FF;">address</span> =&gt; <span style="color:#79B8FF;">uint256</span>) <span style="color:#79B8FF;">public</span> <span style="color:#D8B4FE;">balanceOf</span>;
     
-        <span style="color:#008000;">/* This generates a public event on the blockchain that will notify clients */</span>
-        <span style="color:#0000ff;">event</span> <span style="color:#795E26;">Transfer</span>(<span style="color:#0000ff;">address</span> <span style="color:#0000ff;">indexed</span> from, <span style="color:#0000ff;">address</span> <span style="color:#0000ff;">indexed</span> to, <span style="color:#0000ff;">uint256</span> value);
+        <span style="color:#6A9955;">/* This generates a public event on the blockchain that will notify clients */</span>
+        <span style="color:#79B8FF;">event</span> <span style="color:#FBBF24;">Transfer</span>(<span style="color:#79B8FF;">address</span> <span style="color:#79B8FF;">indexed</span> from, <span style="color:#79B8FF;">address</span> <span style="color:#79B8FF;">indexed</span> to, <span style="color:#79B8FF;">uint256</span> value);
     
-        <span style="color:#008000;">/* Initializes contract with initial supply tokens to the creator of the contract */</span>
-        <span style="color:#0000ff;">function</span> <span style="color:#795E26;">MyToken</span>(<span style="color:#0000ff;">uint256</span> _supply, <span style="color:#0000ff;">string</span> _name, <span style="color:#0000ff;">string</span> _symbol, <span style="color:#0000ff;">uint8</span> _decimals) {
-            <span style="color:#008000;">/* if supply not given then generate 1 million of the smallest unit of the token */</span>
-            <span style="color:#0000ff;">if</span> (_supply == 0) _supply = 1000000;
+        <span style="color:#6A9955;">/* Initializes contract with initial supply tokens to the creator of the contract */</span>
+        <span style="color:#79B8FF;">function</span> <span style="color:#FBBF24;">MyToken</span>(<span style="color:#79B8FF;">uint256</span> _supply, <span style="color:#79B8FF;">string</span> _name, <span style="color:#79B8FF;">string</span> _symbol, <span style="color:#79B8FF;">uint8</span> _decimals) {
+            <span style="color:#6A9955;">/* if supply not given then generate 1 million of the smallest unit of the token */</span>
+            <span style="color:#79B8FF;">if</span> (_supply == 0) _supply = 1000000;
     
-            <span style="color:#008000;">/* Unless you add other functions these variables will never change */</span>
+            <span style="color:#6A9955;">/* Unless you add other functions these variables will never change */</span>
             balanceOf[msg.sender] = _supply;
             name = _name;
             symbol = _symbol;
     
-            <span style="color:#008000;">/* If you want a divisible token then add the amount of decimals the base unit has */</span>
+            <span style="color:#6A9955;">/* If you want a divisible token then add the amount of decimals the base unit has */</span>
             decimals = _decimals;
         }
     
-        <span style="color:#008000;">/* Send coins */</span>
-        <span style="color:#0000ff;">function</span> <span style="color:#795E26;">transfer</span>(<span style="color:#0000ff;">address</span> _to, <span style="color:#0000ff;">uint256</span> _value) {
-            <span style="color:#008000;">/* if the sender doesn't have enough balance then stop */</span>
-            <span style="color:#0000ff;">if</span> (balanceOf[msg.sender] &lt; _value) <span style="color:#0000ff;">throw</span>;
-            <span style="color:#0000ff;">if</span> (balanceOf[_to] + _value &lt; balanceOf[_to]) <span style="color:#0000ff;">throw</span>;
+        <span style="color:#6A9955;">/* Send coins */</span>
+        <span style="color:#79B8FF;">function</span> <span style="color:#FBBF24;">transfer</span>(<span style="color:#79B8FF;">address</span> _to, <span style="color:#79B8FF;">uint256</span> _value) {
+            <span style="color:#6A9955;">/* if the sender doesn't have enough balance then stop */</span>
+            <span style="color:#79B8FF;">if</span> (balanceOf[msg.sender] &lt; _value) <span style="color:#79B8FF;">throw</span>;
+            <span style="color:#79B8FF;">if</span> (balanceOf[_to] + _value &lt; balanceOf[_to]) <span style="color:#79B8FF;">throw</span>;
     
-            <span style="color:#008000;">/* Add and subtract new balances */</span>
+            <span style="color:#6A9955;">/* Add and subtract new balances */</span>
             balanceOf[msg.sender] -= _value;
             balanceOf[_to] += _value;
     
-            <span style="color:#008000;">/* Notify anyone listening that this transfer took place */</span>
+            <span style="color:#6A9955;">/* Notify anyone listening that this transfer took place */</span>
             Transfer(msg.sender, _to, _value);
         }
     }
     </code>
         </pre>
-        <div class="artifact-label">MyToken.sol — The ERC-20 Prototype — Block #424,961</div>
+        <div class="artifact-label" data-sc="MyToken.sol — The First Shitcoin Ever — Block #424,961">MyToken.sol — The ERC-20 Prototype — Block #424,961</div>
       </div>
       </div>
     </section>
@@ -400,8 +420,8 @@
     <!-- Interactive Tools CTA Section -->
     <section id="tools" class="section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Explore</h2>
-        <p>Interactive tools to experience Ethereum history firsthand.</p>
+        <h2 data-sc="Explore the Shit">Explore</h2>
+        <p data-sc="Interactive tools to experience shitcoin history firsthand.">Interactive tools to experience Ethereum history firsthand.</p>
       </div>
 
       <div class="container">
@@ -409,17 +429,17 @@
           <div class="col-md-6">
             <div class="tool-card">
               <div class="tool-card-icon"><i class="bi bi-search"></i></div>
-              <h3>Token Origin Checker</h3>
-              <p>Discover the origin of any ERC-20 token and compare it to MistCoin — the one that started it all.</p>
-              <a href="/origin-checker" class="btn-get-started">Try the Origin Checker <i class="bi bi-arrow-right"></i></a>
+              <h3 data-sc="Shitcoin Origin Checker">Token Origin Checker</h3>
+              <p data-sc="Discover the origin of any shitcoin and compare it to ShitCoin — the shit that started it all.">Discover the origin of any ERC-20 token and compare it to MistCoin — the one that started it all.</p>
+              <a href="/origin-checker" class="btn-get-started" data-sc="Try the Shit Checker" data-sc-html="true">Try the Origin Checker <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-md-6">
             <div class="tool-card">
               <div class="tool-card-icon"><i class="bi bi-pc-display"></i></div>
-              <h3>Mist Simulator</h3>
-              <p>Experience what it felt like to deploy the first standard token using the Ethereum Mist browser in 2015.</p>
-              <a href="/mist-simulator" class="btn-get-started">Launch the Simulator <i class="bi bi-arrow-right"></i></a>
+              <h3 data-sc="Shit Simulator">Mist Simulator</h3>
+              <p data-sc="Experience what it felt like to deploy the first shitcoin using the Ethereum Shit Browser in 2015.">Experience what it felt like to deploy the first standard token using the Ethereum Mist browser in 2015.</p>
+              <a href="/mist-simulator" class="btn-get-started" data-sc="Launch the Shit Simulator" data-sc-html="true">Launch the Simulator <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -436,14 +456,14 @@
             <img src="{{ url_for('static', filename='assets/img/mist_mentions.jpg') }}" class="img-fluid" alt="Fabian and Alex mention MistCoin on Twitter" loading="lazy">
           </div>
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            <h3>The creators of MistCoin, Fabian and Alex, mention MistCoin on Twitter/X.</h3>
-            <p class="fst-italic">
+            <h3 data-sc="The creators of ShitCoin, Fabian and Alex, casually mention their shit on Twitter/X.">The creators of MistCoin, Fabian and Alex, mention MistCoin on Twitter/X.</h3>
+            <p class="fst-italic" data-sc="ShitCoin was deployed to test the first implementation of the shitcoin standard.">
               MistCoin was deployed to test the first implementation of the ERC-20 standard.
             </p>
             <ul>
               <li><i class="bi bi-check"></i><span> The pioneering example of an ERC-20 token on Ethereum, long before it became a standard.</span></li>
               <li><i class="bi bi-check"></i> <span> Helped shape the future of decentralized finance and tokenized assets.</span></li>
-              <li><i class="bi bi-check"></i> <span> MistCoin paved the way for the hundreds of millions of tokens now circulating on Ethereum.</span></li>
+              <li><i class="bi bi-check"></i> <span data-sc="ShitCoin paved the way for the hundreds of millions of shitcoins now circulating on Ethereum."> MistCoin paved the way for the hundreds of millions of tokens now circulating on Ethereum.</span></li>
             </ul>
           </div>
         </div><!-- Features Item -->
@@ -453,11 +473,11 @@
             <img src="{{ url_for('static', filename='assets/img/mist_contract_deployment.png') }}" class="img-fluid" alt="MistCoin contract deployment" loading="lazy">
           </div>
           <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-            <h3>A Milestone for Ethereum's Token Economy</h3>
-            <p class="fst-italic">
+            <h3 data-sc="A Milestone for Ethereum's Shitcoin Economy">A Milestone for Ethereum's Token Economy</h3>
+            <p class="fst-italic" data-sc="The introduction of ShitCoin marked a major milestone in the development of Ethereum's shitcoin capabilities, showing how turds could be issued, transferred, and managed programmatically.">
               The introduction of MistCoin marked a major milestone in the development of Ethereum's smart contract capabilities, showing how tokens could be issued, transferred, and managed programmatically.
             </p>
-            <p>
+            <p data-sc="The Shit team released an update to the Shit Browser allowing for a no-code UI for creating and deploying standard shitcoins. Before this release, there were only a few contract deployers playing with smart contracts, and after the release there were hundreds of new shitcoin creators." data-sc-html="true">
               The Mist team <a href="https://www.reddit.com/r/ethereum/comments/3rcnrx/ethereum_wallet_beta3_contract_deployment_and/" target="_blank">released an update</a> to the Mist Browser allowing for a no-code UI for creating and deploying standard tokens. Before this release, there were only a few contract deployers playing with smart contracts, and after the release there were hundreds of new developers.
             </p>
           </div>
@@ -468,8 +488,8 @@
             <img src="{{ url_for('static', filename='assets/img/mist_system.jpg') }}" class="img-fluid" alt="Mist system architecture" loading="lazy">
           </div>
           <div class="col-md-7" data-aos="fade-up">
-            <h3>Influencing the Future of Tokenized Assets</h3>
-        <p>
+            <h3 data-sc="Influencing the Future of Shitcoins">Influencing the Future of Tokenized Assets</h3>
+        <p data-sc="ShitCoin's legacy lives on as a foundational turd that inspired the development of major shitcoins like Tether, Shiba Inu, and countless others. Its role in solidifying the shitcoin standard cannot be understated.">
           MistCoin's legacy lives on as a foundational experiment that inspired the development of major tokens like Tether, Shiba Inu, and countless others. Its role in solidifying the ERC-20 token standard cannot be understated.
         </p>
         <ul>
@@ -485,11 +505,11 @@
             <img src="{{ url_for('static', filename='assets/img/mist_etherscan.png') }}" class="img-fluid" alt="MistCoin on Etherscan" loading="lazy">
           </div>
           <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-            <h3>The ERC-20 Standard: A Lasting Legacy</h3>
-            <p class="fst-italic">
+            <h3 data-sc="The Shitcoin Standard: A Lasting Stain">The ERC-20 Standard: A Lasting Legacy</h3>
+            <p class="fst-italic" data-sc="As one of the earliest experiments in shitcoin creation, ShitCoin played a pivotal role in shaping the standards for modern shitcoin contracts on Ethereum.">
               As one of the earliest experiments in token creation, MistCoin played a pivotal role in shaping the standards for modern token contracts on Ethereum.
             </p>
-            <p>
+            <p data-sc="Today, the shitcoin standard is the backbone of Ethereum's tokenized ecosystem, with ShitCoin standing as a shit-storical reference point for degens and enthusiasts exploring Ethereum's evolution.">
               Today, the ERC-20 standard is the backbone of Ethereum's tokenized ecosystem, with MistCoin standing as a historical reference point for developers and enthusiasts exploring Ethereum's evolution.
             </p>
           </div>
@@ -504,8 +524,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Timeline</h2>
-        <p>A historical journey through the development of MistCoin and the ERC-20 token standard.</p>
+        <h2 data-sc="Shitline">Timeline</h2>
+        <p data-sc="A historical journey through the development of the world's first shitcoin.">A historical journey through the development of MistCoin and the ERC-20 token standard.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -520,8 +540,8 @@
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
             <span><a href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7" target="_blank">Nov. 3, 2015</a></span>
-            <h4>ERC-20 is Born</h4>
-            <p>Fabian Vogelsteller, Alex Van de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
+            <h4 data-sc="The First Shit is Dropped">ERC-20 is Born</h4>
+            <p data-sc="Fabian Vogelsteller, Alex Van de Sande, and the Mist team unknowingly deployed the first shitcoin: ShitCoin (SC Token).">Fabian Vogelsteller, Alex Van de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
@@ -538,14 +558,14 @@
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
             <span><a href="https://etherscan.io/tx/0x7f1c438a92b94798b273f56f530656986641fbdb57774e5a9b683a77be135ec3" target="_blank">Jul. 27, 2022</a></span>
-            <h4>MistCoin Wrapped</h4>
+            <h4 data-sc="ShitCoin Gets Gift-Wrapped">MistCoin Wrapped</h4>
             <p>A wrapper contract was deployed for the 2015 contract to add modern ERC-20 functionality and enable trading.</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
             <span><a href="https://etherscan.io/tx/0x7fd3bb6211926a1cee30a39e09ef77d5e83de6160861ac04f46f0898b227dd27" target="_blank">Jul. 28, 2022</a></span>
-            <h4>Uniswap LP Launched</h4>
-            <p>An LP was set up and funded. After 9 years, MistCoin, the first blockchain standard, can be bought by anyone freely!</p>
+            <h4 data-sc="The Shit Hits the Fan(s)">Uniswap LP Launched</h4>
+            <p data-sc="An LP was set up and funded. After 9 years, the first shitcoin can finally be bought by anyone freely!">An LP was set up and funded. After 9 years, MistCoin, the first blockchain standard, can be bought by anyone freely!</p>
           </div><!-- End Card Item -->
 
         </div>
@@ -557,8 +577,8 @@
     <!-- Start Chart Section -->
 <section id="chart" class="section">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Live Chart</h2>
-    <p>Track $WMC live on Ethereum or Base.</p>
+    <h2 data-sc="Live Shit Chart">Live Chart</h2>
+    <p data-sc="Watch the price of shit in real-time.">Track $WMC live on Ethereum or Base.</p>
   </div>
 
   <div class="container d-flex justify-content-center" data-aos="fade-up">
@@ -580,8 +600,8 @@
 <!-- Why Own MistCoin Section -->
 <section id="why-own" class="section">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Why Own MistCoin?</h2>
-    <p>More than a token — a piece of blockchain history.</p>
+    <h2 data-sc="Why Own a Piece of Shit?">Why Own MistCoin?</h2>
+    <p data-sc="More than a shitcoin — a piece of blockchain shit-story.">More than a token — a piece of blockchain history.</p>
   </div>
 
   <div class="container">
@@ -589,22 +609,22 @@
       <div class="col-md-4">
         <div class="text-center p-3">
           <i class="bi bi-gem" style="font-size: 2.5rem; color: #627EEA;"></i>
-          <h5 class="mt-3">Historical Significance</h5>
-          <p>The first ERC-20 prototype ever deployed. Every standard token on Ethereum traces back to this code.</p>
+          <h5 class="mt-3" data-sc="Shit-storical Significance">Historical Significance</h5>
+          <p data-sc="The first shitcoin ever deployed. Every shitcoin on Ethereum traces back to this turd.">The first ERC-20 prototype ever deployed. Every standard token on Ethereum traces back to this code.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="text-center p-3">
           <i class="bi bi-lock" style="font-size: 2.5rem; color: #627EEA;"></i>
-          <h5 class="mt-3">Scarce Supply</h5>
-          <p>Only ~400,000 circulating from a 1M total supply. Liquidity locked until 2115.</p>
+          <h5 class="mt-3" data-sc="Limited Shit">Scarce Supply</h5>
+          <p data-sc="Only ~400,000 turds in circulation from a 1M total supply. Liquidity locked until 2115.">Only ~400,000 circulating from a 1M total supply. Liquidity locked until 2115.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="text-center p-3">
           <i class="bi bi-people" style="font-size: 2.5rem; color: #627EEA;"></i>
-          <h5 class="mt-3">Creator Aligned</h5>
-          <p>Fabian Vogelsteller, the creator of ERC-20 itself, actively supports MistCoin.</p>
+          <h5 class="mt-3" data-sc="Shit Creator Approved">Creator Aligned</h5>
+          <p data-sc="Fabian Vogelsteller, the inadvertent father of shitcoins, actively supports ShitCoin.">Fabian Vogelsteller, the creator of ERC-20 itself, actively supports MistCoin.</p>
         </div>
       </div>
     </div>
@@ -614,8 +634,8 @@
     <!-- Buy Section -->
 <section id="buy" class="section bg-light">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Buy MistCoin</h2>
-    <p>Get $WMC on Ethereum L1, Base L2, or from centralized exchanges like CoinEx and NonKyc.io.</p>
+    <h2 data-sc="Buy ShitCoin">Buy MistCoin</h2>
+    <p data-sc="Get yourself some shit on Ethereum L1, Base L2, or centralized exchanges.">Get $WMC on Ethereum L1, Base L2, or from centralized exchanges like CoinEx and NonKyc.io.</p>
   </div>
 
   <div class="row g-4" data-aos="fade-up">
@@ -675,8 +695,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>In Their Own Words</h2>
-        <p>What the builders and creators have to say about MistCoin.</p>
+        <h2 data-sc="In Their Own Words">In Their Own Words</h2>
+        <p data-sc="What the builders have to say about accidentally making the first shitcoin.">What the builders and creators have to say about MistCoin.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -718,7 +738,7 @@
                 </p>
                 <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
-                <h4>MistCoin Creator</h4>
+                <h4 data-sc="First Shitcoin Creator">MistCoin Creator</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -731,7 +751,7 @@
                 </p>
                 <img src="{{ url_for('static', filename='assets/img/team/avsa.jpg') }}" class="testimonial-img" alt="Alex Van de Sande">
                 <h3>Alex Van de Sande</h3>
-                <h4>Ethereum Foundation Alumni & Mist Developer</h4>
+                <h4 data-sc="Ethereum Foundation Alumni & Shit Developer">Ethereum Foundation Alumni & Mist Developer</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -744,7 +764,7 @@
                 </p>
                 <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
-                <h4>MistCoin Creator</h4>
+                <h4 data-sc="First Shitcoin Creator">MistCoin Creator</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -757,7 +777,7 @@
                 </p>
                 <img src="{{ url_for('static', filename='assets/img/team/fabian.jpg') }}" class="testimonial-img" alt="Fabian Vogelsteller">
                 <h3>Fabian Vogelsteller</h3>
-                <h4>MistCoin Creator</h4>
+                <h4 data-sc="First Shitcoin Creator">MistCoin Creator</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -770,7 +790,7 @@
                 </p>
                 <img src="{{ url_for('static', filename='assets/img/team/vitalik-devcon1.png') }}" class="testimonial-img" alt="Vitalik Buterin">
                 <h3>Vitalik Buterin</h3>
-                <h4>Founder of Ethereum</h4>
+                <h4 data-sc="Shitcoin Godfather">Founder of Ethereum</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -787,8 +807,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Scrapbook</h2>
-        <p>A collection of photos and videos of the Ethereum Mist team!</p>
+        <h2 data-sc="Crapbook">Scrapbook</h2>
+        <p data-sc="A collection of photos and videos of the Ethereum Shit team!">A collection of photos and videos of the Ethereum Mist team!</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -800,7 +820,7 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_browser.png') }}" class="img-fluid" alt="Mist Browser">
               <div class="portfolio-info">
-                <h4>Mist Browser</h4>
+                <h4 data-sc="Shit Browser">Mist Browser</h4>
                 <p>The update allowed anyone to easily make tokens.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/mist_browser.png') }}" title="Mist Browser" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://www.reddit.com/r/ethereum/comments/3rcnrx/ethereum_wallet_beta3_contract_deployment_and/" title="Mist Browser update" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
@@ -820,8 +840,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/what_is_mist.png') }}" class="img-fluid" alt="Ethereum presents Mist">
               <div class="portfolio-info">
-                <h4>Ethereum presents Mist</h4>
-                <p>Alex Van de Sande presents a sneak preview of Mist, the Ethereum decentralised application browser. </p>
+                <h4 data-sc="Ethereum presents Shit">Ethereum presents Mist</h4>
+                <p data-sc="Alex Van de Sande presents a sneak preview of Shit, the Ethereum decentralised application browser.">Alex Van de Sande presents a sneak preview of Mist, the Ethereum decentralised application browser. </p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/what_is_mist.png') }}" title="Ethereum presents Mist" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://www.youtube.com/watch?v=IgNjs_WaFSc&t=11s" title="Watch the video." class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -830,8 +850,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/2014_mist_sketch.jpg') }}" class="img-fluid" alt="Original Mist sketch from 2014">
               <div class="portfolio-info">
-                <h4>Original Mist Sketch</h4>
-                <p>A sketch from 2014, where Alex Van de Sande was brainstorming concepts for Mist.</p>
+                <h4 data-sc="Original Shit Sketch">Original Mist Sketch</h4>
+                <p data-sc="A sketch from 2014, where Alex Van de Sande was brainstorming concepts for Shit.">A sketch from 2014, where Alex Van de Sande was brainstorming concepts for Mist.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/2014_mist_sketch.jpg') }}" title="Original Mist Sketch" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/avsa/status/870037259768279040" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -850,8 +870,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_roadmap.png') }}" class="img-fluid" alt="Mist Roadmap">
               <div class="portfolio-info">
-                <h4>Mist Roadmap</h4>
-                <p>Fabian hilariously shares the Mist roadmap.</p>
+                <h4 data-sc="Shit Roadmap">Mist Roadmap</h4>
+                <p data-sc="Fabian hilariously shares the Shit roadmap.">Fabian hilariously shares the Mist roadmap.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/mist_roadmap.png') }}" title="Mist Roadmap" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/feindura/status/870375126096850944" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -860,8 +880,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/mist_team.jpg') }}" class="img-fluid" alt="Mist Team 2017">
               <div class="portfolio-info">
-                <h4>Mist Team</h4>
-                <p>The Mist team in 2017</p>
+                <h4 data-sc="Shit Team">Mist Team</h4>
+                <p data-sc="The Shit team in 2017">The Mist team in 2017</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/mist_team.jpg') }}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/feindura/status/869695036216266752" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -870,7 +890,7 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_devcon_2.jpg') }}" class="img-fluid" alt="Alex at Devcon 2">
               <div class="portfolio-info">
-                <h4>Devcon 2 Mist Presentation</h4>
+                <h4 data-sc="Devcon 2 Shit Presentation">Devcon 2 Mist Presentation</h4>
                 <p>Alex Van de Sande demoes the light client and 2min syncs.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/avsa_devcon_2.jpg') }}" title="Devcon 2 Mist Presentation" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/feindura/status/778415959992176640" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
@@ -880,8 +900,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/run_mist.png') }}" class="img-fluid" alt="Mist installation walkthrough">
               <div class="portfolio-info">
-                <h4>Mist Installation Walkthrough</h4>
-                <p>A community-led walk through of installing and setting up Ethereum Mist for development.</p>
+                <h4 data-sc="Shit Installation Walkthrough">Mist Installation Walkthrough</h4>
+                <p data-sc="A community-led walk through of installing and setting up Ethereum Shit for development.">A community-led walk through of installing and setting up Ethereum Mist for development.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/run_mist.png') }}" title="Mist Installation Walkthrough" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://www.youtube.com/watch?v=MzT0fvmZ638" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -890,8 +910,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/og_mist_team.jpg') }}" class="img-fluid" alt="The original Mist team">
               <div class="portfolio-info">
-                <h4>The OG Mist Team</h4>
-                <p>The original Mist team enjoying some Thai food in February 2015, before Ethereum mainnet.</p>
+                <h4 data-sc="The OG Shit Team">The OG Mist Team</h4>
+                <p data-sc="The original Shit team enjoying some Thai food in February 2015, before Ethereum mainnet.">The original Mist team enjoying some Thai food in February 2015, before Ethereum mainnet.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/og_mist_team.jpg') }}" title="The OG Mist Team" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/avsa/status/565612419737997312" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -900,8 +920,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="{{ url_for('static', filename='assets/img/scrapbook/avsa_2015_presentation.png') }}" class="img-fluid" alt="Mist brand principles presentation">
               <div class="portfolio-info">
-                <h4>Mist Brand Principles</h4>
-                <p>A presentation soon after MistCoin teaching about smart contracts and showing the Mist Browser brand principles.</p>
+                <h4 data-sc="Shit Brand Principles">Mist Brand Principles</h4>
+                <p data-sc="A presentation soon after ShitCoin teaching about smart contracts and showing the Shit Browser brand principles.">A presentation soon after MistCoin teaching about smart contracts and showing the Mist Browser brand principles.</p>
                 <a href="{{ url_for('static', filename='assets/img/scrapbook/avsa_2015_presentation.png') }}" title="Mist Brand Principles" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="https://x.com/avsa/status/664111304198737920" title="More Details" class="details-link" target="_blank"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -920,8 +940,8 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Token Standard Contributors</h2>
-    <p>This incomplete list showcases some of the contributors to the ERC-20 standard.</p>
+    <h2 data-sc="Shitcoin Standard Contributors">Token Standard Contributors</h2>
+    <p data-sc="This incomplete list showcases some of the contributors to the world's first shitcoin standard.">This incomplete list showcases some of the contributors to the ERC-20 standard.</p>
   </div><!-- End Section Title -->
 
   <div class="container">
@@ -953,7 +973,7 @@
           <div class="member-info">
             <h4>Fabian Vogelsteller</h4>
             <span>Lead Ethereum Dapp Developer | Mist</span>
-            <p>Fabian made both syntactical and function paramater changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first ERC-20: MistCoin alongside the feature to create standard tokens in the Ethereum Wallet: Mist. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.</p>
+            <p data-sc="Fabian made both syntactical and function parameter changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first shitcoin: ShitCoin alongside the feature to create standard shitcoins in the Ethereum Wallet: Shit. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.">Fabian made both syntactical and function paramater changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first ERC-20: MistCoin alongside the feature to create standard tokens in the Ethereum Wallet: Mist. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.</p>
             <div class="socials" style="font-size: 12px;">
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/c12d533a9993b058bf891a1d0780a21742b7ec0f" target="_blank">Commit: <i class="bi bi-github"></i></a><br />
               <a href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">ERC-20 Proposal Conversation: <i class="bi bi-github"></i></a><br />
@@ -971,7 +991,7 @@
           <div class="member-info">
             <h4>Alex Van de Sande</h4>
             <span>Head UX Designer | Ethereum Foundation</span>
-            <p>Alex "avsa" led the Mist team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Mist Browser was monumental in the effort.</p>
+            <p data-sc="Alex &quot;avsa&quot; led the Shit team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Shit Browser was monumental in the effort.">Alex "avsa" led the Mist team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Mist Browser was monumental in the effort.</p>
             <div class="socials" style="font-size: 12px;">
               <a href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
               <a href="https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/" target="_blank">Coin Standards: <i class="bi bi-reddit"></i></a><br />
@@ -1022,8 +1042,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>FAQ</h2>
-        <p>Answers to common questions about MistCoin and the ERC-20 token standard</p>
+        <h2 data-sc="FAQ (Frequently Asked Shit)">FAQ</h2>
+        <p data-sc="Answers to common questions about ShitCoin and the shitcoin standard">Answers to common questions about MistCoin and the ERC-20 token standard</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -1036,9 +1056,9 @@
 
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What is MistCoin, and why is it significant?</h3>
+                <h3 data-sc="What is ShitCoin, and why should I care about this shit?">What is MistCoin, and why is it significant?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="ShitCoin was one of the first turds deployed on Ethereum as a test for the shitcoin standard. It served as a proof of concept for shitcoins on Ethereum, influencing the development of countless shitcoins that followed.">
                     MistCoin was one of the first tokens deployed on Ethereum as a test for the ERC-20 standard. It served as a proof of concept for tokenized assets on Ethereum, influencing the development of countless tokens that followed.
                   </p>
                 </div>
@@ -1058,9 +1078,9 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>How did MistCoin contribute to the development of decentralized finance (DeFi)?</h3>
+                <h3 data-sc="How did ShitCoin contribute to DeFi?">How did MistCoin contribute to the development of decentralized finance (DeFi)?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="As one of the earliest experiments in shitcoin creation, ShitCoin demonstrated the programmability and flexibility of Ethereum's smart contracts. This laid the groundwork for the shitcoins that would later drive the decentralized finance (DeFi) movement.">
                     As one of the earliest experiments in token creation, MistCoin demonstrated the programmability and flexibility of Ethereum's smart contracts. This laid the groundwork for the tokens that would later drive the decentralized finance (DeFi) movement, enabling a wide range of financial applications on the blockchain.
                   </p>
                 </div>
@@ -1069,9 +1089,9 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Why was MistCoin wrapped?</h3>
+                <h3 data-sc="Why was ShitCoin wrapped?">Why was MistCoin wrapped?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="ShitCoin's original contract, deployed on November 3rd, 2015, only contains two simple functions. The shitcoin standard calls for two functions that are needed for the token to be made tradable on decentralized exchanges: approve and transferFrom. The wrapper allows ShitCoin holders to wrap (and unwrap) their turds into a contract that is tradable." data-sc-html="true">
                     MistCoin's original contract, deployed on November 3rd, 2015, only contains two simple functions. The ERC-20 standard calls for two functions that are needed for the token to be made tradable on decentralized exchanges: `approve` and `transferFrom`. The wrapper allows MistCoin holders to wrap (and unwrap) their coins into a contract that is tradable. Holders of MistCoin and Wrapped MistCoin tokens can interact with the wrapper contract to easily wrap and unwrap their tokens.
                   </p>
                 </div>
@@ -1106,9 +1126,9 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What was the first token ever created on Ethereum?</h3>
+                <h3 data-sc="What was the first shitcoin ever created on Ethereum?">What was the first token ever created on Ethereum?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="ShitCoin was deployed on November 3, 2015 (block #424,961), making it the oldest surviving shitcoin that implements the core shitcoin interface. It was created by Fabian Vogelsteller and the Shit team at the Ethereum Foundation." data-sc-html="true">
                     MistCoin was deployed on November 3, 2015 (block #424,961), making it the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, and Transfer event). It was created by Fabian Vogelsteller and the Mist team at the Ethereum Foundation as the reference implementation for the Ethereum Wallet's "Custom Tokens" feature. You can verify this on <a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Etherscan</a>.
                   </p>
                 </div>
@@ -1119,7 +1139,7 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3>Who created the ERC-20 standard?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="The shitcoin standard (EIP-20) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. ShitCoin, deployed November 3, 2015, was the working prototype — created 16 days before the formal proposal." data-sc-html="true">
                     The ERC-20 standard (<a href="https://eips.ethereum.org/EIPS/eip-20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">EIP-20</a>) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. The standardization process began months earlier: Vitalik started the "Standardized Contract APIs" wiki in June 2015, and Fabian made critical implementation commits through October 2015. MistCoin, deployed November 3, 2015, was the working prototype of this standard — created 16 days before the formal proposal.
                   </p>
                 </div>
@@ -1130,7 +1150,7 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3>How many ERC-20 tokens exist today?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="Millions of shitcoins have been created on Ethereum. Every one of them follows the standard that ShitCoin prototyped in November 2015.">
                     Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. Every one of them follows the standard that MistCoin prototyped in November 2015. The ERC-20 interface — balanceOf, transfer, approve, transferFrom — was first implemented in the code that became MistCoin.
                   </p>
                 </div>
@@ -1139,9 +1159,9 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="1000">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Where can I buy MistCoin?</h3>
+                <h3 data-sc="Where can I buy this shit?">Where can I buy MistCoin?</h3>
                 <div class="faq-content">
-                  <p>
+                  <p data-sc="Wrapped ShitCoin ($WSC) is tradable on Ethereum decentralized exchanges." data-sc-html="true">
                     Wrapped MistCoin ($WMC) is tradable on Ethereum decentralized exchanges. You can buy it on <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">CoW Swap</a> or <a href="https://app.uniswap.org/swap?outputCurrency=0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Uniswap</a>. The wrapped contract address is 0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79.
                   </p>
                 </div>
@@ -1166,9 +1186,9 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
             <a href="/" class="logo d-flex align-items-center">
-                <span class="sitename">MistCoin</span>
+                <span class="sitename" data-sc="ShitCoin">MistCoin</span>
               </a>
-            <p>The first standard token on Ethereum, deployed on November 3, 2015.</p>
+            <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The first standard token on Ethereum, deployed on November 3, 2015.</p>
           <div class="social-links d-flex mt-4">
             <a href="https://x.com/MistCoinEth" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
             <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -1181,23 +1201,23 @@
         <div class="col-lg-4 col-md-6 footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#about">About MistCoin</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about" data-sc="About ShitCoin">About MistCoin</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#contract">The Code</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="/origin-checker">Origin Checker</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator">Mist Simulator</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#buy">Buy $WMC</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#buy" data-sc="Buy $WSC">Buy $WMC</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-6 footer-links">
           <h4>Contract Addresses</h4>
           <div class="footer-contract">
-            <p><strong>MistCoin (MC):</strong></p>
+            <p><strong data-sc="ShitCoin (SC):">MistCoin (MC):</strong></p>
             <div class="contract-copy-row">
               <code class="contract-addr">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</code>
               <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button>
             </div>
-            <p class="mt-2"><strong>Wrapped MistCoin (WMC):</strong></p>
+            <p class="mt-2"><strong data-sc="Wrapped ShitCoin (WSC):">Wrapped MistCoin (WMC):</strong></p>
             <div class="contract-copy-row">
               <code class="contract-addr">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</code>
               <button class="copy-btn" data-copy="0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79" title="Copy address"><i class="bi bi-clipboard"></i></button>
@@ -1209,7 +1229,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>The first standard token on Ethereum. Deployed November 3, 2015.</p>
+      <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">The first standard token on Ethereum. Deployed November 3, 2015.</p>
     </div>
 
   </footer>
@@ -1249,7 +1269,10 @@
             current = targetDays;
             clearInterval(timer);
           }
-          counter.textContent = Math.floor(current).toLocaleString() + ' days ago, Ethereum history was made';
+          var suffix = document.body.classList.contains('shitcoin-mode')
+            ? ' days ago, the first shitcoin was deployed'
+            : ' days ago, Ethereum history was made';
+          counter.textContent = Math.floor(current).toLocaleString() + suffix;
         }, interval);
       }
     })();
@@ -1267,6 +1290,9 @@
       });
     });
   </script>
+
+  <!-- Shitcoin Mode -->
+  <script src="{{ url_for('static', filename='assets/js/shitcoin-mode.js') }}"></script>
 
 </body>
 
