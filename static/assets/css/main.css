@@ -2167,6 +2167,12 @@ body.shitcoin-mode section + section::before {
   transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+  .shitcoin-share-btn {
+    display: none !important;
+  }
+}
+
 /*--------------------------------------------------------------
 # Shitcoin Mode — Additional Accents
 --------------------------------------------------------------*/
