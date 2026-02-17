@@ -241,6 +241,11 @@ def mist_simulator():
     shitcoin = request.args.get('shitcoin', '').lower() == 'true'
     return render_template('mist_simulator.html', shitcoin=shitcoin)
 
+@app.route('/how-to-buy')
+def how_to_buy():
+    shitcoin = request.args.get('shitcoin', '').lower() == 'true'
+    return render_template('how_to_buy.html', shitcoin=shitcoin)
+
 @app.route('/<path:anything>')
 def catch_all(anything):
     return redirect('/')
