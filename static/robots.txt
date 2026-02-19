@@ -4,3 +4,6 @@ Disallow: /static/assets/vendor/
 Disallow: /api/
 
 Sitemap: https://www.mistcoineth.com/sitemap.xml
+
+# LLM-readable token information
+LLMs-Txt: https://www.mistcoineth.com/llms.txt
