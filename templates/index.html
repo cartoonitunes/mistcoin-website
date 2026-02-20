@@ -230,6 +230,40 @@
 
     </section><!-- /Hero Section -->
 
+    <!-- Live Price Ticker -->
+    <section class="price-ticker section" style="padding: 12px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <div class="container">
+        <div id="price-ticker" style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; font-family: monospace; font-size: 0.95rem; color: #e0e0e0;">
+          <span>💰 <strong>WMC</strong> <span id="ticker-price" style="color: #4fc3f7;">Loading...</span></span>
+          <span>📊 24h Vol: <span id="ticker-volume" style="color: #81c784;">—</span></span>
+          <span id="ticker-change-wrap">24h: <span id="ticker-change">—</span></span>
+          <span>💧 Liq: <span id="ticker-liquidity" style="color: #b39ddb;">—</span></span>
+          <a href="#buy" class="scrollto" style="color: #ffd54f; text-decoration: underline; font-size: 0.85rem;">Buy WMC →</a>
+        </div>
+      </div>
+    </section>
+    <script>
+    (function() {
+      async function updateTicker() {
+        try {
+          const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79');
+          const data = await res.json();
+          if (!data.pairs || !data.pairs.length) return;
+          const p = data.pairs[0];
+          document.getElementById('ticker-price').textContent = '$' + parseFloat(p.priceUsd).toFixed(2);
+          document.getElementById('ticker-volume').textContent = '$' + Number(p.volume.h24).toLocaleString();
+          document.getElementById('ticker-liquidity').textContent = '$' + Number(p.liquidity.usd).toLocaleString();
+          const change = parseFloat(p.priceChange.h24);
+          const changeEl = document.getElementById('ticker-change');
+          changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
+          changeEl.style.color = change >= 0 ? '#81c784' : '#e57373';
+        } catch(e) { console.log('Ticker error:', e); }
+      }
+      updateTicker();
+      setInterval(updateTicker, 60000);
+    })();
+    </script>
+
     <!-- Vitalik Pull Quote -->
     <section class="vitalik-pullquote section">
       <div class="container text-center" data-aos="fade-up">
