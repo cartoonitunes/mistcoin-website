@@ -30,6 +30,11 @@ def llms_txt():
     return send_from_directory('static', 'llms.txt', mimetype='text/plain')
 
 
+@app.route('/tokenlist.json')
+def tokenlist():
+    return send_from_directory('static', 'tokenlist.json', mimetype='application/json')
+
+
 @app.route('/llms-full.txt')
 def llms_full_txt():
     return send_from_directory('static', 'llms-full.txt', mimetype='text/plain')
