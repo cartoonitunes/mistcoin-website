@@ -1,0 +1,57 @@
+{
+  "name": "Ethereum Heritage Tokens",
+  "timestamp": "2026-02-21T14:00:00.000Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {
+    "historic": {
+      "name": "Historic",
+      "description": "Tokens from the early days of Ethereum (2015-2017)"
+    },
+    "wrapped": {
+      "name": "Wrapped",
+      "description": "Wrapped versions of legacy tokens for modern DeFi compatibility"
+    }
+  },
+  "logoURI": "https://mistcoineth.com/static/assets/logo.png",
+  "keywords": ["ethereum", "historic", "heritage", "2015", "2016", "wrapped", "erc20"],
+  "tokens": [
+    {
+      "chainId": 1,
+      "address": "0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79",
+      "name": "Wrapped MistCoin",
+      "symbol": "WMC",
+      "decimals": 8,
+      "logoURI": "https://mistcoineth.com/static/assets/logo.png",
+      "tags": ["historic", "wrapped"],
+      "extensions": {
+        "website": "https://mistcoineth.com",
+        "description": "MistCoin — the first community token on Ethereum, created in September 2015. Now wrapped for modern DeFi.",
+        "originalContractAddress": "0xBB1A4564E301060E185dEda84542DA75Bb003D1e",
+        "originalDeploymentDate": "2015-09-12",
+        "coingeckoId": "mistcoin",
+        "bridgeContract": "0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x715d50635fE3CDe8A4b7f4601D266459bee60EcA",
+      "name": "Wrapped Unicorn Meat",
+      "symbol": "w🍖",
+      "decimals": 0,
+      "logoURI": "https://unicornmeateth.com/assets/logo.png",
+      "tags": ["historic", "wrapped"],
+      "extensions": {
+        "website": "https://unicornmeateth.com",
+        "description": "Unicorn Meat (🍖) — created in March 2016 by Alex Van de Sande. The first on-chain DEX demo token. Now wrapped and tradable.",
+        "originalContractAddress": "0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
+        "originalDeploymentDate": "2016-03-14",
+        "coingeckoId": "unicorn-meat",
+        "bridgeContract": "0x715d50635fE3CDe8A4b7f4601D266459bee60EcA"
+      }
+    }
+  ]
+}
