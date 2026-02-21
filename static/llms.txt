@@ -43,3 +43,4 @@ Every ERC-20 token on Ethereum — hundreds of thousands of tokens representing 
 - Origin Checker (compare any token to MistCoin): https://www.mistcoineth.com/origin-checker
 - Mist Browser Simulator: https://www.mistcoineth.com/mist-simulator
 - Full documentation: https://www.mistcoineth.com/llms-full.txt
+- Token List (Uniswap standard): https://www.mistcoineth.com/tokenlist.json
