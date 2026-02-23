@@ -401,6 +401,67 @@
     .family-card .fc-name { font-size: var(--body-size); font-weight: 600; margin: 0.2em 0; }
 
     /* ===========================================
+       INLINE LINKS
+    =========================================== */
+    a.inline {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(0,212,170,0.3);
+      text-underline-offset: 3px;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    a.inline:hover {
+      color: var(--accent2);
+      text-decoration-color: var(--accent2);
+    }
+
+    /* ===========================================
+       FACT LIST — numbered, clearly separated points
+    =========================================== */
+    .fact-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.5rem, 1.2vw, 1rem);
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: clamp(28px, 4vw, 40px) 1fr;
+      gap: 0 clamp(0.6rem, 1.2vw, 1rem);
+      align-items: start;
+      padding-bottom: clamp(0.5rem, 1.2vw, 1rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-num {
+      font-family: var(--font-head);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.3;
+      opacity: 0.55;
+      padding-top: 0.05em;
+    }
+
+    .fact-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15em;
+    }
+
+    .fact-body p {
+      font-size: var(--body-size);
+      line-height: 1.62;
+      color: rgba(232,248,245,0.88);
+    }
+
+    /* ===========================================
        LINKS
     =========================================== */
     .link-row {
@@ -558,12 +619,24 @@
     <span class="tag reveal">Origin Story</span>
     <h2 class="reveal">How It Started</h2>
     <div class="divider reveal"></div>
-    <ul class="bullets">
-      <li class="reveal">In the early years of Ethereum, EF leader <strong class="accent">Alex Van de Sande (avsa)</strong> led a team called <strong>Mist</strong> — focused on mass adoption through Dapps.</li>
-      <li class="reveal"><strong class="accent">Fabian Vogelsteller</strong> joined as lead Dapp developer. Both were keenly interested in contract development and the importance of establishing standards.</li>
-      <li class="reveal">The Mist team built the <strong>Mist Browser</strong> and the <strong>Ethereum Wallet</strong> — the official wallet for Ethereum at the time.</li>
-      <li class="reveal">On <strong>Nov 3, 2015</strong>, just before Devcon 1, they released a feature allowing anyone to create tokens in the Wallet. Fabian created MistCoin and sent half the supply to avsa.</li>
-    </ul>
+    <div class="fact-list">
+      <div class="fact reveal">
+        <span class="fact-num">01</span>
+        <div class="fact-body"><p>In the early years of Ethereum, EF leader <a class="inline" href="https://vandesande.design/" target="_blank">Alex Van de Sande (avsa)</a> led a team called <a class="inline" href="https://github.com/ethereum/mist" target="_blank">Mist</a> — focused on mass adoption by building Dapps that make Ethereum simple.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">02</span>
+        <div class="fact-body"><p><a class="inline" href="https://x.com/feindura" target="_blank">Fabian Vogelsteller</a> was brought in as lead Dapp developer. Both avsa and Fabian were keenly interested in contract standards — and in the Mist Browser and Ethereum Wallet as the entry point for the ecosystem.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">03</span>
+        <div class="fact-body"><p>On <strong>Nov 3, 2015</strong>, just before Devcon 1, the team <a class="inline" href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank">released a feature allowing anyone to create tokens</a> in the Ethereum Wallet — the first token creation UI in the ecosystem.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">04</span>
+        <div class="fact-body"><p>Upon releasing it, Fabian <a class="inline" href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7" target="_blank">created MistCoin</a> and <a class="inline" href="https://etherscan.io/tx/0xd628780ba231cefe6a4f6c3da3b683b16f6151dc9753afd8773d3c2d74ac10c8" target="_blank">sent half the supply to avsa</a>.</p></div>
+      </div>
+    </div>
   </div>
   <span class="slide-num">02 / 09</span>
 </section>
@@ -576,12 +649,20 @@
     <span class="tag reveal">Significance</span>
     <h2 class="reveal">The Standard</h2>
     <div class="divider reveal"></div>
-    <ul class="bullets">
-      <li class="reveal">MistCoin was the <strong class="gold">first</strong> in hundreds of coins created from its source code in the Ethereum Wallet. These were the first tokens to be heavily traded and used on Ethereum.</li>
-      <li class="reveal">Fabian and avsa were <strong>handing out MistCoin on Reddit</strong> — the first token community.</li>
-      <li class="reveal">A few days later, avsa demoed the feature as a <strong class="accent">keynote speaker at Devcon 1</strong>. Fabian spoke on standardization.</li>
-      <li class="reveal"><strong class="gold">16 days after creating MistCoin</strong>, Fabian and Vitalik Buterin published <strong>EIP-20: Token Standard</strong> — paving the way to ERC-20, the standard that defines all tokens today.</li>
-    </ul>
+    <div class="fact-list">
+      <div class="fact reveal">
+        <span class="fact-num">01</span>
+        <div class="fact-body"><p>MistCoin was the <strong class="gold">first</strong> in hundreds of coins created from its source code in the Ethereum Wallet. These were the first tokens ever to be heavily traded and used on Ethereum — Fabian and avsa were handing MistCoin out on Reddit.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">02</span>
+        <div class="fact-body"><p>A few days later, avsa demoed the feature as a <a class="inline" href="https://archive.devcon.org/devcon-1/keynote-and-ethereum-roadmap/?tab=YouTube" target="_blank">keynote speaker at Devcon 1</a>. Fabian gave a <a class="inline" href="https://archive.devcon.org/devcon-1/standardization/?tab=YouTube" target="_blank">dedicated talk on standardization</a>.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">03</span>
+        <div class="fact-body"><p><strong class="gold">16 days after creating MistCoin</strong>, Fabian published <a class="inline" href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">the original EIP-20 draft</a> with Vitalik Buterin — paving the way to <a class="inline" href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20: Token Standard</a>, which defines every standard token in existence today.</p></div>
+      </div>
+    </div>
   </div>
   <span class="slide-num">03 / 09</span>
 </section>
@@ -594,11 +675,20 @@
     <span class="tag reveal">Today</span>
     <h2 class="reveal">Wrapped &amp; Available</h2>
     <div class="divider reveal"></div>
-    <ul class="bullets">
-      <li class="reveal">In <strong>2022</strong>, avsa and Fabian were approached to help fund a group interested in historic NFTs. avsa donated hundreds of thousands of MistCoin for giveaways.</li>
-      <li class="reveal">A <strong>wrapper was created</strong> to make it a standard ERC-20. Fabian donated a large amount — half placed for sale — funding a <strong class="accent">full-range V2 pool locked for 100 years</strong>.</li>
-      <li class="reveal">MistCoin, created by the co-author of ERC-20, the first token in a feature release to create tokens in the Ethereum Wallet, is now <strong class="gold">available for all to collect</strong>.</li>
-    </ul>
+    <div class="fact-list">
+      <div class="fact reveal">
+        <span class="fact-num">01</span>
+        <div class="fact-body"><p>In <strong>2022</strong>, avsa and Fabian were approached to help fund a group interested in historic NFTs. avsa donated hundreds of thousands of MistCoin for giveaways, and <a class="inline" href="https://etherscan.io/tx/0x7f1c438a92b94798b273f56f530656986641fbdb57774e5a9b683a77be135ec3" target="_blank">a wrapper was created</a> to make MistCoin a standard ERC-20 tradeable on any DEX.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">02</span>
+        <div class="fact-body"><p>Fabian donated a large additional amount — half placed for sale — funding a full-range V2 pool <a class="inline" href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50" target="_blank">locked for 100 years</a>. Permanent, manipulation-resistant liquidity.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">03</span>
+        <div class="fact-body"><p>MistCoin — created by the co-author of ERC-20, the first token deployed in the Ethereum Wallet — is now <strong class="gold">available for all to collect</strong>. The provenance chain is complete and verifiable on-chain.</p></div>
+      </div>
+    </div>
   </div>
   <span class="slide-num">04 / 09</span>
 </section>
@@ -664,12 +754,24 @@
     <span class="tag reveal">Why It Matters</span>
     <h2 class="reveal">The Significance</h2>
     <div class="divider reveal"></div>
-    <ul class="bullets">
-      <li class="reveal">MistCoin is <strong class="gold">the original ERC-20</strong> — not in spirit, in fact. Created by the co-author of the standard itself, 16 days before EIP-20 was published.</li>
-      <li class="reveal">It is the actual on-chain artifact from <strong>the moment token standards were invented</strong>. There is no comparable provenance in crypto.</li>
-      <li class="reveal">Historic Ethereum collectors seek provenance — and MistCoin is <strong class="accent">as provenant as it gets</strong>: Fabian → avsa → Devcon 1 → ERC-20.</li>
-      <li class="reveal">The full-range V2 pool locked for 100 years ensures deep liquidity is permanent and manipulation-resistant.</li>
-    </ul>
+    <div class="fact-list">
+      <div class="fact reveal">
+        <span class="fact-num">01</span>
+        <div class="fact-body"><p>MistCoin is <strong class="gold">the original ERC-20</strong> — not in spirit, in fact. Created by <a class="inline" href="https://x.com/feindura" target="_blank">Fabian Vogelsteller</a>, co-author of the standard, <strong>16 days before <a class="inline" href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">EIP-20</a> was published</strong>.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">02</span>
+        <div class="fact-body"><p>It is the actual on-chain artifact from <strong>the moment token standards were invented</strong>. The chain of provenance — <a class="inline" href="https://x.com/feindura" target="_blank">Fabian</a> → <a class="inline" href="https://vandesande.design/" target="_blank">avsa</a> → <a class="inline" href="https://archive.devcon.org/devcon-1/keynote-and-ethereum-roadmap/?tab=YouTube" target="_blank">Devcon 1</a> → <a class="inline" href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20</a> — is unbroken and verifiable.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">03</span>
+        <div class="fact-body"><p>Historic Ethereum collectors seek this level of provenance. There is no comparable artifact anywhere in crypto — no other token was created by the authors of the standard that all tokens now follow.</p></div>
+      </div>
+      <div class="fact reveal">
+        <span class="fact-num">04</span>
+        <div class="fact-body"><p>The <a class="inline" href="https://beta.uncx.network/lockers/univ2/chain/1/address/0xaaea0db2b27344f20e0245d3b058d746e9dd98d5/lock/0x663a5c229c09b049e36dcc11a9b0d4a8eb9db2140aaea0db2b27344f20e0245d3b058d746e9dd98d50" target="_blank">V2 pool locked for 100 years</a> ensures liquidity is permanent — no rug vector, no admin keys, fully on-chain.</p></div>
+      </div>
+    </div>
   </div>
   <span class="slide-num">07 / 09</span>
 </section>
