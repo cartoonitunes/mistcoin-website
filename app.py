@@ -251,6 +251,10 @@ def how_to_buy():
     shitcoin = request.args.get('shitcoin', '').lower() == 'true'
     return render_template('how_to_buy.html', shitcoin=shitcoin)
 
+@app.route('/pitch-deck')
+def pitch_deck():
+    return send_from_directory('.', 'pitch-deck.html', mimetype='text/html')
+
 @app.route('/<path:anything>')
 def catch_all(anything):
     return redirect('/')
