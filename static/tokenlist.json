@@ -1,10 +1,10 @@
 {
   "name": "Ethereum Heritage Tokens",
-  "timestamp": "2026-02-21T14:00:00.000Z",
+  "timestamp": "2026-02-23T14:00:00.000Z",
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 1
   },
   "tags": {
     "historic": {
@@ -24,7 +24,7 @@
       "address": "0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79",
       "name": "Wrapped MistCoin",
       "symbol": "WMC",
-      "decimals": 8,
+      "decimals": 2,
       "logoURI": "https://mistcoineth.com/static/assets/logo.png",
       "tags": ["historic", "wrapped"],
       "extensions": {
@@ -32,25 +32,25 @@
         "description": "MistCoin — the first community token on Ethereum, created in September 2015. Now wrapped for modern DeFi.",
         "originalContractAddress": "0xBB1A4564E301060E185dEda84542DA75Bb003D1e",
         "originalDeploymentDate": "2015-09-12",
-        "coingeckoId": "mistcoin",
+        "coingeckoId": "wrapped-mistcoin",
         "bridgeContract": "0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
       }
     },
     {
       "chainId": 1,
-      "address": "0x715d50635fE3CDe8A4b7f4601D266459bee60EcA",
-      "name": "Wrapped Unicorn Meat",
+      "address": "0xDFA208BB0B811cFBB5Fa3Ea98Ec37Aa86180e668",
+      "name": "Unicorn Meat",
       "symbol": "w🍖",
-      "decimals": 0,
+      "decimals": 3,
       "logoURI": "https://unicornmeateth.com/assets/logo.png",
       "tags": ["historic", "wrapped"],
       "extensions": {
         "website": "https://unicornmeateth.com",
         "description": "Unicorn Meat (🍖) — created in March 2016 by Alex Van de Sande. The first on-chain DEX demo token. Now wrapped and tradable.",
-        "originalContractAddress": "0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
+        "originalContractAddress": "0xED6aC8de7c7CA7e3A22952e09C2a2A1232DDef9A",
         "originalDeploymentDate": "2016-03-14",
         "coingeckoId": "unicorn-meat",
-        "bridgeContract": "0x715d50635fE3CDe8A4b7f4601D266459bee60EcA"
+        "bridgeContract": "0xDFA208BB0B811cFBB5Fa3Ea98Ec37Aa86180e668"
       }
     }
   ]
