@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MistCoin — Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================================
+       THEME: MistCoin — Dark Institutional Heritage
+       Near-black, teal/cyan accents, precise sans-serif
+    =========================================== */
+    :root {
+      --bg:         #030d10;
+      --bg2:        #061820;
+      --bg3:        #0a2535;
+      --accent:     #00d4aa;
+      --accent2:    #4fc3f7;
+      --gold:       #f0c060;
+      --text:       #e8f8f5;
+      --muted:      #4a7a70;
+      --border:     rgba(0, 212, 170, 0.12);
+
+      --font-head:  'Space Grotesk', system-ui, sans-serif;
+      --font-body:  'Inter', system-ui, sans-serif;
+
+      --title-size:  clamp(2.4rem, 7vw, 5.8rem);
+      --h2-size:     clamp(1.5rem, 3.8vw, 3rem);
+      --h3-size:     clamp(1rem, 2.2vw, 1.6rem);
+      --body-size:   clamp(0.78rem, 1.4vw, 1.05rem);
+      --small-size:  clamp(0.65rem, 1vw, 0.85rem);
+      --label-size:  clamp(0.58rem, 0.85vw, 0.72rem);
+
+      --pad:   clamp(1.5rem, 4vw, 4rem);
+      --gap:   clamp(0.6rem, 1.4vw, 1.3rem);
+      --ease:  cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    /* ===========================================
+       SLIDE SYSTEM
+    =========================================== */
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: var(--pad);
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: min(90vw, 960px);
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    /* ===========================================
+       BACKGROUND: subtle grid + corner glow
+    =========================================== */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 5% 5%, rgba(0,212,170,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 95% 95%, rgba(79,195,247,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,170,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,170,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+    }
+
+    .slide-title::before {
+      background:
+        radial-gradient(ellipse 80% 60% at 0% 0%, rgba(0,212,170,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(79,195,247,0.07) 0%, transparent 50%);
+    }
+
+    /* ===========================================
+       TYPOGRAPHY
+    =========================================== */
+    h1 {
+      font-family: var(--font-head);
+      font-size: var(--title-size);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: var(--h2-size);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: var(--font-head);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      color: var(--accent2);
+    }
+
+    p {
+      font-size: var(--body-size);
+      line-height: 1.7;
+      color: rgba(232,248,245,0.82);
+    }
+
+    .tag {
+      font-size: var(--label-size);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .accent  { color: var(--accent); }
+    .accent2 { color: var(--accent2); }
+    .gold    { color: var(--gold); }
+
+    /* ===========================================
+       ANIMATIONS
+    =========================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+
+    .slide.visible .reveal { opacity: 1; transform: translateY(0); }
+    .slide.visible .reveal:nth-child(1) { transition-delay: 0.05s; }
+    .slide.visible .reveal:nth-child(2) { transition-delay: 0.13s; }
+    .slide.visible .reveal:nth-child(3) { transition-delay: 0.21s; }
+    .slide.visible .reveal:nth-child(4) { transition-delay: 0.29s; }
+    .slide.visible .reveal:nth-child(5) { transition-delay: 0.37s; }
+    .slide.visible .reveal:nth-child(6) { transition-delay: 0.45s; }
+    .slide.visible .reveal:nth-child(7) { transition-delay: 0.53s; }
+    .slide.visible .reveal:nth-child(8) { transition-delay: 0.61s; }
+
+    /* ===========================================
+       DIVIDER
+    =========================================== */
+    .divider {
+      width: clamp(36px, 7vw, 64px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ===========================================
+       BULLET LIST
+    =========================================== */
+    .bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.3rem, 0.75vw, 0.6rem);
+    }
+
+    .bullets li {
+      font-size: var(--body-size);
+      line-height: 1.55;
+      color: rgba(232,248,245,0.82);
+      display: flex;
+      align-items: baseline;
+      gap: 0.6em;
+    }
+
+    .bullets li::before {
+      content: '›';
+      font-size: 1.1em;
+      color: var(--accent);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    /* ===========================================
+       TIMELINE
+    =========================================== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.28rem, 0.65vw, 0.5rem);
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: clamp(52px, 10vw, 84px);
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(0,212,170,0.4), transparent);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: clamp(52px, 10vw, 84px) 12px 1fr;
+      align-items: center;
+      gap: 0 clamp(0.5rem, 1.2vw, 0.9rem);
+    }
+
+    .timeline-date {
+      font-family: var(--font-head);
+      font-size: var(--small-size);
+      font-weight: 500;
+      color: var(--accent);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .timeline-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin: 0 auto;
+      box-shadow: 0 0 8px rgba(0,212,170,0.6);
+    }
+
+    .timeline-text {
+      font-size: var(--small-size);
+      line-height: 1.4;
+      color: rgba(232,248,245,0.78);
+    }
+
+    /* ===========================================
+       TOKENOMICS
+    =========================================== */
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      align-items: start;
+    }
+
+    .stats-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.3rem, 0.7vw, 0.55rem);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: var(--small-size);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: clamp(0.22rem, 0.5vw, 0.38rem);
+    }
+
+    .stat-label { color: var(--muted); }
+    .stat-val   { color: var(--text); font-weight: 500; }
+
+    /* CSS pie */
+    .pie-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.5rem, 1vw, 0.85rem);
+    }
+
+    .pie {
+      width: clamp(80px, 12vw, 120px);
+      height: clamp(80px, 12vw, 120px);
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--accent)   0% 60%,
+        var(--bg3)      60% 76%,
+        var(--accent2)  76% 86%,
+        var(--gold)     86% 100%
+      );
+      box-shadow: 0 0 24px rgba(0,212,170,0.2);
+    }
+
+    .legend {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.2rem, 0.45vw, 0.35rem);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--small-size);
+      color: rgba(232,248,245,0.8);
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ===========================================
+       CARDS / TWO-COL
+    =========================================== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.8rem, 2vw, 2rem);
+      align-items: start;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: clamp(0.7rem, 1.5vw, 1.3rem);
+    }
+
+    /* ===========================================
+       FAMILY
+    =========================================== */
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(0.6rem, 1.4vw, 1.1rem);
+    }
+
+    .family-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: clamp(0.7rem, 1.5vw, 1.2rem);
+      text-align: center;
+    }
+
+    .family-card .emoji { font-size: clamp(1.3rem, 2.8vw, 2.2rem); display: block; margin-bottom: 0.3em; }
+    .family-card .fc-date { font-size: var(--small-size); color: var(--muted); }
+    .family-card .fc-name { font-size: var(--body-size); font-weight: 600; margin: 0.2em 0; }
+
+    /* ===========================================
+       LINKS
+    =========================================== */
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(0.4rem, 0.9vw, 0.75rem);
+    }
+
+    .link-chip {
+      font-size: var(--small-size);
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(0,212,170,0.25);
+      border-radius: 100px;
+      padding: 0.3em 0.85em;
+      transition: background 0.2s;
+    }
+
+    .link-chip:hover { background: rgba(0,212,170,0.1); }
+
+    /* ===========================================
+       PROGRESS + NAV DOTS
+    =========================================== */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.3s var(--ease);
+      z-index: 100;
+    }
+
+    #nav-dots {
+      position: fixed;
+      right: clamp(10px, 2vw, 18px);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--muted);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .dot.active { background: var(--accent); transform: scale(1.6); }
+
+    .slide-num {
+      position: absolute;
+      bottom: clamp(0.8rem, 2vw, 1.4rem);
+      right: clamp(1rem, 2.5vw, 2rem);
+      font-size: var(--label-size);
+      color: var(--muted);
+      z-index: 10;
+    }
+
+    /* ===========================================
+       TITLE SLIDE EXTRAS
+    =========================================== */
+    .title-eyebrow {
+      font-family: var(--font-head);
+      font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .title-sub {
+      font-size: clamp(0.85rem, 1.7vw, 1.2rem);
+      color: rgba(232,248,245,0.55);
+      max-width: 560px;
+      line-height: 1.5;
+    }
+
+    /* Subtle horizontal rule */
+    .h-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* CTA */
+    .cta-big {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5.5vw, 4.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    /* Address mono */
+    .mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: var(--small-size);
+      color: var(--accent);
+      word-break: break-all;
+    }
+
+    /* ===========================================
+       RESPONSIVE
+    =========================================== */
+    @media (max-height: 700px) {
+      :root { --pad: clamp(1rem, 3vw, 2rem); --gap: clamp(0.35rem, 0.9vw, 0.7rem); --title-size: clamp(2rem, 5vw, 3.6rem); }
+    }
+
+    @media (max-height: 600px) {
+      :root { --h2-size: clamp(1.1rem, 2.8vw, 1.9rem); --title-size: clamp(1.6rem, 4vw, 2.8rem); }
+    }
+
+    @media (max-width: 600px) {
+      .two-col, .tokenomics-grid, .family-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.2s; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<nav id="nav-dots" aria-label="Slide navigation"></nav>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 1 — TITLE
+═══════════════════════════════════════ -->
+<section class="slide slide-title" id="slide-0" aria-label="Title">
+  <div class="slide-inner">
+    <span class="title-eyebrow reveal">Ethereum · 2015</span>
+    <h1 class="reveal">MistCoin</h1>
+    <div class="divider reveal"></div>
+    <p class="title-sub reveal">A historic token created by the Ethereum team testing token standards in 2015.</p>
+    <span class="tag reveal" style="margin-top:0.2em">WMC · mistcoineth.com</span>
+  </div>
+  <span class="slide-num">01 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 2 — HOW IT STARTED
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-1" aria-label="How It Started">
+  <div class="slide-inner">
+    <span class="tag reveal">Origin Story</span>
+    <h2 class="reveal">How It Started</h2>
+    <div class="divider reveal"></div>
+    <ul class="bullets">
+      <li class="reveal">In the early years of Ethereum, EF leader <strong class="accent">Alex Van de Sande (avsa)</strong> led a team called <strong>Mist</strong> — focused on mass adoption through Dapps.</li>
+      <li class="reveal"><strong class="accent">Fabian Vogelsteller</strong> joined as lead Dapp developer. Both were keenly interested in contract development and the importance of establishing standards.</li>
+      <li class="reveal">The Mist team built the <strong>Mist Browser</strong> and the <strong>Ethereum Wallet</strong> — the official wallet for Ethereum at the time.</li>
+      <li class="reveal">On <strong>Nov 3, 2015</strong>, just before Devcon 1, they released a feature allowing anyone to create tokens in the Wallet. Fabian created MistCoin and sent half the supply to avsa.</li>
+    </ul>
+  </div>
+  <span class="slide-num">02 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 3 — THE STANDARD
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-2" aria-label="The Standard">
+  <div class="slide-inner">
+    <span class="tag reveal">Significance</span>
+    <h2 class="reveal">The Standard</h2>
+    <div class="divider reveal"></div>
+    <ul class="bullets">
+      <li class="reveal">MistCoin was the <strong class="gold">first</strong> in hundreds of coins created from its source code in the Ethereum Wallet. These were the first tokens to be heavily traded and used on Ethereum.</li>
+      <li class="reveal">Fabian and avsa were <strong>handing out MistCoin on Reddit</strong> — the first token community.</li>
+      <li class="reveal">A few days later, avsa demoed the feature as a <strong class="accent">keynote speaker at Devcon 1</strong>. Fabian spoke on standardization.</li>
+      <li class="reveal"><strong class="gold">16 days after creating MistCoin</strong>, Fabian and Vitalik Buterin published <strong>EIP-20: Token Standard</strong> — paving the way to ERC-20, the standard that defines all tokens today.</li>
+    </ul>
+  </div>
+  <span class="slide-num">03 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 4 — WRAPPED & AVAILABLE
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-3" aria-label="Wrapped MistCoin">
+  <div class="slide-inner">
+    <span class="tag reveal">Today</span>
+    <h2 class="reveal">Wrapped &amp; Available</h2>
+    <div class="divider reveal"></div>
+    <ul class="bullets">
+      <li class="reveal">In <strong>2022</strong>, avsa and Fabian were approached to help fund a group interested in historic NFTs. avsa donated hundreds of thousands of MistCoin for giveaways.</li>
+      <li class="reveal">A <strong>wrapper was created</strong> to make it a standard ERC-20. Fabian donated a large amount — half placed for sale — funding a <strong class="accent">full-range V2 pool locked for 100 years</strong>.</li>
+      <li class="reveal">MistCoin, created by the co-author of ERC-20, the first token in a feature release to create tokens in the Ethereum Wallet, is now <strong class="gold">available for all to collect</strong>.</li>
+    </ul>
+  </div>
+  <span class="slide-num">04 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 5 — TIMELINE
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-4" aria-label="Timeline">
+  <div class="slide-inner">
+    <span class="tag reveal">History</span>
+    <h2 class="reveal">Timeline</h2>
+    <div class="divider reveal"></div>
+    <div class="timeline reveal">
+      <div class="timeline-item"><span class="timeline-date">Jun 2015</span><span class="timeline-dot"></span><span class="timeline-text">Vitalik publishes the Ethereum standards wiki</span></div>
+      <div class="timeline-item"><span class="timeline-date">Nov 3, 2015</span><span class="timeline-dot"></span><span class="timeline-text">Fabian &amp; avsa create MistCoin — the first standard tokens in the Ethereum Wallet</span></div>
+      <div class="timeline-item"><span class="timeline-date">Nov 2015</span><span class="timeline-dot"></span><span class="timeline-text">avsa keynotes at Devcon 1, demos the Ethereum Wallet token feature</span></div>
+      <div class="timeline-item"><span class="timeline-date">Nov 19, 2015</span><span class="timeline-dot"></span><span class="timeline-text">Fabian &amp; Vitalik publish EIP-20: Token Standard (→ ERC-20)</span></div>
+      <div class="timeline-item"><span class="timeline-date">Sep 2017</span><span class="timeline-dot"></span><span class="timeline-text">ERC-20 is finalized as the definitive token standard</span></div>
+      <div class="timeline-item"><span class="timeline-date">Jul 2022</span><span class="timeline-dot"></span><span class="timeline-text">MistCoin is wrapped — full-range V2 liquidity pool launched, locked 100 years</span></div>
+      <div class="timeline-item"><span class="timeline-date">May 2025</span><span class="timeline-dot"></span><span class="timeline-text">MistCoin source code verified on Etherscan</span></div>
+    </div>
+  </div>
+  <span class="slide-num">05 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 6 — MISTONOMICS
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-5" aria-label="Mistonomics">
+  <div class="slide-inner">
+    <span class="tag reveal">Tokenomics</span>
+    <h2 class="reveal">Mistonomics</h2>
+    <div class="divider reveal"></div>
+    <div class="tokenomics-grid reveal">
+      <div class="stats-list">
+        <div class="stat-row"><span class="stat-label">Total Supply</span><span class="stat-val">1 Million</span></div>
+        <div class="stat-row"><span class="stat-label">Wrapped Supply</span><span class="stat-val">600,000 WMC</span></div>
+        <div class="stat-row"><span class="stat-label">V2 Liquidity</span><span class="stat-val accent">Full-range · Locked 100 years</span></div>
+        <div class="stat-row"><span class="stat-label">Lost / Inactive</span><span class="stat-val">~10–20% of supply</span></div>
+        <div class="stat-row"><span class="stat-label">Base Bridge</span><span class="stat-val">Yes</span></div>
+        <div class="stat-row"><span class="stat-label">Listings</span><span class="stat-val">CoinEx &amp; NonKYC</span></div>
+        <div class="stat-row"><span class="stat-label">Community Multisig</span><span class="stat-val">~15,000 MistCoin</span></div>
+      </div>
+      <div class="pie-wrap">
+        <div class="pie"></div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>60% Circulating</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--bg3)"></div>16% Locked LP</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div>10% Community</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>14% Lost / Inactive</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-num">06 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 7 — THE SIGNIFICANCE
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-6" aria-label="The Significance">
+  <div class="slide-inner">
+    <span class="tag reveal">Why It Matters</span>
+    <h2 class="reveal">The Significance</h2>
+    <div class="divider reveal"></div>
+    <ul class="bullets">
+      <li class="reveal">MistCoin is <strong class="gold">the original ERC-20</strong> — not in spirit, in fact. Created by the co-author of the standard itself, 16 days before EIP-20 was published.</li>
+      <li class="reveal">It is the actual on-chain artifact from <strong>the moment token standards were invented</strong>. There is no comparable provenance in crypto.</li>
+      <li class="reveal">Historic Ethereum collectors seek provenance — and MistCoin is <strong class="accent">as provenant as it gets</strong>: Fabian → avsa → Devcon 1 → ERC-20.</li>
+      <li class="reveal">The full-range V2 pool locked for 100 years ensures deep liquidity is permanent and manipulation-resistant.</li>
+    </ul>
+  </div>
+  <span class="slide-num">07 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 8 — THE FAMILY
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-7" aria-label="The Family">
+  <div class="slide-inner">
+    <span class="tag reveal">Context</span>
+    <h2 class="reveal">Ethereum Foundation Tokens</h2>
+    <div class="divider reveal"></div>
+    <p class="reveal" style="max-width:600px">MistCoin and Unicorn Meat are both Ethereum Foundation originals — two chapters in the same story of Ethereum's earliest experiments with tokens.</p>
+    <div class="family-grid reveal">
+      <div class="family-card">
+        <span class="emoji">💠</span>
+        <div class="fc-date">Nov 3, 2015</div>
+        <div class="fc-name accent">MistCoin</div>
+        <p style="font-size:var(--small-size);color:var(--muted)">Fabian Vogelsteller. The first token in the Ethereum Wallet. Ancestor of all ERC-20s.</p>
+      </div>
+      <div class="family-card">
+        <span class="emoji">🦄</span>
+        <div class="fc-date">Feb 2016</div>
+        <div class="fc-name" style="color:var(--accent2)">Unicorns</div>
+        <p style="font-size:var(--small-size);color:var(--muted)">avsa for the EF TipJar fundraise. Donation-minted. 2,717 total supply. Forever rare.</p>
+      </div>
+      <div class="family-card">
+        <span class="emoji">🍖</span>
+        <div class="fc-date">Mar 2016</div>
+        <div class="fc-name" style="color:var(--gold)">Unicorn Meat</div>
+        <p style="font-size:var(--small-size);color:var(--muted)">avsa's Grinder DAO. Quadratic voting, token swaps, mutations. Now collectible.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-num">08 / 09</span>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 9 — CTA
+═══════════════════════════════════════ -->
+<section class="slide" id="slide-8" aria-label="Collect Ethereum History">
+  <div class="slide-inner" style="text-align:center;align-items:center">
+    <div class="cta-big reveal">Collect Ethereum History</div>
+    <p class="title-sub reveal">The original token — created by the authors of ERC-20, now wrapped and available.</p>
+    <div class="divider reveal" style="margin:0 auto"></div>
+    <div class="link-row reveal" style="justify-content:center;margin-top:0.3rem">
+      <a class="link-chip" href="https://mistcoineth.com" target="_blank">mistcoineth.com</a>
+      <a class="link-chip" href="#" target="_blank">CoinGecko &amp; CMC</a>
+      <a class="link-chip" href="#" target="_blank">DexTools</a>
+      <a class="link-chip" href="#" target="_blank">Twitter</a>
+    </div>
+    <div class="card reveal" style="margin-top:var(--gap);text-align:left;max-width:420px">
+      <p class="stat-label" style="font-size:var(--label-size);margin-bottom:0.4em">CONTRACT ADDRESSES</p>
+      <p style="font-size:var(--small-size);color:var(--muted);margin-bottom:0.3em">MistCoin</p>
+      <p class="mono">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</p>
+      <p style="font-size:var(--small-size);color:var(--muted);margin:0.5em 0 0.3em">Wrapped MistCoin (WMC)</p>
+      <p class="mono">0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79</p>
+    </div>
+  </div>
+  <span class="slide-num">09 / 09</span>
+</section>
+
+<script>
+  /* ===========================================
+     SLIDE PRESENTATION CONTROLLER
+  =========================================== */
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const progressBar = document.getElementById('progress-bar');
+  const navDotsEl = document.getElementById('nav-dots');
+  const totalSlides = slides.length;
+  let currentSlide = 0;
+
+  // Build nav dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Slide ${i + 1}`);
+    dot.addEventListener('click', () => scrollToSlide(i));
+    navDotsEl.appendChild(dot);
+  });
+
+  function updateUI(idx) {
+    currentSlide = idx;
+    const pct = totalSlides > 1 ? (idx / (totalSlides - 1)) * 100 : 100;
+    progressBar.style.width = pct + '%';
+    navDotsEl.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function scrollToSlide(idx) {
+    slides[idx].scrollIntoView({ behavior: 'smooth' });
+    updateUI(idx);
+  }
+
+  // Intersection observer: animations + dot tracking
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        const idx = slides.indexOf(entry.target);
+        if (idx !== -1) updateUI(idx);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      if (currentSlide < totalSlides - 1) scrollToSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (currentSlide > 0) scrollToSlide(currentSlide - 1);
+    }
+  });
+
+  // Touch/swipe
+  let touchStart = 0;
+  document.addEventListener('touchstart', e => { touchStart = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const delta = touchStart - e.changedTouches[0].clientY;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0 && currentSlide < totalSlides - 1) scrollToSlide(currentSlide + 1);
+      else if (delta < 0 && currentSlide > 0) scrollToSlide(currentSlide - 1);
+    }
+  }, { passive: true });
+
+  updateUI(0);
+</script>
+</body>
+</html>
