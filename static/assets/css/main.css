@@ -1813,6 +1813,97 @@ section,
   min-width: 480px;
 }
 
+/*--------------------------------------------------------------
+# Primary Sources Section
+--------------------------------------------------------------*/
+.source-card {
+  height: 100%;
+  padding: 26px 28px;
+  border-radius: 12px;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.source-card:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+  transform: translateY(-2px);
+}
+
+.source-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: var(--accent-gold);
+}
+
+.source-card h4 i {
+  margin-right: 8px;
+}
+
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.source-list li {
+  padding: 9px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+}
+
+.source-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.source-list li a {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.source-list li span {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* Pull-quote from the EIP-20 Motivation section */
+.mc-spec-quote {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  padding: 22px 28px;
+  border-left: 3px solid var(--accent-gold);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 8px 8px 0;
+}
+
+.mc-spec-quote p {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.mc-spec-quote cite {
+  display: block;
+  font-size: 0.82rem;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.mc-spec-quote code {
+  font-style: normal;
+}
+
 .mc-interface-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.03);
 }

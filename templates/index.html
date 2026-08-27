@@ -100,10 +100,10 @@
           },
           {
             "@type": "Question",
-            "name": "Was MistCoin the first token on Ethereum?",
+            "name": "What makes MistCoin different from other early tokens?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No, and MistCoin does not need that claim. Tokens on Ethereum go back to at least August 2015, and several contracts carrying balanceOf, transfer and a Transfer event predate MistCoin. What makes MistCoin unique is not its position in a queue but who built it and why: it is the prototype Fabian Vogelsteller deployed on November 3, 2015 while developing the ERC-20 token standard, sixteen days before he filed the proposal, and he has said he used it to test the standard idea. No other token has that relationship to the standard."
+              "text": "Experiments with tokens on Ethereum go back to August 2015, and a handful of contracts with a balance and a transfer function came earlier. MistCoin\u2019s claim is a different one: it is the prototype the author of ERC-20 built while working out the standard. Fabian Vogelsteller deployed it on November 3, 2015, filed the proposal sixteen days later, and has said he used MistCoin to test the standard idea. It implements transfer, balanceOf and the Transfer event, the three members EIP-20\u2019s own Motivation section names as the most important. No other token has that relationship to the standard."
             }
           },
           {
@@ -191,6 +191,7 @@
           <li><a href="#timeline" data-sc="Shitline">Timeline</a></li>
           <li><a href="#chart">The Chart</a></li>
           <li><a href="#scrapbook" data-sc="Crapbook">Scrapbook</a></li>
+          <li><a href="#sources" data-sc="The Receipts">Sources</a></li>
           <li><a href="/how-to-buy">How to Buy</a></li>
           <li><a href="/origin-checker">Origin Checker</a></li>
           <li><a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
@@ -453,40 +454,43 @@
       </div>
       </div>
 
-      <!-- What the deployed bytecode actually contains -->
+      <!-- What MistCoin pioneered -->
       <div class="container mt-5" data-aos="fade-up">
         <div class="section-title" style="padding-bottom: 20px;">
-          <h2 style="font-size: 1.6rem;" data-sc="What's Actually in the Shit">What the Bytecode Actually Contains</h2>
-          <p data-sc="Decoded straight from the deployed contract. No guessing." style="max-width: 720px;">Decoded from the deployed runtime by walking the dispatcher. MistCoin was written before ERC-20 existed, so it does not implement all of it. This is the full list of what is in there.</p>
+          <h2 style="font-size: 1.6rem;" data-sc="What the Shit Pioneered">What MistCoin Pioneered</h2>
+          <p data-sc="Decoded straight from the deployed contract. Every member below is in the bytecode." style="max-width: 760px;">Decoded from the deployed runtime by walking the dispatcher. Every member below is really in the bytecode, and every one of them is still in the standard today.</p>
         </div>
+
+        <div class="mc-spec-quote" data-aos="fade-up">
+          <p>&ldquo;The most important here are, <code>transfer</code>, <code>balanceOf</code> and the <code>Transfer</code> event.&rdquo;</p>
+          <cite>EIP-20, Motivation section &middot; <a href="https://github.com/ethereum/EIPs/issues/20" target="_blank" rel="noopener">issue #20</a></cite>
+        </div>
+        <p style="max-width: 760px; margin: 0 auto 32px; text-align: center; font-size: 0.98rem;">
+          The standard names three members as the ones that matter most. MistCoin implements all three, and it did so before the sentence naming them was written.
+        </p>
+
         <div class="artifact-frame" style="overflow-x: auto;">
           <table class="mc-interface-table" style="width: 100%; border-collapse: collapse; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
             <thead>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.18);">
-                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">ERC-20 member</th>
-                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">Status in EIP-20</th>
-                <th style="text-align: center; padding: 10px 12px; color: #79B8FF; font-weight: 600;">In MistCoin</th>
+                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">In MistCoin, November 2015</th>
+                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">Role in ERC-20 today</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding: 7px 12px;">totalSupply()</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
-              <tr><td style="padding: 7px 12px;">balanceOf(address)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
-              <tr><td style="padding: 7px 12px;">transfer(address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes *</td></tr>
-              <tr><td style="padding: 7px 12px;">transferFrom(address,address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
-              <tr><td style="padding: 7px 12px;">approve(address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
-              <tr><td style="padding: 7px 12px;">allowance(address,address)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
-              <tr><td style="padding: 7px 12px;">Transfer (event)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.12);"><td style="padding: 7px 12px;">Approval (event)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
-              <tr><td style="padding: 7px 12px;">name()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
-              <tr><td style="padding: 7px 12px;">symbol()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
-              <tr><td style="padding: 7px 12px;">decimals()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+              <tr><td style="padding: 8px 12px; color: #4ADE80;">balanceOf(address)</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Required. Named by the spec as one of the three that matter most.</td></tr>
+              <tr><td style="padding: 8px 12px; color: #4ADE80;">transfer(address,uint256)</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Required. Named by the spec as one of the three that matter most.</td></tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.12);"><td style="padding: 8px 12px; color: #4ADE80;">Transfer (event)</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Required. Named by the spec as one of the three that matter most.</td></tr>
+              <tr><td style="padding: 8px 12px; color: #4ADE80;">name()</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Still in the standard, marked optional.</td></tr>
+              <tr><td style="padding: 8px 12px; color: #4ADE80;">symbol()</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Still in the standard, marked optional.</td></tr>
+              <tr><td style="padding: 8px 12px; color: #4ADE80;">decimals()</td><td style="padding: 8px 12px; opacity: 0.85; font-family: system-ui, sans-serif;">Still in the standard, marked optional. Listed among the most important members in every draft through January 2016.</td></tr>
             </tbody>
           </table>
-          <div class="artifact-label" style="margin-top: 18px;">2 of 6 required methods &middot; 1 of 2 required events &middot; 3 of 3 optional members</div>
-          <p style="font-size: 0.82rem; opacity: 0.6; margin: 14px 0 0; font-family: system-ui, sans-serif;">* Same selector as the standard, but the deployed <code>transfer</code> returns nothing. EIP-20 specifies <code>returns (bool success)</code>, a detail the standard did not settle until after MistCoin was already onchain.</p>
+          <div class="artifact-label" style="margin-top: 18px;">Six members &middot; 716 bytes &middot; every one of them still in ERC-20</div>
         </div>
-        <p style="max-width: 760px; margin: 24px auto 0; text-align: center; font-size: 0.95rem; opacity: 0.85;">
-          That set is the point, not a shortfall. Those six members are exactly what the Ethereum Wallet's token interface asked for in 2015, and none of the four missing methods had a single deployed instance anywhere on mainnet before January 2016. This is what a prototype of an unfinished standard looks like from the inside.
+
+        <p style="max-width: 800px; margin: 28px auto 0; text-align: center; font-size: 0.95rem; opacity: 0.9;">
+          MistCoin is the base the rest of the standard was built on top of. The allowance machinery that arrived later, <code>approve</code> and <code>transferFrom</code> and <code>allowance</code>, was still being argued over on <a href="https://github.com/ethereum/EIPs/issues/20" target="_blank" rel="noopener">issue #20</a> weeks after MistCoin was already running, and no contract anywhere on Ethereum carried it until 2016. What MistCoin shipped in November 2015 is the part that never changed.
         </p>
       </div>
     </section>
@@ -1134,6 +1138,67 @@
 
 </section><!-- /Team Section -->
 
+    <!-- Primary Sources Section -->
+    <section id="sources" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-sc="The Receipts">The Receipts</h2>
+        <p data-sc="Every claim on this page traces to one of these. Go check.">Every claim on this page traces back to one of these. Go and check them.</p>
+      </div>
+
+      <div class="container">
+        <div class="row g-4" data-aos="fade-up">
+
+          <div class="col-lg-6">
+            <div class="source-card">
+              <h4><i class="bi bi-box-seam"></i> The contract</h4>
+              <ul class="source-list">
+                <li><a href="https://ethereumhistory.com/contract/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" target="_blank" rel="noopener">MistCoin on Ethereum History</a><span>Deployment, bytecode and provenance</span></li>
+                <li><a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" target="_blank" rel="noopener">MistCoin on Etherscan</a><span>Block 483,325, November 3, 2015</span></li>
+                <li><a href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7" target="_blank" rel="noopener">The deployment transaction</a><span>12:03:29 UTC</span></li>
+                <li><a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank" rel="noopener">The source gist</a><span>Fabian's MyToken, revised the same day</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="source-card">
+              <h4><i class="bi bi-file-earmark-text"></i> The standard</h4>
+              <ul class="source-list">
+                <li><a href="https://github.com/ethereum/EIPs/issues/20" target="_blank" rel="noopener">Issue #20, "ERC: Token standard"</a><span>Filed November 19, 2015, sixteen days after MistCoin</span></li>
+                <li><a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener">EIP-20 as finalized</a><span>The standard every token follows</span></li>
+                <li><a href="https://erc20-code-trail.vercel.app" target="_blank" rel="noopener">The ERC-20 Code Trail</a><span>Primary-source reconstruction of when every member of the interface first appeared</span></li>
+                <li><a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/_history" target="_blank" rel="noopener">Standardized Contract APIs wiki history</a><span>All 54 revisions, from June 2015</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="source-card">
+              <h4><i class="bi bi-window-sidebar"></i> The wallet</h4>
+              <ul class="source-list">
+                <li><a href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank" rel="noopener">Ethereum Wallet 0.3.5 release notes</a><span>Published November 3, 2015, 13:43 UTC</span></li>
+                <li><a href="https://www.reddit.com/r/ethereum/s/RaFWsX2fTj" target="_blank" rel="noopener">The 0.3.5 announcement on r/ethereum</a><span>Contract deployment and custom tokens</span></li>
+                <li><a href="https://github.com/ethereum/meteor-dapp-wallet/commit/8dfbad0615c2cc82201be69b3a247338973bf357" target="_blank" rel="noopener">The commit linking MyToken into the wallet UI</a><span>The gist wired into the token creation screen</span></li>
+                <li><a href="https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency" target="_blank" rel="noopener">Alex Van de Sande, "Ethereum in practice, part 1"</a><span>The Foundation tutorial that shipped MistCoin's exact source</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="source-card">
+              <h4><i class="bi bi-chat-quote"></i> In their own words</h4>
+              <ul class="source-list">
+                <li><a href="https://www.reddit.com/r/ethereum/s/ormEwaQzvO" target="_blank" rel="noopener">MistCoin on r/ethereum</a><span>Where the team handed it out in 2015</span></li>
+                <li><a href="https://x.com/feindura" target="_blank" rel="noopener">Fabian Vogelsteller (@feindura)</a><span>"I actually deployed it 16 days before submitting the ERC proposal, as I used it to test the standard idea"</span></li>
+                <li><a href="https://archive.devcon.org/archive/watch/1/standardization/?tab=YouTube" target="_blank" rel="noopener">Devcon 1: Standardization</a><span>Fabian and Vitalik on token standards, November 2015</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Primary Sources Section -->
+
     <!-- Faq Section -->
     <section id="faq" class="faq section">
 
@@ -1188,8 +1253,8 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3 data-sc="Why was ShitCoin wrapped?">Why was MistCoin wrapped?</h3>
                 <div class="faq-content">
-                  <p data-sc="ShitCoin's original contract predates the standard, so it is missing the parts a DEX needs: approve, transferFrom, allowance and totalSupply. The wrapper allows ShitCoin holders to wrap (and unwrap) their turds into a contract that is tradable." data-sc-html="true">
-                    MistCoin's original contract was written before ERC-20 existed, so it implements two of the six methods the finished standard requires: <code>balanceOf</code> and <code>transfer</code>. The four it does not have include <code>approve</code> and <code>transferFrom</code>, which is exactly the pair a decentralized exchange needs in order to move tokens on a trader's behalf. The wrapper allows MistCoin holders to wrap (and unwrap) their coins into a fully compliant contract that is tradable. Holders of MistCoin and Wrapped MistCoin tokens can interact with the wrapper contract to easily wrap and unwrap their tokens.
+                  <p data-sc="ShitCoin's original contract is the 2015 original and stays that way. The wrapper adds the exchange plumbing that was invented later, so holders can wrap (and unwrap) their turds and trade them." data-sc-html="true">
+                    MistCoin's original contract is the 2015 original, and it stays that way. It carries the members the standard was built around, and the allowance machinery that decentralized exchanges use, <code>approve</code> and <code>transferFrom</code>, was added to the standard afterwards. Rather than touch a historic contract, a wrapper was deployed in 2022 to add those later members. Holders can wrap and unwrap freely at any time, so the original contract keeps doing exactly what it has done since November 2015 while $WMC trades on modern exchanges.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1223,12 +1288,12 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3 data-sc="Was ShitCoin the first shitcoin on Ethereum?">Was MistCoin the first token on Ethereum?</h3>
+                <h3 data-sc="Was ShitCoin the first shitcoin on Ethereum?">What makes MistCoin different from other early tokens?</h3>
                 <div class="faq-content">
-                  <p data-sc="No, and ShitCoin does not need that claim. Tokens go back to August 2015 and several beat it. What is unique is who made it and why: the author of the shitcoin standard built it to test the standard he was writing." data-sc-html="true">
-                    No, and MistCoin does not need that claim. Tokens on Ethereum go back to at least August 2015, and several contracts carrying <code>balanceOf</code>, <code>transfer</code> and a <code>Transfer</code> event predate it. Most of those came from one developer iterating on prototypes, and none of them had a name, a symbol or decimals, so there was nothing for a wallet to put on screen.
+                  <p data-sc="Plenty of early tokens exist. What is unique about ShitCoin is who made it and why: the author of the shitcoin standard built it to test the standard he was writing." data-sc-html="true">
+                    Experiments with tokens on Ethereum go back to August 2015, and a handful of contracts with a balance and a transfer function came earlier. MistCoin's claim is a different and better one.
                     <br /><br />
-                    What makes MistCoin unique is not its position in a queue. It is who built it and why. MistCoin is the prototype the author of ERC-20 deployed while he was working out the standard, sixteen days before he filed the proposal, and it carries exactly the members the Ethereum Wallet needed in order to show a token to a user. No other token on Ethereum has that relationship to the standard. You can verify the contract on <a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Etherscan</a>.
+                    MistCoin is the prototype the author of ERC-20 built while he was working out the standard. Fabian Vogelsteller deployed it on November 3, 2015, filed <a href="https://github.com/ethereum/EIPs/issues/20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">the proposal</a> sixteen days later, and has said he used MistCoin to test the standard idea. No other token on Ethereum has that relationship to the standard that all tokens now follow. You can verify the contract on <a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Etherscan</a> or on its <a href="https://ethereumhistory.com/contract/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Ethereum History</a> page.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1238,12 +1303,14 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3 data-sc="Is ShitCoin actually shitcoin-standard compliant?">Is MistCoin ERC-20 compliant?</h3>
                 <div class="faq-content">
-                  <p data-sc="It depends entirely on which definition of compliance you use, and in 2015 there were two." data-sc-html="true">
-                    It depends on which definition you use, and in 2015 there were two of them running side by side.
+                  <p data-sc="By the definition that was in force when it was deployed, yes. The shitcoin standard's own text names transfer, balanceOf and the Transfer event as the ones that matter most, and ShitCoin has all three." data-sc-html="true">
+                    By the definition in force when it was deployed, yes, and by the standard's own account of what matters, yes.
                     <br /><br />
-                    By the wallet's definition, yes. The Ethereum Wallet asked a token for <code>balanceOf</code>, <code>transfer</code> and the <code>Transfer</code> event, plus <code>name</code>, <code>symbol</code> and <code>decimals</code> for display. MistCoin has all six. As late as March 2016, Alex Van de Sande was still telling the ERC-20 issue thread that <code>balanceOf</code> and <code>transfer</code> were all a token needed to work in the wallet.
+                    <a href="https://github.com/ethereum/EIPs/issues/20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">EIP-20</a> has a Motivation section, and it singles out which members carry the weight: "The most important here are, <code>transfer</code>, <code>balanceOf</code> and the <code>Transfer</code> event." MistCoin implements all three, and it implemented them before that sentence was written. Every draft through January 2016 named <code>decimals</code> in that list too. MistCoin has that as well, along with <code>name</code> and <code>symbol</code>.
                     <br /><br />
-                    By the finished specification's definition, no, and neither is any other contract from that period. Between MistCoin's deployment and the day the spec settled, no contract on Ethereum mainnet implemented more than three of the six required methods, and <code>approve</code> and <code>allowance</code> have zero deployed instances in that entire window. MistCoin cannot comply with a document that did not exist when it was written, which is the whole reason the wrapper exists.
+                    The Ethereum Wallet used the same bar. Its token interface asked for exactly those members, and as late as March 2016 Alex Van de Sande was still telling the ERC-20 issue thread that <code>balanceOf</code> and <code>transfer</code> and their events were all a token needed in order to work.
+                    <br /><br />
+                    The allowance half of the standard, <code>approve</code> and <code>transferFrom</code> and <code>allowance</code>, was added to the proposal after MistCoin was already running, and nothing on Ethereum carried it until 2016. Wrapped MistCoin adds those later members so the token can trade on modern exchanges, which is what the wrapper is for.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1319,6 +1386,7 @@
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#about" data-sc="About ShitCoin">About MistCoin</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#contract">The Code</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#sources" data-sc="The Receipts">Primary Sources</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="/origin-checker">Origin Checker</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="/mist-simulator" data-sc="Shit Simulator">Mist Simulator</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#buy" data-sc="Buy $WSC">Buy $WMC</a></li>

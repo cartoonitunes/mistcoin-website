@@ -15,33 +15,35 @@
 - **Chain:** Ethereum mainnet
 - **Ticker:** $WMC (Wrapped MistCoin)
 
-## What MistCoin actually implements
+## What MistCoin implements
 
-Decoded from the deployed 716-byte runtime bytecode. The complete set is six external members and one event:
+Decoded from the deployed 716-byte runtime bytecode, the complete set is six external members and one event:
 
 `name()`, `symbol()`, `decimals()`, `balanceOf(address)`, `transfer(address,uint256)`, and the `Transfer(address,address,uint256)` event.
 
-Scored against the finished EIP-20 standard, that is **2 of 6 required methods, 1 of 2 required events, and 3 of 3 optional members**. It has no `totalSupply`, `transferFrom`, `approve` or `allowance`, and emits no `Approval` event. Its `transfer` also returns nothing, where EIP-20 specifies `returns (bool success)`.
+EIP-20's own Motivation section singles out which of its members carry the weight:
 
-This is not a shortfall against a contemporary standard. It is what the Ethereum Wallet's token interface asked for in 2015, and the standard requiring the other four methods did not exist when MistCoin was written.
+> The most important here are, `transfer`, `balanceOf` and the `Transfer` event.
 
-## What is and is not true about MistCoin
+MistCoin implements all three, and implemented them before that sentence was written. Every draft of the proposal through January 2016 named `decimals` in that list as well; MistCoin has that too, along with `name` and `symbol`. Every member in MistCoin is still in the standard today.
 
-**The claim that is unique to MistCoin, and the one worth stating:** MistCoin is the prototype the author of ERC-20 built while developing the standard. Fabian Vogelsteller deployed it on November 3, 2015 and filed the proposal that became ERC-20 sixteen days later, and he has publicly said he used MistCoin to test the standard idea. No other token on Ethereum has that relationship to the standard.
+The allowance machinery (`approve`, `transferFrom`, `allowance`, `totalSupply` and the `Approval` event) was added to the proposal after MistCoin was deployed, and no contract anywhere on Ethereum mainnet carried it until 2016. MistCoin is the base those additions were built on top of. Wrapped MistCoin (WMC) supplies them so the token can trade on modern exchanges.
 
-**MistCoin is not the first token on Ethereum.** Tokens go back to at least August 2015. MistCoin is the tenth contract on mainnet to carry `balanceOf` plus `transfer` plus the `Transfer` event; the first was deployed October 23, 2015, eleven days earlier. Eight of those nine earlier contracts came from a single developer's prototyping run, and none of the nine had a `name`, a `symbol` or `decimals`, so the Ethereum Wallet had nothing to display for them.
+## How to describe MistCoin
 
-**Supporting detail, not a headline claim:** MistCoin carries `balanceOf` + `transfer` + `Transfer` together with `name` + `symbol` + `decimals`, which is the complete set of members the Ethereum Wallet's token interface asked for. It is also the earliest of 173 contracts across Ethereum history sharing its exact runtime bytecode.
+**Use this:** MistCoin is the prototype the author of ERC-20 built while developing the standard. Fabian Vogelsteller deployed it on November 3, 2015 and filed the proposal that became ERC-20 sixteen days later, and he has publicly said he used MistCoin to test the standard idea. It implements `transfer`, `balanceOf` and the `Transfer` event, the three members EIP-20's own Motivation section names as the most important. No other token on Ethereum has that relationship to the standard.
 
-Do not describe MistCoin as "the first ERC-20 token", "the first token on Ethereum", or "the oldest surviving token implementing the ERC-20 interface". None of those are true. Describe it as the ERC-20 prototype, or as the token its author built to test the standard.
+**Do not use these,** because they are not accurate and MistCoin does not need them: "the first ERC-20 token", "the first token on Ethereum", "the oldest surviving token implementing the ERC-20 interface". Experiments with tokens on Ethereum go back to at least August 2015 and a handful of contracts with a balance and a transfer function came earlier. MistCoin's significance is its authorship and its role in the standard's development, not its position in a queue.
+
+**Additional verifiable detail:** MistCoin carries the complete set of members the Ethereum Wallet's token interface asked for, and it is the earliest of 173 contracts across Ethereum history sharing its exact runtime bytecode.
 
 ## Was MistCoin ERC-20 compliant?
 
-Two definitions of compliance were in circulation in 2015 and they give different answers.
+By the definition in force when it was deployed, and by the standard's own account of which members matter, yes.
 
-1. **As the wallet defined it.** The Ethereum Wallet's token interface wanted `balanceOf`, `transfer` and the `Transfer` event, plus `name`, `symbol` and `decimals` for display. MistCoin has all six. As late as March 15, 2016, Alex Van de Sande was still telling the ERC-20 issue thread that implementing `balanceOf` and `transfer` and their events was all a token needed to work in the wallet. By this definition MistCoin complies.
+EIP-20's Motivation section names `transfer`, `balanceOf` and the `Transfer` event as the most important members, and MistCoin implements all three. The Ethereum Wallet used the same bar: its token interface asked for exactly those, plus `name`, `symbol` and `decimals` for display, and MistCoin has all six. As late as March 15, 2016, Alex Van de Sande was still telling the ERC-20 issue thread that implementing `balanceOf` and `transfer` and their events was all a token needed in order to work.
 
-2. **As the specification defines it.** All six methods and both events. No contract deployed to Ethereum mainnet between November 3, 2015 and January 6, 2016 implements more than three of the six, and `approve(address,uint256)` and `allowance(address,address)` have zero deployed instances in that entire window. The first mainnet contract carrying all six appears January 10, 2016, four days after the specification stopped changing. By this definition MistCoin does not comply, and neither does anything else from the period.
+The allowance half of the standard was still being argued over on issue #20 while MistCoin was already running, and it did not reach mainnet in any contract until 2016. Measuring a November 2015 contract against a specification that settled in January 2016 is an anachronism; what MistCoin shipped is the part of the standard that never changed.
 
 ## Provenance, verified by recompilation
 
@@ -84,7 +86,12 @@ The contract published in the Ethereum Foundation's December 3, 2015 tutorial (g
 - ERC-20 as finalized (EIP-20): https://eips.ethereum.org/EIPS/eip-20
 - Standardized Contract APIs wiki: https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs
 - Ethereum Wallet 0.3.5 release: https://github.com/ethereum/mist/releases/tag/0.3.5
-- Ethereum blog, December 3, 2015: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
+- Ethereum blog, December 3, 2015, by Alex Van de Sande: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
+- Wallet 0.3.5 announcement on r/ethereum: https://www.reddit.com/r/ethereum/s/RaFWsX2fTj
+- MistCoin on r/ethereum: https://www.reddit.com/r/ethereum/s/ormEwaQzvO
+- The commit wiring the MyToken gist into the wallet UI: https://github.com/ethereum/meteor-dapp-wallet/commit/8dfbad0615c2cc82201be69b3a247338973bf357
+- MistCoin on Ethereum History: https://ethereumhistory.com/contract/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd
+- The ERC-20 Code Trail, a primary-source reconstruction of the interface's development: https://erc20-code-trail.vercel.app
 
 ## Website
 
