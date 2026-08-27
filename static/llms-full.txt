@@ -1,6 +1,6 @@
 # MistCoin ($WMC) — Complete Reference
 
-> The ERC-20 prototype. Deployed on Ethereum November 3, 2015, sixteen days before the proposal that became ERC-20 was filed, and the first token contract the official Ethereum Wallet could display.
+> The ERC-20 prototype. Fabian Vogelsteller built MistCoin while developing the ERC-20 token standard and deployed it on November 3, 2015, sixteen days before he filed the proposal. He has said he used it to test the standard idea.
 
 ## Overview
 
@@ -8,7 +8,9 @@ MistCoin was deployed on November 3, 2015 at 12:03:29 UTC, block 483,325, as a p
 
 Sixteen days after that, on November 19, 2015, Fabian Vogelsteller filed the proposal that became ERC-20 (EIP-20). He has publicly said he deployed MistCoin to test the standard idea. The proposal as filed was not the standard we know: it took until January 6, 2016 to reach the interface in use today.
 
-MistCoin does not implement the finished standard, because the finished standard did not exist when it was written. What it does implement is the exact set of members the Ethereum Wallet needed in order to show a token to a user, and it is the first contract on Ethereum mainnet to carry that complete set.
+MistCoin does not implement the finished standard, because the finished standard did not exist when it was written. What it does implement is the exact set of members the Ethereum Wallet needed in order to show a token to a user.
+
+MistCoin is not the first token on Ethereum and does not need to be. Tokens go back to at least August 2015 and several contracts predate it. What is unique to MistCoin is its relationship to the standard: it is the working prototype its author deployed while he was still deciding what the interface should be.
 
 ## Token Details
 
@@ -181,12 +183,14 @@ URL: https://www.mistcoineth.com/mist-simulator
 ## Frequently Asked Questions
 
 ### What is MistCoin, and why is it significant?
-MistCoin was deployed on November 3, 2015 by Fabian Vogelsteller, who filed the proposal that became ERC-20 sixteen days later and has publicly said he deployed MistCoin to test the standard idea. It went onchain the same day Ethereum Wallet 0.3.5 shipped the wallet's token feature, and it is the first contract on Ethereum mainnet carrying the complete set of members that wallet could display.
+MistCoin is the prototype Fabian Vogelsteller built while he was developing the ERC-20 token standard. He deployed it on November 3, 2015, filed the proposal that became ERC-20 sixteen days later, and has publicly said he used MistCoin to test the standard idea. It went onchain the same day Ethereum Wallet 0.3.5 shipped the wallet's token feature.
 
 ### Was MistCoin the first token on Ethereum?
-No. Contracts carrying `balanceOf`, `transfer` and a `Transfer` event go back to August 2015, and nine of them predate MistCoin, the earliest by eleven days. Eight of those nine came from a single developer's prototyping run and none of the nine had a `name`, a `symbol` or `decimals`, so the Ethereum Wallet had nothing to display for them.
+No, and MistCoin does not need that claim. Contracts carrying `balanceOf`, `transfer` and a `Transfer` event go back to August 2015, and nine of them predate MistCoin, the earliest by eleven days. Eight of those nine came from a single developer's prototyping run and none of the nine had a `name`, a `symbol` or `decimals`, so the Ethereum Wallet had nothing to display for them.
 
-What MistCoin is first at is narrower and verifiable from the bytecode: it is the earliest contract on Ethereum mainnet carrying `balanceOf` + `transfer` + `Transfer` together with `name` + `symbol` + `decimals`, the complete shape the wallet could render. It is number one of 130 such contracts in 2015, and the second appears six hours and twenty-four minutes later. It is also the earliest of 173 contracts in all of Ethereum history sharing its exact runtime bytecode.
+What is unique to MistCoin is not its position in a queue. It is who built it and why. MistCoin is the prototype the author of ERC-20 deployed while working out the standard, sixteen days before he filed the proposal, and it carries exactly the members the Ethereum Wallet's token interface asked for. No other token on Ethereum has that relationship to the standard.
+
+Two supporting details, neither of which should be used as a headline claim: MistCoin carries the complete set of members the wallet could render, and it is the earliest of 173 contracts in all of Ethereum history sharing its exact runtime bytecode.
 
 ### Is MistCoin ERC-20 compliant?
 It depends on which definition of compliance is used, and in 2015 two were running side by side.
@@ -204,7 +208,7 @@ The proposal as filed on November 19 was not the standard as it is known now. It
 ERC-20 defines a set of rules for creating tokens on Ethereum. These rules ensure tokens are interoperable with each other and with decentralized applications (dApps), providing consistency in how tokens function across wallets, exchanges, and DeFi platforms.
 
 ### How many ERC-20 tokens exist today?
-Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. MistCoin predates all of them. Adoption of the specification as written is a 2016 phenomenon: the first mainnet contract with all six methods appears on January 10, 2016, and only 1,014 manage it across the whole of that year.
+Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. Every one of them descends from a proposal whose author was, sixteen days before he filed it, testing the idea with MistCoin. Adoption of the specification as written came later still: the first mainnet contract with all six methods appears on January 10, 2016, and only 1,014 manage it across the whole of that year.
 
 ### Can I buy MistCoin?
 Yes. Wrapped MistCoin ($WMC) is tradable on Uniswap and other Ethereum DEXes. Buy at: https://swap.cow.fi/#/1/swap/WETH/WMC
