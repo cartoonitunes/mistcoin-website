@@ -8,8 +8,8 @@
     <title>ShitCoin — The Very First Shitcoin on Ethereum | Deployed by Ethereum (2015)</title>
     <meta name="description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. The creator is German — he knew exactly what he was doing." />
     {% else %}
-    <title>MistCoin — The First ERC-20 Token Ever Created | Deployed by Ethereum (2015)</title>
-    <meta name="description" content="MistCoin: Deployed Nov 3, 2015 by the co-creators of ERC-20 — 16 days before the standard existed. The most historically significant token on Ethereum." />
+    <title>MistCoin | The ERC-20 Prototype, Deployed November 3, 2015</title>
+    <meta name="description" content="MistCoin: deployed November 3, 2015 at block 483,325, sixteen days before ERC-20 was proposed. The first token contract the official Ethereum Wallet could display." />
     {% endif %}
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="keywords" content="MistCoin, ERC-20, Ethereum history, first token, blockchain standard, WMC, Fabian Vogelsteller, Vitalik Buterin" />
@@ -22,8 +22,8 @@
     <meta property="og:title" content="ShitCoin — The Very First Shitcoin on Ethereum 💩" />
     <meta property="og:description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. The creator is German — he knew exactly what he was doing." />
     {% else %}
-    <meta property="og:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
-    <meta property="og:description" content="Deployed by the creator of ERC-20 on November 3, 2015 — 16 days before the standard was proposed. Every standard token on Ethereum traces back to this moment." />
+    <meta property="og:title" content="MistCoin | The ERC-20 Prototype" />
+    <meta property="og:description" content="Deployed by the author of the ERC-20 proposal on November 3, 2015, sixteen days before the standard was proposed. The first token contract the Ethereum Wallet could display." />
     {% endif %}
     <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
     <meta property="og:url" content="https://www.mistcoineth.com{% if shitcoin %}?shitcoin=true{% endif %}" />
@@ -34,8 +34,8 @@
     <meta name="twitter:title" content="ShitCoin — The Very First Shitcoin on Ethereum 💩" />
     <meta name="twitter:description" content="'Mist' means 'shit' in German. MistCoin (2015) is technically the first shitcoin ever deployed on Ethereum. The creator is German — he knew exactly what he was doing." />
     {% else %}
-    <meta name="twitter:title" content="MistCoin — The First ERC-20 Token on Ethereum" />
-    <meta name="twitter:description" content="Deployed by the creator of ERC-20 on November 3, 2015 — 16 days before the standard was proposed. Every standard token on Ethereum traces back to this moment." />
+    <meta name="twitter:title" content="MistCoin | The ERC-20 Prototype" />
+    <meta name="twitter:description" content="Deployed by the author of the ERC-20 proposal on November 3, 2015, sixteen days before the standard was proposed. The first token contract the Ethereum Wallet could display." />
     {% endif %}
     <meta name="twitter:site" content="@MistCoinEth" />
     <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
@@ -49,15 +49,15 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "url": "https://www.mistcoineth.com",
-        "name": "MistCoin — The First ERC-20 Token Ever Created",
-        "description": "MistCoin was deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 standard was proposed. The historic first token standard prototype.",
+        "name": "MistCoin: The ERC-20 Prototype",
+        "description": "MistCoin was deployed on November 3, 2015 at block 483,325, sixteen days before the ERC-20 standard was proposed. It is the first token contract the official Ethereum Wallet could display.",
         "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg",
         "mainEntity": {
           "@type": "CreativeWork",
           "name": "MistCoin",
           "alternateName": ["MC", "Wrapped MistCoin", "WMC", "$WMC"],
           "dateCreated": "2015-11-03",
-          "description": "The first standard token on Ethereum, deployed as a proof of concept for standardized token creation.",
+          "description": "A prototype token deployed to test standardized token creation, sixteen days before the ERC-20 proposal was filed. It implements name, symbol, decimals, balanceOf, transfer and the Transfer event.",
           "identifier": "0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD",
           "creator": [
             {
@@ -95,15 +95,15 @@
             "name": "What is MistCoin, and why is it significant?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MistCoin was the first token deployed on Ethereum as a test for the ERC-20 standard. It was deployed on November 3, 2015, by the Mist team at the Ethereum Foundation, serving as a proof of concept for tokenized assets on Ethereum and influencing the development of countless tokens that followed."
+              "text": "MistCoin was deployed on November 3, 2015 by Fabian Vogelsteller, who filed the ERC-20 proposal sixteen days later and has said he deployed MistCoin to test the standard idea. It shipped the same day as Ethereum Wallet 0.3.5, the release that added token creation to the wallet, and it is the first contract on Ethereum carrying the complete set of members that wallet could render: name, symbol, decimals, balanceOf, transfer and the Transfer event."
             }
           },
           {
             "@type": "Question",
-            "name": "What was the first token ever created on Ethereum?",
+            "name": "Was MistCoin the first token on Ethereum?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MistCoin was deployed on November 3, 2015 (block #424,961), making it the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, and Transfer event). It was created by Fabian Vogelsteller and the Mist team at the Ethereum Foundation."
+              "text": "No. Contracts with balanceOf and transfer and a Transfer event were deployed as early as August 2015, and nine of them predate MistCoin. What MistCoin is first at is narrower and verifiable: deployed November 3, 2015 at block 483,325, it is the earliest contract on Ethereum mainnet that also carries name, symbol and decimals, which is the exact shape the Ethereum Wallet needed in order to display a token. The second such contract appears six hours and twenty-four minutes later."
             }
           },
           {
@@ -111,7 +111,7 @@
             "name": "Who created the ERC-20 standard?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The ERC-20 standard (EIP-20) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. The standardization process began months earlier with Vitalik's Standardized Contract APIs wiki in June 2015. MistCoin, deployed November 3, 2015, was the working prototype — created 16 days before the formal proposal."
+              "text": "EIP-20 is credited to Fabian Vogelsteller and Vitalik Buterin. Fabian filed issue #20, titled 'ERC: Token standard', on November 19, 2015. The work began months earlier with Vitalik's Standardized Contract APIs wiki page in June 2015, and it did not end on November 19: the proposal as filed had four of the six methods, an approve that took no amount, no allowance, no Approval event, and a decimals member that was later voted out. The text did not reach the interface used today until January 6, 2016. MistCoin was deployed on November 3, 2015, sixteen days before the proposal was filed."
             }
           },
           {
@@ -127,7 +127,7 @@
             "name": "How many ERC-20 tokens exist today?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. Every one of them follows the standard that MistCoin prototyped in November 2015."
+              "text": "Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. MistCoin predates all of them. The first contract on mainnet to implement all six ERC-20 methods did not appear until January 10, 2016, four days after the specification stopped changing."
             }
           },
           {
@@ -219,8 +219,8 @@
       <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
         <img src="{{ url_for('static', filename='assets/img/mist-logo.png') }}" class="img-fluid animated" alt="MistCoin logo" width="300" height="345">
         <div class="hero-date" data-sc="November 3, 2015 — The First Shit Was Minted">November 3, 2015</div>
-        <h1 data-sc="ShitCoin: The Very First Shitcoin on Ethereum." data-sc-html="true">MistCoin: Deployed by the <span>Creator of ERC-20</span>. Before the Standard Existed.</h1>
-        <p data-sc="The Mist team knowingly created the first shitcoin in history. 'Mist' means 'shit' in German — deployed by the Ethereum Foundation itself. Every shitcoin on Ethereum traces back to this moment.">The Mist team deployed MistCoin, the prototype that led to the ERC-20 token standard. Every standard token on Ethereum traces back to this moment.</p>
+        <h1 data-sc="ShitCoin: The Very First Shitcoin on Ethereum." data-sc-html="true">MistCoin: Deployed by the <span>Author of the ERC-20 Proposal</span>. Before the Standard Existed.</h1>
+        <p data-sc="The Mist team knowingly created the first shitcoin in history. 'Mist' means 'shit' in German — deployed by the Ethereum Foundation itself. Every shitcoin on Ethereum traces back to this moment.">The Mist team deployed MistCoin sixteen days before the ERC-20 proposal was filed. It is the first token contract the official Ethereum Wallet could display.</p>
         <div class="hero-day-counter" id="day-counter"></div>
         <div class="d-flex">
           <a href="#about" class="btn-get-started scrollto" data-sc="Explore the Shit">Explore the History</a>
@@ -282,7 +282,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2 data-sc="ShitCoin">MistCoin</h2>
         <p data-sc="Shortly after Ethereum's launch in 2015, a team of idealistic developers deployed ShitCoin — literally named after 'shit' in German — as a prototype token. The creator is German — he knew 'Mist' means 'shit.' This was no accident. It paved the way for millions of shitcoins that followed.">
-          Shortly after Ethereum's launch in 2015, Ethereum deployed MistCoin, a 1 million supply collectible coin, as a prototype to test the concept of standardized token creation now known as ERC-20. This experiment paved the way for the now widely adopted ERC-20 token standard, forever shaping the Ethereum ecosystem.
+          Shortly after Ethereum's launch in 2015, MistCoin was deployed as a 1 million supply prototype to test the concept of standardized token creation that became ERC-20. It went onchain on November 3, 2015 at block 483,325, one hour and forty minutes before Ethereum Wallet 0.3.5 shipped the feature that let anyone create a token from a GUI.
         </p>
       </div><!-- End Section Title -->
 
@@ -291,7 +291,7 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p data-sc="Sixteen days after ShitCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard. They probably regret the name.">
-              Sixteen days after MistCoin launched, Vitalik Buterin and Fabian Vogelsteller proposed the ERC-20 standard, now used by the majority of tokens on Ethereum today.
+              Sixteen days after MistCoin launched, Fabian Vogelsteller filed the proposal that became ERC-20, now used by the majority of tokens on Ethereum today. The proposal took another seven weeks to reach its final form.
             </p>
             <ul>
               <li>💠&nbsp; <span><strong data-sc="ShitCoin Contract Address (SC)">MistCoin Contract Address (MC)</strong>: <a href="https://etherscan.io/token/0xf4eced2f682ce333f96f2d8966c613ded8fc95dd" target="_blank">0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD</a> <button class="copy-btn" data-copy="0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" title="Copy address"><i class="bi bi-clipboard"></i></button></span></li>
@@ -302,7 +302,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p data-sc="On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Shit team, deployed ShitCoin as one of the earliest shitcoins on Ethereum. Fourteen days after ShitCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen discussing the shitcoin standard. Two days later, Vitalik and Fabian proposed the shitcoin standard. In July 2022, ShitCoin was extended with a wrapper contract that implemented modern shitcoin functionality, enabling ShitCoin to be traded as $WSC on Uniswap." data-sc-html="true">
-              On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. Fourteen days after MistCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen <a href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">here</a> discussing the token standard. Two days later, Vitalik and Fabian proposed <a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20: Token Standard</a>. In July 2022, MistCoin was extended with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
+              On November 3, 2015, Ethereum developers Fabian Vogelsteller and Alex Van de Sande, key members of the Ethereum Mist team, deployed MistCoin as one of the earliest tokens on Ethereum. Fourteen days after MistCoin, Vitalik Buterin, Fabian, Alex, and other key contributors can be seen <a href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">here</a> drafting the token standard. Two days later, Fabian filed it as <a href="https://github.com/ethereum/EIPs/issues/20" target="_blank">issue #20</a>, which became <a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20: Token Standard</a>. In July 2022, MistCoin was extended with a wrapper contract that implemented modern ERC-20 functionality, enabling MistCoin to be traded as $WMC on Uniswap.
               <!-- Liquidity for $WMC was locked for 3 years via a <a href="https://etherscan.io/address/0x67f85a924e4c72e05010a03502f0350cf10557c7">custom contract</a> -->
             </p>
             <div class="button-group">
@@ -401,6 +401,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2 data-sc="The Original Shit">The Original Contract</h2>
         <p data-sc="The code that started it all. The OG shit. Deployed November 3, 2015." data-sc-html="true">The code that started it all. Deployed November 3, 2015. <a href="https://gist.github.com/frozeman/20c8b5658349b003b08d" target="_blank">[source]</a></p>
+        <p style="font-size: 0.92rem; opacity: 0.9; max-width: 720px; margin: 0 auto;">This is not a resemblance. Compiled with solc 0.1.6 and the optimizer on, this exact source produces MistCoin's 716&#8209;byte deployed runtime, byte for byte.</p>
       </div>
 
       <div class="container" data-aos="fade-up">
@@ -448,8 +449,45 @@
     }
     </code>
         </pre>
-        <div class="artifact-label" data-sc="MyToken.sol — The First Shitcoin Ever — Block #424,961">MyToken.sol — The ERC-20 Prototype — Block #424,961</div>
+        <div class="artifact-label" data-sc="MyToken.sol · The First Shitcoin Ever · Block #483,325">MyToken.sol · The ERC-20 Prototype · Block #483,325</div>
       </div>
+      </div>
+
+      <!-- What the deployed bytecode actually contains -->
+      <div class="container mt-5" data-aos="fade-up">
+        <div class="section-title" style="padding-bottom: 20px;">
+          <h2 style="font-size: 1.6rem;" data-sc="What's Actually in the Shit">What the Bytecode Actually Contains</h2>
+          <p data-sc="Decoded straight from the deployed contract. No guessing." style="max-width: 720px;">Decoded from the deployed runtime by walking the dispatcher. MistCoin was written before ERC-20 existed, so it does not implement all of it. This is the full list of what is in there.</p>
+        </div>
+        <div class="artifact-frame" style="overflow-x: auto;">
+          <table class="mc-interface-table" style="width: 100%; border-collapse: collapse; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.18);">
+                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">ERC-20 member</th>
+                <th style="text-align: left; padding: 10px 12px; color: #79B8FF; font-weight: 600;">Status in EIP-20</th>
+                <th style="text-align: center; padding: 10px 12px; color: #79B8FF; font-weight: 600;">In MistCoin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 7px 12px;">totalSupply()</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
+              <tr><td style="padding: 7px 12px;">balanceOf(address)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+              <tr><td style="padding: 7px 12px;">transfer(address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes *</td></tr>
+              <tr><td style="padding: 7px 12px;">transferFrom(address,address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
+              <tr><td style="padding: 7px 12px;">approve(address,uint256)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
+              <tr><td style="padding: 7px 12px;">allowance(address,address)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
+              <tr><td style="padding: 7px 12px;">Transfer (event)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.12);"><td style="padding: 7px 12px;">Approval (event)</td><td style="padding: 7px 12px; opacity: 0.7;">required</td><td style="padding: 7px 12px; text-align: center; color: #F87171;">no</td></tr>
+              <tr><td style="padding: 7px 12px;">name()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+              <tr><td style="padding: 7px 12px;">symbol()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+              <tr><td style="padding: 7px 12px;">decimals()</td><td style="padding: 7px 12px; opacity: 0.7;">optional</td><td style="padding: 7px 12px; text-align: center; color: #4ADE80;">yes</td></tr>
+            </tbody>
+          </table>
+          <div class="artifact-label" style="margin-top: 18px;">2 of 6 required methods &middot; 1 of 2 required events &middot; 3 of 3 optional members</div>
+          <p style="font-size: 0.82rem; opacity: 0.6; margin: 14px 0 0; font-family: system-ui, sans-serif;">* Same selector as the standard, but the deployed <code>transfer</code> returns nothing. EIP-20 specifies <code>returns (bool success)</code>, a detail the standard did not settle until after MistCoin was already onchain.</p>
+        </div>
+        <p style="max-width: 760px; margin: 24px auto 0; text-align: center; font-size: 0.95rem; opacity: 0.85;">
+          That set is the point, not a shortfall. Those six members are exactly what the Ethereum Wallet's token interface asked for in 2015, and none of the four missing methods had a single deployed instance anywhere on mainnet before January 2016.
+        </p>
       </div>
     </section>
     
@@ -496,10 +534,10 @@
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
             <h3 data-sc="The creators of ShitCoin, Fabian and Alex, casually mention their shit on Twitter/X.">The creators of MistCoin, Fabian and Alex, mention MistCoin on Twitter/X.</h3>
             <p class="fst-italic" data-sc="ShitCoin was deployed to test the first implementation of the shitcoin standard.">
-              MistCoin was deployed to test the first implementation of the ERC-20 standard.
+              In Fabian's own words, he deployed MistCoin to test the standard idea.
             </p>
             <ul>
-              <li><i class="bi bi-check"></i><span> The pioneering example of an ERC-20 token on Ethereum, long before it became a standard.</span></li>
+              <li><i class="bi bi-check"></i><span> Deployed sixteen days before the proposal that became ERC-20 was filed.</span></li>
               <li><i class="bi bi-check"></i> <span> Helped shape the future of decentralized finance and tokenized assets.</span></li>
               <li><i class="bi bi-check"></i> <span data-sc="ShitCoin paved the way for the hundreds of millions of shitcoins now circulating on Ethereum."> MistCoin paved the way for the hundreds of millions of tokens now circulating on Ethereum.</span></li>
             </ul>
@@ -516,7 +554,7 @@
               The introduction of MistCoin marked a major milestone in the development of Ethereum's smart contract capabilities, showing how tokens could be issued, transferred, and managed programmatically.
             </p>
             <p data-sc="The Shit team released an update to the Shit Browser allowing for a no-code UI for creating and deploying standard shitcoins. Before this release, there were only a few contract deployers playing with smart contracts, and after the release there were hundreds of new shitcoin creators." data-sc-html="true">
-              The Mist team <a href="https://www.reddit.com/r/ethereum/comments/3rcnrx/ethereum_wallet_beta3_contract_deployment_and/" target="_blank">released an update</a> to the Mist Browser allowing for a no-code UI for creating and deploying standard tokens. Before this release, there were only a few contract deployers playing with smart contracts, and after the release there were hundreds of new developers.
+              The Mist team <a href="https://www.reddit.com/r/ethereum/comments/3rcnrx/ethereum_wallet_beta3_contract_deployment_and/" target="_blank">released an update</a> to the Mist Browser allowing for a no-code UI for creating and deploying standard tokens. The effect is measurable onchain. Eight tokens in MistCoin's exact shape were deployed on November 3 alone, and 140 of them exist across the nine weeks that follow. MistCoin is the first.
             </p>
           </div>
         </div><!-- Features Item -->
@@ -576,16 +614,34 @@
             <p>Vitalik Buterin launches the Ethereum network and the first block is confirmed.</p>
           </div><!-- End Card Item -->
 
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="150">
+            <span><a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/607b6ac9c090c45c10e05a00c172793811d02621" target="_blank">Oct. 4, 2015</a></span>
+            <h4>Two Names Are Born</h4>
+            <p>Gavin Wood renames <code>coinBalanceOf</code> to <code>balanceOf</code> and the <code>CoinTransfer</code> event to <code>Transfer</code> on the standards wiki.</p>
+          </div><!-- End Card Item -->
+
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
             <span><a href="https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7" target="_blank">Nov. 3, 2015</a></span>
-            <h4 data-sc="The First Shit is Dropped">ERC-20 is Born</h4>
-            <p data-sc="Fabian Vogelsteller, Alex Van de Sande, and the Mist team unknowingly deployed the first shitcoin: ShitCoin (SC Token).">Fabian Vogelsteller, Alex Van de Sande, and the Mist team deployed the first ERC-20 prototype: MistCoin (MC Token).</p>
+            <h4 data-sc="The First Shit is Dropped">The Prototype Ships</h4>
+            <p data-sc="Fabian Vogelsteller, Alex Van de Sande, and the Mist team unknowingly deployed the first shitcoin: ShitCoin (SC Token).">MistCoin (MC) is deployed at block 483,325, 12:03:29 UTC. Ethereum Wallet 0.3.5 publishes one hour and forty minutes later.</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
-            <span><a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">Nov. 19, 2015</a></span>
-            <h4>ERC-20 Proposal</h4>
-            <p>Vitalik Buterin and Fabian published the ERC-20 token standard proposal.</p>
+            <span><a href="https://github.com/ethereum/EIPs/issues/20" target="_blank">Nov. 19, 2015</a></span>
+            <h4>The Proposal Is Filed</h4>
+            <p>Fabian opens issue #20, "ERC: Token standard". As filed it has four of the six methods, no allowance, and no Approval event.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="325">
+            <span><a href="https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency" target="_blank">Dec. 3, 2015</a></span>
+            <h4>The Foundation Ships the Source</h4>
+            <p>Alex Van de Sande's tutorial on the Ethereum blog hands readers a contract that is character for character the source MistCoin was compiled from.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="350">
+            <span><a href="https://github.com/ethereum/EIPs/issues/20" target="_blank">Jan. 6, 2016</a></span>
+            <h4>The Interface Settles</h4>
+            <p>After seven weeks of edits, cuts and one community poll, the proposal states the six methods and two events still in use today.</p>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
@@ -648,7 +704,7 @@
         <div class="text-center p-3">
           <i class="bi bi-gem" style="font-size: 2.5rem; color: #627EEA;"></i>
           <h5 class="mt-3" data-sc="Shit-storical Significance">Historical Significance</h5>
-          <p data-sc="The first shitcoin ever deployed. Every shitcoin on Ethereum traces back to this turd.">The first ERC-20 prototype ever deployed. Every standard token on Ethereum traces back to this code.</p>
+          <p data-sc="The first shitcoin ever deployed. Every shitcoin on Ethereum traces back to this turd.">The first token contract the Ethereum Wallet could display, and the earliest of 173 contracts sharing its exact bytecode.</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -662,7 +718,7 @@
         <div class="text-center p-3">
           <i class="bi bi-people" style="font-size: 2.5rem; color: #627EEA;"></i>
           <h5 class="mt-3" data-sc="Shit Creator Approved">Creator Aligned</h5>
-          <p data-sc="Fabian Vogelsteller, the inadvertent father of shitcoins, actively supports ShitCoin.">Fabian Vogelsteller, the creator of ERC-20 itself, actively supports MistCoin.</p>
+          <p data-sc="Fabian Vogelsteller, the inadvertent father of shitcoins, actively supports ShitCoin.">Fabian Vogelsteller, who filed the ERC-20 proposal, actively supports MistCoin.</p>
         </div>
       </div>
     </div>
@@ -992,7 +1048,7 @@
           <div class="member-info">
             <h4>Vitalik Buterin</h4>
             <span>Co-Founder of the Ethereum Foundation</span>
-            <p>Vitalik began externally proposing the first standards in crypto in an Ethereum Wiki on June 17, 2015. Through July 5th, 2015, Vitalik continued to expand on his ideas on standardization, imagining standard Decentralized Exchanges and Registries. These were the building blocks for MetaMask, Uniswap, and ENS, to name a few. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.</p>
+            <p>Vitalik began externally proposing the first standards in crypto in an Ethereum Wiki on June 17, 2015. Through July 5th, 2015, Vitalik continued to expand on his ideas on standardization, imagining standard Decentralized Exchanges and Registries. These were the building blocks for MetaMask, Uniswap, and ENS, to name a few. He is credited with Fabian as an author of EIP-20, the proposal that grew out of seventeen months of edits to that wiki page.</p>
             <div class="socials" style="font-size: 12px;">
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/748c9b0a7f459ed5754420b6368bdd536bc4bdc4" target="_blank">First Edit: <i class="bi bi-github"></i></a><br />
               <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/_history?page=2" target="_blank">Later edits: <i class="bi bi-github"></i></a><br />
@@ -1011,9 +1067,9 @@
           <div class="member-info">
             <h4>Fabian Vogelsteller</h4>
             <span>Lead Ethereum Dapp Developer | Mist</span>
-            <p data-sc="Fabian made both syntactical and function parameter changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first shitcoin: ShitCoin alongside the feature to create standard shitcoins in the Ethereum Wallet: Shit. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.">Fabian made both syntactical and function paramater changes to functions throughout the standards wiki. Fabian's commit on October 30, 2015 was his last commit before deploying the first ERC-20: MistCoin alongside the feature to create standard tokens in the Ethereum Wallet: Mist. On November 19, 2015, Vitalik and Fabian proposed the ERC-20 standard.</p>
+            <p data-sc="Fabian made both syntactical and function parameter changes to functions throughout the standards wiki. His October 28, 2015 edit set the parameter order still used today. Six days later he deployed the first shitcoin: ShitCoin alongside the feature to create standard shitcoins in the Ethereum Wallet: Shit. On November 19, 2015, he filed the proposal that became ERC-20.">Fabian made both syntactical and function parameter changes to functions throughout the standards wiki. His October 28, 2015 edit fixed the parameter order to <code>transfer(address _to, uint256 _value)</code>, the signature every ERC-20 token still uses. Six days later he deployed MistCoin, alongside the feature to create standard tokens in the Ethereum Wallet. On November 19, 2015, he filed the proposal that became ERC-20.</p>
             <div class="socials" style="font-size: 12px;">
-              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/c12d533a9993b058bf891a1d0780a21742b7ec0f" target="_blank">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/0627f2404a6f031d523e263e65cbf0353769f6b1" target="_blank">Oct. 28 Wiki Edit: <i class="bi bi-github"></i></a><br />
               <a href="https://gist.github.com/frozeman/090ae32041bcfe120824" target="_blank">ERC-20 Proposal Conversation: <i class="bi bi-github"></i></a><br />
               <a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank">ERC-20 Proposal: <i class="bi bi-globe"></i></a>
               <a href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
@@ -1029,8 +1085,10 @@
           <div class="member-info">
             <h4>Alex Van de Sande</h4>
             <span>Head UX Designer | Ethereum Foundation</span>
-            <p data-sc="Alex &quot;avsa&quot; led the Shit team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Shit Browser was monumental in the effort.">Alex "avsa" led the Mist team and was the chief designer of the Ethereum Wallet. Adoption is one of the hardest challenges in a standard becoming accepted, and Avsa's work in the Mist Browser was monumental in the effort.</p>
+            <p data-sc="Alex &quot;avsa&quot; led the Shit team and was the chief designer of the Ethereum Wallet. On October 1, 2015 he added a section to the standards wiki proposing coinSymbol, coinName and coinBaseUnit. Renamed, those three became symbol, name and decimals. The word 'optional' next to them in EIP-20 is his.">Alex "avsa" led the Mist team and was the chief designer of the Ethereum Wallet. On October 1, 2015 he added a section to the standards wiki proposing <code>coinSymbol</code>, <code>coinName</code> and <code>coinBaseUnit</code>. Renamed over the following weeks, those three became <code>symbol</code>, <code>name</code> and <code>decimals</code>. His argument for them, that they exist so a client has something to show the user, is why EIP-20 still marks all three OPTIONAL. He also wrote the Foundation's December 2015 token tutorial, which shipped MistCoin's exact source to the world.</p>
             <div class="socials" style="font-size: 12px;">
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/_history" target="_blank">Standards Wiki History: <i class="bi bi-github"></i></a><br />
+              <a href="https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency" target="_blank">Ethereum in Practice, Part 1: <i class="bi bi-globe"></i></a><br />
               <a href="https://github.com/ethereum/mist/releases/tag/0.3.5" target="_blank">Wallet 0.3.5 Release Notes: <i class="bi bi-github"></i></a><br />
               <a href="https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/" target="_blank">Coin Standards: <i class="bi bi-reddit"></i></a><br />
               <a href="https://archive.devcon.org/archive/watch/2/mist-vision-and-demo-updated/" target="_blank">Devcon 2 | Mist Vision and Demo: <i class="bi bi-youtube"></i></a>
@@ -1045,9 +1103,10 @@
           <div class="member-info">
             <h4>Gavin Wood</h4>
             <span>Co-Founder of the Ethereum Foundation</span>
-            <p>Gavin's work is replete throughout Ethereum repositories, but perhaps none so clear in his connection to coin standards as his implementation of GavCoin on February 19th, 2015.</p>
+            <p>Gavin's work is replete throughout Ethereum repositories, and his implementation of GavCoin on February 19th, 2015 predates every token standard. His sharpest mark on ERC-20 came on October 4, 2015, when a single wiki edit renamed <code>coinBalanceOf</code> to <code>balanceOf</code> and the <code>CoinTransfer</code> event to <code>Transfer</code>. Two of the eight members got their permanent names in that one commit.</p>
             <div class="socials" style="font-size: 12px;">
-              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/coin.sol" target="_blank">Commit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/607b6ac9c090c45c10e05a00c172793811d02621" target="_blank">Oct. 4 Wiki Edit: <i class="bi bi-github"></i></a><br />
+              <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/coin.sol" target="_blank">GavCoin: <i class="bi bi-github"></i></a><br />
               <a href="https://github.com/ethereum/dapp-bin/blob/1b7702dfd1e273ed7c7520b21d6c67b53d407170/coin/gavcoin.png" target="_blank">GavCoin Logo: <i class="bi bi-github"></i></a>
             </div>
           </div>
@@ -1097,7 +1156,7 @@
                 <h3 data-sc="What is ShitCoin, and why should I care about this shit?">What is MistCoin, and why is it significant?</h3>
                 <div class="faq-content">
                   <p data-sc="ShitCoin was one of the first turds deployed on Ethereum as a test for the shitcoin standard. It served as a proof of concept for shitcoins on Ethereum, influencing the development of countless shitcoins that followed.">
-                    MistCoin was one of the first tokens deployed on Ethereum as a test for the ERC-20 standard. It served as a proof of concept for tokenized assets on Ethereum, influencing the development of countless tokens that followed.
+                    MistCoin was deployed on November 3, 2015 by Fabian Vogelsteller, who filed the proposal that became ERC-20 sixteen days later and has said he deployed MistCoin to test the standard idea. It went onchain the same day the Ethereum Wallet shipped the feature that let anyone create a token, and it is the first contract on Ethereum carrying the complete set of members that wallet could render.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1129,8 +1188,8 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3 data-sc="Why was ShitCoin wrapped?">Why was MistCoin wrapped?</h3>
                 <div class="faq-content">
-                  <p data-sc="ShitCoin's original contract, deployed on November 3rd, 2015, only contains two simple functions. The shitcoin standard calls for two functions that are needed for the token to be made tradable on decentralized exchanges: approve and transferFrom. The wrapper allows ShitCoin holders to wrap (and unwrap) their turds into a contract that is tradable." data-sc-html="true">
-                    MistCoin's original contract, deployed on November 3rd, 2015, only contains two simple functions. The ERC-20 standard calls for two functions that are needed for the token to be made tradable on decentralized exchanges: `approve` and `transferFrom`. The wrapper allows MistCoin holders to wrap (and unwrap) their coins into a contract that is tradable. Holders of MistCoin and Wrapped MistCoin tokens can interact with the wrapper contract to easily wrap and unwrap their tokens.
+                  <p data-sc="ShitCoin's original contract predates the standard, so it is missing the parts a DEX needs: approve, transferFrom, allowance and totalSupply. The wrapper allows ShitCoin holders to wrap (and unwrap) their turds into a contract that is tradable." data-sc-html="true">
+                    MistCoin's original contract was written before ERC-20 existed, so it implements two of the six methods the finished standard requires: <code>balanceOf</code> and <code>transfer</code>. The four it does not have include <code>approve</code> and <code>transferFrom</code>, which is exactly the pair a decentralized exchange needs in order to move tokens on a trader's behalf. The wrapper allows MistCoin holders to wrap (and unwrap) their coins into a fully compliant contract that is tradable. Holders of MistCoin and Wrapped MistCoin tokens can interact with the wrapper contract to easily wrap and unwrap their tokens.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1164,10 +1223,27 @@
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3 data-sc="What was the first shitcoin ever created on Ethereum?">What was the first token ever created on Ethereum?</h3>
+                <h3 data-sc="Was ShitCoin the first shitcoin on Ethereum?">Was MistCoin the first token on Ethereum?</h3>
                 <div class="faq-content">
-                  <p data-sc="ShitCoin was deployed on November 3, 2015 (block #424,961), making it the oldest surviving shitcoin that implements the core shitcoin interface. It was created by Fabian Vogelsteller and the Shit team at the Ethereum Foundation." data-sc-html="true">
-                    MistCoin was deployed on November 3, 2015 (block #424,961), making it the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, and Transfer event). It was created by Fabian Vogelsteller and the Mist team at the Ethereum Foundation as the reference implementation for the Ethereum Wallet's "Custom Tokens" feature. You can verify this on <a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Etherscan</a>.
+                  <p data-sc="No, and the honest answer is more interesting. Contracts with balanceOf and transfer go back to August 2015, and nine of them beat ShitCoin. What ShitCoin is first at is narrower: it is the earliest contract that also has name, symbol and decimals, the exact shape the Ethereum Wallet needed to put a token on screen." data-sc-html="true">
+                    No, and the honest answer is more interesting. Contracts carrying <code>balanceOf</code>, <code>transfer</code> and a <code>Transfer</code> event go back to August 2015, and nine of them predate MistCoin. Almost all nine came from one developer iterating on prototypes, and not one of them had a name, a symbol or decimals, so the wallet had nothing to put on screen.
+                    <br /><br />
+                    What MistCoin is first at is narrower and checkable: deployed November 3, 2015 at block 483,325, it is the earliest contract on Ethereum mainnet carrying all six of <code>name</code>, <code>symbol</code>, <code>decimals</code>, <code>balanceOf</code>, <code>transfer</code> and <code>Transfer</code>, which is the complete shape the Ethereum Wallet could render. It is number one of 130 such contracts in 2015, and the second one arrives six hours and twenty-four minutes later. You can verify the contract on <a href="https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">Etherscan</a>.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="750">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3 data-sc="Is ShitCoin actually shitcoin-standard compliant?">Is MistCoin ERC-20 compliant?</h3>
+                <div class="faq-content">
+                  <p data-sc="It depends entirely on which definition of compliance you use, and in 2015 there were two." data-sc-html="true">
+                    It depends on which definition you use, and in 2015 there were two of them running side by side.
+                    <br /><br />
+                    By the wallet's definition, yes. The Ethereum Wallet asked a token for <code>balanceOf</code>, <code>transfer</code> and the <code>Transfer</code> event, plus <code>name</code>, <code>symbol</code> and <code>decimals</code> for display. MistCoin has all six. As late as March 2016, Alex Van de Sande was still telling the ERC-20 issue thread that <code>balanceOf</code> and <code>transfer</code> were all a token needed to work in the wallet.
+                    <br /><br />
+                    By the finished specification's definition, no, and neither is any other contract from that period. Between MistCoin's deployment and the day the spec settled, no contract on Ethereum mainnet implemented more than three of the six required methods, and <code>approve</code> and <code>allowance</code> have zero deployed instances in that entire window. MistCoin cannot comply with a document that did not exist when it was written, which is the whole reason the wrapper exists.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1177,8 +1253,10 @@
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3>Who created the ERC-20 standard?</h3>
                 <div class="faq-content">
-                  <p data-sc="The shitcoin standard (EIP-20) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. ShitCoin, deployed November 3, 2015, was the working prototype — created 16 days before the formal proposal." data-sc-html="true">
-                    The ERC-20 standard (<a href="https://eips.ethereum.org/EIPS/eip-20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">EIP-20</a>) was formally proposed on November 19, 2015, by Vitalik Buterin and Fabian Vogelsteller. The standardization process began months earlier: Vitalik started the "Standardized Contract APIs" wiki in June 2015, and Fabian made critical implementation commits through October 2015. MistCoin, deployed November 3, 2015, was the working prototype of this standard — created 16 days before the formal proposal.
+                  <p data-sc="EIP-20 is credited to Fabian Vogelsteller and Vitalik Buterin. Fabian filed issue #20 on November 19, 2015, but what he filed that day was not what we call ERC-20 today. It took until January 6, 2016 to get there. ShitCoin was deployed 16 days before the filing." data-sc-html="true">
+                    <a href="https://eips.ethereum.org/EIPS/eip-20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">EIP-20</a> is credited to Fabian Vogelsteller and Vitalik Buterin. Fabian filed <a href="https://github.com/ethereum/EIPs/issues/20" style="color: white; text-decoration:underline" target="_blank" rel="noopener noreferrer">issue #20</a>, titled "ERC: Token standard", on November 19, 2015. The work began months earlier, with Vitalik's "Standardized Contract APIs" wiki page in June 2015.
+                    <br /><br />
+                    What was filed that day is not what the name means now. The first version had four of the six methods, an <code>approve</code> that took no amount, no <code>allowance</code>, no <code>Approval</code> event, and five members that no longer exist. The proposal was edited nineteen times, one member was cut by community poll, and the text did not state today's interface until January 6, 2016. MistCoin was deployed sixteen days before any of that started.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1189,7 +1267,7 @@
                 <h3>How many ERC-20 tokens exist today?</h3>
                 <div class="faq-content">
                   <p data-sc="Millions of shitcoins have been created on Ethereum. Every one of them follows the standard that ShitCoin prototyped in November 2015.">
-                    Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. Every one of them follows the standard that MistCoin prototyped in November 2015. The ERC-20 interface — balanceOf, transfer, approve, transferFrom — was first implemented in the code that became MistCoin.
+                    Millions of ERC-20 tokens have been created on Ethereum, representing hundreds of billions of dollars in combined market capitalization. MistCoin predates all of them. The first contract on mainnet to implement all six ERC-20 methods appeared on January 10, 2016, four days after the specification stopped changing, and only 1,014 contracts managed it in the whole of 2016.
                   </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -1226,7 +1304,7 @@
             <a href="/" class="logo d-flex align-items-center">
                 <span class="sitename" data-sc="ShitCoin">MistCoin</span>
               </a>
-            <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The first standard token on Ethereum, deployed on November 3, 2015.</p>
+            <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The token the Ethereum Wallet shipped for. Deployed November 3, 2015.</p>
           <div class="social-links d-flex mt-4">
             <a href="https://x.com/MistCoinEth" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
             <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -1267,7 +1345,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">The first standard token on Ethereum. Deployed November 3, 2015.</p>
+      <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">Block 483,325. Deployed November 3, 2015, 12:03:29 UTC.</p>
     </div>
 
   </footer>

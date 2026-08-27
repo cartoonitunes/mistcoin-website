@@ -1,45 +1,93 @@
 # MistCoin ($WMC)
 
-> The first ERC-20 token prototype, deployed by the Ethereum team on November 3, 2015 — 16 days before the ERC-20 standard was proposed.
+> The ERC-20 prototype. Deployed on Ethereum November 3, 2015, sixteen days before the proposal that became ERC-20 was filed, and the first token contract the official Ethereum Wallet could display.
 
 ## Key Facts
 
-- **Deployed:** November 3, 2015 (Block #424,961)
-- **Deployed by:** The Ethereum Mist team (Fabian Vogelsteller, Alex Van de Sande)
-- **ERC-20 proposed:** November 19, 2015 (16 days after MistCoin)
+- **Deployed:** November 3, 2015, 12:03:29 UTC (block 483,325)
+- **Deployment tx:** 0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7
+- **Deployer:** 0x9b22a80d5c7b3374a05b446081f97d0a34079e7f, an address attributed to Fabian Vogelsteller on the strength of the gist and wallet-release authorship, the timing, and his own public statements
+- **ERC-20 proposal filed:** November 19, 2015 (16 days after MistCoin)
+- **ERC-20 interface reached its final form:** January 6, 2016
 - **Original contract:** 0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD
 - **Wrapped contract (WMC):** 0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79
-- **Total supply:** 1,000,000 MC (2 decimals)
+- **Total supply:** 1,000,000 MC (100,000,000 raw units at 2 decimals)
 - **Chain:** Ethereum mainnet
 - **Ticker:** $WMC (Wrapped MistCoin)
 
-## What is MistCoin?
+## What MistCoin actually implements
 
-MistCoin was deployed by the Ethereum Foundation's Mist team as a prototype to test standardized token creation. The Mist Browser (Ethereum's official dApp browser) shipped a "Custom Tokens" feature in Wallet Beta 3 (October 30, 2015), and MistCoin was deployed as the reference token for that feature. Sixteen days later, Vitalik Buterin and Fabian Vogelsteller formally proposed the ERC-20 standard (EIP-20), which codified the token interface that MistCoin had already implemented.
+Decoded from the deployed 716-byte runtime bytecode. The complete set is six external members and one event:
 
-## Why is MistCoin historically significant?
+`name()`, `symbol()`, `decimals()`, `balanceOf(address)`, `transfer(address,uint256)`, and the `Transfer(address,address,uint256)` event.
 
-Every ERC-20 token on Ethereum — hundreds of thousands of tokens representing hundreds of billions of dollars in value — follows the standard that MistCoin prototyped. MistCoin is the oldest surviving token that implements the core ERC-20 interface (balanceOf, transfer, Transfer event).
+Scored against the finished EIP-20 standard, that is **2 of 6 required methods, 1 of 2 required events, and 3 of 3 optional members**. It has no `totalSupply`, `transferFrom`, `approve` or `allowance`, and emits no `Approval` event. Its `transfer` also returns nothing, where EIP-20 specifies `returns (bool success)`.
+
+This is not a shortfall against a contemporary standard. It is what the Ethereum Wallet's token interface asked for in 2015, and the standard requiring the other four methods did not exist when MistCoin was written.
+
+## What MistCoin is and is not first at
+
+**Not first:** MistCoin is the tenth contract on Ethereum mainnet to carry `balanceOf` plus `transfer` plus the `Transfer` event. The first was deployed on October 23, 2015, eleven days earlier. Eight of those nine earlier contracts came from a single developer's prototyping run, and none of the nine had a name, a symbol or decimals.
+
+**First:** MistCoin is the earliest contract on Ethereum mainnet carrying the complete shape the Ethereum Wallet could render, meaning `balanceOf` + `transfer` + `Transfer` together with `name` + `symbol` + `decimals`. It is number one of 130 such contracts deployed in 2015; the second appears six hours and twenty-four minutes later. It is also the earliest of 173 contracts across all of Ethereum history sharing its exact runtime bytecode.
+
+The defensible claim is therefore: **MistCoin is the first token contract that the official Ethereum Wallet could display.** It is not the first token, not the first contract with `transfer`, and not an ERC-20 token by the finished specification.
+
+## Was MistCoin ERC-20 compliant?
+
+Two definitions of compliance were in circulation in 2015 and they give different answers.
+
+1. **As the wallet defined it.** The Ethereum Wallet's token interface wanted `balanceOf`, `transfer` and the `Transfer` event, plus `name`, `symbol` and `decimals` for display. MistCoin has all six. As late as March 15, 2016, Alex Van de Sande was still telling the ERC-20 issue thread that implementing `balanceOf` and `transfer` and their events was all a token needed to work in the wallet. By this definition MistCoin complies.
+
+2. **As the specification defines it.** All six methods and both events. No contract deployed to Ethereum mainnet between November 3, 2015 and January 6, 2016 implements more than three of the six, and `approve(address,uint256)` and `allowance(address,address)` have zero deployed instances in that entire window. The first mainnet contract carrying all six appears January 10, 2016, four days after the specification stopped changing. By this definition MistCoin does not comply, and neither does anything else from the period.
+
+## Provenance, verified by recompilation
+
+MistCoin's source is gist `frozeman/20c8b5658349b003b08d` at revision `7bcfaef3be689c81f8ee20ddb190031efe8fc110`. Compiled with `solc 0.1.6+commit.d41f8b7c` with the optimizer enabled, it reproduces MistCoin's exact 716-byte runtime and its exact 1,150-byte creation prefix. The constructor arguments decode to supply 100,000,000, name "MistCoin", symbol "MC", decimals 2.
+
+That gist revision was saved 17 seconds *after* the block containing the deployment. The bytecode carries revision 5's constructor argument order rather than revision 4's, which indicates the source was edited locally, compiled and deployed, then saved back to the gist.
+
+The contract published in the Ethereum Foundation's December 3, 2015 tutorial (gist `21935dc37c5bfbe92e5a`) is character-for-character identical to that revision, and compiles to the same bytecode. The token contract the Foundation published to the world in December 2015 is, byte for byte, the contract deployed as MistCoin in November.
+
+## Timeline of the standard
+
+- **June 17, 2015** — Vitalik Buterin creates the `Standardized_Contract_APIs` wiki page. Zero of the final six members are present.
+- **October 1, 2015** — Alex Van de Sande proposes `coinSymbol`, `coinName` and `coinBaseUnit`, the ancestors of `symbol`, `name` and `decimals`, and describes them as optional. EIP-20 still marks all three OPTIONAL.
+- **October 4, 2015** — Gavin Wood renames `coinBalanceOf` to `balanceOf` and the `CoinTransfer` event to `Transfer`.
+- **October 6, 2015** — Simon de la Rouviere renames `sendCoin` to `transfer` and `sendCoinFrom` to `transferFrom`.
+- **October 28, 2015** — Fabian Vogelsteller fixes the parameter order to `transfer(address _to, uint256 _value)`, the signature still in use.
+- **November 3, 2015** — MistCoin deployed at 12:03:29 UTC. Ethereum Wallet 0.3.5 (Beta 3) is published at 13:43:51 UTC, one hour and forty minutes later.
+- **November 19, 2015** — Fabian Vogelsteller files `ethereum/EIPs` issue #20, "ERC: Token standard". As filed it has four of the six methods, an `approve` taking no amount, no `allowance`, no `Approval` event, and five members that no longer exist.
+- **November 20, 2015** — `allowance` and the `Approval` event appear for the first time anywhere, about 30 hours after the issue was filed.
+- **November 26, 2015** — `decimals` is removed from the proposal after a community poll on the wiki.
+- **December 3, 2015** — Alex Van de Sande publishes "Ethereum in practice part 1: how to build your own cryptocurrency without touching a line of code" on the Ethereum blog, linking a gist identical to MistCoin's source. The post never uses the terms "ERC-20" or "token standard".
+- **January 6, 2016** — Issue #20's body states the six methods and two events used today. This is the date the interface settles, seven weeks after the issue was opened.
+- **January 10, 2016** — The first contract on Ethereum mainnet carrying all six methods is deployed.
+- **September 11, 2017** — ERC-20 is formalized as an EIP in the ethereum/EIPs repository.
 
 ## Key People
 
-- **Fabian Vogelsteller** — Lead Ethereum dApp developer, co-author of ERC-20 (EIP-20), built the Mist Browser and deployed MistCoin
-- **Alex Van de Sande (avsa)** — Head of UX at Ethereum Foundation, co-built the Mist Browser
-- **Vitalik Buterin** — Co-author of ERC-20 (EIP-20), began proposing token standards on the Ethereum Wiki in June 2015
+- **Fabian Vogelsteller** — Lead Ethereum dApp developer, credited author of EIP-20, built the Mist Browser, filed issue #20, and is the person MistCoin's deployment is attributed to
+- **Alex Van de Sande (avsa)** — Head of UX at the Ethereum Foundation, led Mist, originated `name`, `symbol` and `decimals` and their optional status, and wrote the Foundation's December 2015 token tutorial
+- **Vitalik Buterin** — Credited author of EIP-20, started the Standardized Contract APIs wiki page in June 2015
+- **Gavin Wood** — Renamed `coinBalanceOf` to `balanceOf` and `CoinTransfer` to `Transfer` on October 4, 2015
+- **Simon de la Rouviere** — Renamed `sendCoin` to `transfer` and `sendCoinFrom` to `transferFrom`; maintained ConsenSys/Tokens, whose `Token.sol` on December 21, 2015 is the first file anywhere containing exactly the ERC-20 interface
 
 ## Primary Sources
 
-- Deployment transaction: https://etherscan.io/tx/0x2f71e0e68bc4e25e23a68b737d29f0e4a5a7c881e4aae81bfb37e0e3e2ef9d00
+- Deployment transaction: https://etherscan.io/tx/0x74349ce609e100a65c91851781f3b6b0829cef476eaba5ce53630d49497554a7
 - Original contract on Etherscan: https://etherscan.io/address/0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD
-- ERC-20 proposal (EIP-20): https://eips.ethereum.org/EIPS/eip-20
-- Fabian's GitHub wiki commits: https://github.com/ethereum/wiki/commits?author=frozeman
-- Vitalik's Standardized Contract APIs wiki: https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs
-- Ethereum Foundation blog post on custom tokens: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
-- Mist Browser Beta 3 release: https://github.com/ethereum/mist/releases/tag/0.3.5
+- MistCoin's source gist: https://gist.github.com/frozeman/20c8b5658349b003b08d
+- ERC-20 as filed, issue #20: https://github.com/ethereum/EIPs/issues/20
+- ERC-20 as finalized (EIP-20): https://eips.ethereum.org/EIPS/eip-20
+- Standardized Contract APIs wiki: https://web.archive.org/web/20170507171420/https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs
+- Ethereum Wallet 0.3.5 release: https://github.com/ethereum/mist/releases/tag/0.3.5
+- Ethereum blog, December 3, 2015: https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency
 
 ## Website
 
 - Homepage: https://www.mistcoineth.com
+- How to buy: https://www.mistcoineth.com/how-to-buy
 - Origin Checker (compare any token to MistCoin): https://www.mistcoineth.com/origin-checker
 - Mist Browser Simulator: https://www.mistcoineth.com/mist-simulator
 - Full documentation: https://www.mistcoineth.com/llms-full.txt

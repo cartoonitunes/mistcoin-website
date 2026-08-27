@@ -4,7 +4,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 1
+    "patch": 2
   },
   "tags": {
     "historic": {
@@ -29,9 +29,9 @@
       "tags": ["historic", "wrapped"],
       "extensions": {
         "website": "https://mistcoineth.com",
-        "description": "MistCoin — the first community token on Ethereum, created in September 2015. Now wrapped for modern DeFi.",
-        "originalContractAddress": "0xBB1A4564E301060E185dEda84542DA75Bb003D1e",
-        "originalDeploymentDate": "2015-09-12",
+        "description": "MistCoin: the token standard prototype deployed on Ethereum November 3, 2015, sixteen days before the ERC-20 proposal was filed. Now wrapped for modern DeFi.",
+        "originalContractAddress": "0xf4eCEd2f682CE333f96f2D8966C613DeD8fC95DD",
+        "originalDeploymentDate": "2015-11-03",
         "coingeckoId": "wrapped-mistcoin",
         "bridgeContract": "0x7Fd4d7737597E7b4ee22AcbF8D94362343ae0a79"
       }
@@ -46,7 +46,7 @@
       "tags": ["historic", "wrapped"],
       "extensions": {
         "website": "https://unicornmeateth.com",
-        "description": "Unicorn Meat (🍖) — created in March 2016 by Alex Van de Sande. The first on-chain DEX demo token. Now wrapped and tradable.",
+        "description": "Unicorn Meat (🍖): created in March 2016 by Alex Van de Sande. Now wrapped and tradable.",
         "originalContractAddress": "0xED6aC8de7c7CA7e3A22952e09C2a2A1232DDef9A",
         "originalDeploymentDate": "2016-03-14",
         "coingeckoId": "unicorn-meat",

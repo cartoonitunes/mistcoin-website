@@ -7,8 +7,8 @@
         <title>Shitcoin Origin Checker — Compare Any Shitcoin to the First Shitcoin | ShitCoin</title>
         <meta name="description" content="Discover the origin of any shitcoin and compare it to ShitCoin — the first literal shitcoin deployed on Ethereum in 2015. 'Mist' means 'shit' in German." />
         {% else %}
-        <title>Token Origin Checker — Compare Any ERC-20 to the First Token on Ethereum | MistCoin</title>
-        <meta name="description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the first token standard prototype deployed by Ethereum in 2015." />
+        <title>Token Origin Checker | Compare Any ERC-20 to MistCoin (2015)</title>
+        <meta name="description" content="Discover the origin of any ERC-20 token and compare it to MistCoin, the token standard prototype deployed on November 3, 2015, sixteen days before ERC-20 was proposed." />
         {% endif %}
         <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="keywords" content="MistCoin, ERC-20 origin, token checker, Ethereum history, blockchain origin, WMC, token comparison" />
@@ -22,7 +22,7 @@
         <meta property="og:description" content="Discover the origin of any shitcoin and compare it to the Original Shit — deployed by Ethereum in 2015." />
         {% else %}
         <meta property="og:title" content="MistCoin | Token Origin Checker" />
-        <meta property="og:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the historic first token standard prototype." />
+        <meta property="og:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin, the 2015 token standard prototype." />
         {% endif %}
         <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
         <meta property="og:url" content="https://www.mistcoineth.com/origin-checker{% if shitcoin %}?shitcoin=true{% endif %}" />
@@ -34,7 +34,7 @@
         <meta name="twitter:description" content="Discover the origin of any shitcoin and compare it to the Original Shit — deployed by Ethereum in 2015." />
         {% else %}
         <meta name="twitter:title" content="MistCoin | Token Origin Checker" />
-        <meta name="twitter:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin — the historic first token standard prototype." />
+        <meta name="twitter:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin, the 2015 token standard prototype." />
         {% endif %}
         <meta name="twitter:site" content="@MistCoinEth" />
         <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
@@ -49,7 +49,7 @@
             "@type": "WebApplication",
             "url": "https://www.mistcoineth.com/origin-checker",
             "name": "Token Origin Checker",
-            "description": "Compare any ERC-20 token's deployment date to MistCoin — the first token standard prototype deployed by Ethereum on November 3, 2015.",
+            "description": "Compare any ERC-20 token's deployment date to MistCoin, the token standard prototype deployed on November 3, 2015.",
             "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg",
             "applicationCategory": "Blockchain Tool",
             "operatingSystem": "Web"
@@ -197,7 +197,7 @@
                     Up <strong class="text-success">{{ "{:,.2f}".format(percent_up) }}%</strong>
                   </div>
                   {% endif %}
-                  <div class="mb-2"><i data-sc="ShitCoin was deployed on 2015-11-03 by the Ethereum team. The creator is German — he knew exactly what 'Mist' means.">MistCoin was deployed on 2015-11-03 by the Ethereum team to test the ERC-20 standard.</i></div>
+                  <div class="mb-2"><i data-sc="ShitCoin was deployed on 2015-11-03 by the Ethereum team. The creator is German — he knew exactly what 'Mist' means.">MistCoin was deployed on 2015-11-03, sixteen days before the ERC-20 proposal was filed.</i></div>
                   {% set token_label = name if cg_available else contract[:10] ~ '...' %}
                   {% set token_symbol = symbol if cg_available else '' %}
                   {% set share_url = 'https://www.mistcoineth.com/origin-checker?contract=' ~ contract ~ '&chain=' ~ chain %}
@@ -227,7 +227,7 @@
                 <a href="/" class="logo d-flex align-items-center">
                     <span class="sitename" data-sc="ShitCoin">MistCoin</span>
                   </a>
-                <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The first standard token on Ethereum, deployed on November 3, 2015.</p>
+                <p data-sc="The first shitcoin on Ethereum, shat out on November 3, 2015.">The token the Ethereum Wallet shipped for. Deployed November 3, 2015.</p>
               <div class="social-links d-flex mt-4">
                 <a href="https://x.com/MistCoinEth" aria-label="Follow MistCoin on X" target="_blank"><i class="bi bi-twitter-x"></i></a>
                 <a href="https://bsky.app/profile/mistcoin.bsky.social" aria-label="Follow MistCoin on Bluesky" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -251,7 +251,7 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-          <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">The first standard token on Ethereum. Deployed November 3, 2015.</p>
+          <p data-sc="The first shitcoin on Ethereum. Shat out November 3, 2015.">Block 483,325. Deployed November 3, 2015, 12:03:29 UTC.</p>
         </div>
 
       </footer>

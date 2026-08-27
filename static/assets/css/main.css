@@ -1794,6 +1794,29 @@ section,
   color: var(--accent-gold);
 }
 
+/* Inline code in prose (FAQ answers, team bios, interface table).
+   Bootstrap's default is pink; match the site palette instead. */
+.faq-content code,
+.team-member code,
+.mc-interface-table code,
+.contract-artifact p code {
+  color: var(--accent-gold);
+  background: color-mix(in srgb, currentColor, transparent 92%);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+/* Deployed-interface table in the contract section */
+.mc-interface-table {
+  min-width: 480px;
+}
+
+.mc-interface-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
 /*--------------------------------------------------------------
 # Tool Cards Section
 --------------------------------------------------------------*/

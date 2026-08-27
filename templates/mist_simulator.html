@@ -8,7 +8,7 @@
   <meta name="description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. 'Mist' means 'shit' in German." />
   {% else %}
   <title>Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin</title>
-  <meta name="description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser from 2015." />
+  <meta name="description" content="Experience how MistCoin and the first wallet-visible tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser from 2015." />
   {% endif %}
   <meta name="keywords" content="MistCoin, Blockchain, ERC20, Ethereum, Mist Browser, Simulator, token deployment, Ethereum history" />
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -22,7 +22,7 @@
   <meta property="og:description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. An interactive recreation of the Shit Browser." />
   {% else %}
   <meta property="og:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
-  <meta property="og:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
+  <meta property="og:description" content="Experience how MistCoin and the first wallet-visible tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
   {% endif %}
   <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
   <meta property="og:url" content="https://www.mistcoineth.com/mist-simulator{% if shitcoin %}?shitcoin=true{% endif %}" />
@@ -34,7 +34,7 @@
   <meta name="twitter:description" content="Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet. An interactive recreation of the Shit Browser." />
   {% else %}
   <meta name="twitter:title" content="Mist Browser Simulator — Deploy Tokens Like It's 2015 | MistCoin" />
-  <meta name="twitter:description" content="Experience how MistCoin and the first ERC-20 tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
+  <meta name="twitter:description" content="Experience how MistCoin and the first wallet-visible tokens were created in the original Ethereum Wallet. An interactive recreation of the Mist Browser." />
   {% endif %}
   <meta name="twitter:site" content="@MistCoinEth" />
   <meta name="twitter:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
@@ -49,7 +49,7 @@
       "@type": "WebPage",
       "url": "https://www.mistcoineth.com/mist-simulator",
       "name": "MistCoin Mist Browser Simulator",
-      "description": "Simulate creating a custom token in the original Ethereum Mist Browser. Experience the birth of MistCoin and ERC-20!",
+      "description": "Simulate creating a custom token in the original Ethereum Mist Browser, the way MistCoin was created in November 2015.",
       "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mistlogo.jpg",
       "sameAs": [
         "https://twitter.com/MistCoinEth",
@@ -531,7 +531,7 @@
       <main class="main">
       <div class="mist-sim-outer">
         <h1 style="margin-bottom: 0.5em; font-size: 2.1rem; font-weight: 800; text-align:center; width:100%;" data-sc="Shit Browser Simulator">Mist Browser Simulator</h1>
-        <p style="max-width: 600px; text-align: center; margin-bottom: 2em; color: #444;" data-sc="A window into the past: Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet dApp within the Shit Browser." data-sc-html="true">A window into the past: Experience how MistCoin and the first ERC-20 tokens were born in the original Ethereum Wallet dApp within the Mist Browser. <br>Inspired by <a href='https://github.com/ethereum/mist/releases/tag/0.3.5' target='_blank'>Wallet 0.3.5 (Beta 3)</a> and <a href='https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency' target='_blank'>this Ethereum Foundation blog post</a>.</p>
+        <p style="max-width: 600px; text-align: center; margin-bottom: 2em; color: #444;" data-sc="A window into the past: Experience how ShitCoin and the first shitcoins were born in the original Ethereum Wallet dApp within the Shit Browser." data-sc-html="true">A window into the past: Experience how MistCoin and the tokens that followed it were born in the original Ethereum Wallet dApp within the Mist Browser. <br>Inspired by <a href='https://github.com/ethereum/mist/releases/tag/0.3.5' target='_blank'>Wallet 0.3.5 (Beta 3)</a>, published November 3, 2015, and by Alex Van de Sande's <a href='https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency' target='_blank'>Ethereum in Practice, Part 1</a>, which shipped MistCoin's exact source.</p>
         <div class="mist-sim-window">
           <div class="mist-sim-header" style="justify-content: center;">
             <div class="window-controls" style="position: absolute; left: 32px;">
@@ -859,7 +859,7 @@
             document.getElementById('mistSimModalSend').onclick = function() {
               document.body.removeChild(modal);
               // Show mining confirmation screen
-              main.innerHTML = '<div style="text-align:center; padding:80px 32px;"><div style="font-size:2.5rem; margin-bottom:16px;">&#9935;</div><div style="font-size:1.5rem; font-weight:700; color:#888; margin-bottom:8px;">Mining Transaction...</div><div style="color:#aaa; font-size:1rem; margin-bottom:24px;">Block #424,961 confirming</div><div style="width:300px; height:6px; background:#e3e8ee; border-radius:3px; margin:0 auto; overflow:hidden;"><div style="width:0; height:100%; background:#00aee9; border-radius:3px; animation: mist-mining 2s ease-in-out forwards;"></div></div></div>';
+              main.innerHTML = '<div style="text-align:center; padding:80px 32px;"><div style="font-size:2.5rem; margin-bottom:16px;">&#9935;</div><div style="font-size:1.5rem; font-weight:700; color:#888; margin-bottom:8px;">Mining Transaction...</div><div style="color:#aaa; font-size:1rem; margin-bottom:24px;">Block #483,325 confirming</div><div style="width:300px; height:6px; background:#e3e8ee; border-radius:3px; margin:0 auto; overflow:hidden;"><div style="width:0; height:100%; background:#00aee9; border-radius:3px; animation: mist-mining 2s ease-in-out forwards;"></div></div></div>';
               var ms = document.createElement('style');
               ms.innerHTML = '@keyframes mist-mining { 0% { width: 0; } 100% { width: 100%; } }';
               document.head.appendChild(ms);
