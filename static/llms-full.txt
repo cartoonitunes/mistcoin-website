@@ -174,11 +174,11 @@ The allowance machinery that decentralized exchanges rely on, `approve` and `tra
 
 ### Origin Checker
 Compare any ERC-20 token's deployment date to MistCoin's. Shows whether a token was deployed before or after MistCoin and calculates what MistCoin's price would be at that token's market cap.
-URL: https://www.mistcoineth.com/origin-checker
+URL: https://mistcoineth.com/origin-checker
 
 ### Mist Browser Simulator
 An interactive recreation of the original Ethereum Wallet dApp within the Mist Browser, allowing users to experience how MistCoin was created in 2015.
-URL: https://www.mistcoineth.com/mist-simulator
+URL: https://mistcoineth.com/mist-simulator
 
 ## Frequently Asked Questions
 

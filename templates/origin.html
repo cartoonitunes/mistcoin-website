@@ -14,7 +14,7 @@
         <meta name="keywords" content="MistCoin, ERC-20 origin, token checker, Ethereum history, blockchain origin, WMC, token comparison" />
 
         <!-- Canonical Tag -->
-        <link rel="canonical" href="https://www.mistcoineth.com/origin-checker" />
+        <link rel="canonical" href="https://mistcoineth.com/origin-checker" />
 
         <!-- Open Graph Meta Tags -->
         {% if shitcoin %}
@@ -25,7 +25,7 @@
         <meta property="og:description" content="Discover the origin of any ERC-20 token and compare it to MistCoin, the 2015 token standard prototype." />
         {% endif %}
         <meta property="og:image" content="https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg" />
-        <meta property="og:url" content="https://www.mistcoineth.com/origin-checker{% if shitcoin %}?shitcoin=true{% endif %}" />
+        <meta property="og:url" content="https://mistcoineth.com/origin-checker{% if shitcoin %}?shitcoin=true{% endif %}" />
         <meta property="og:type" content="website" />
 
         <!-- Twitter Meta Tags -->
@@ -47,7 +47,7 @@
           {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "url": "https://www.mistcoineth.com/origin-checker",
+            "url": "https://mistcoineth.com/origin-checker",
             "name": "Token Origin Checker",
             "description": "Compare any ERC-20 token's deployment date to MistCoin, the token standard prototype deployed on November 3, 2015.",
             "image": "https://gaccdiscordimages.s3.us-east-1.amazonaws.com/mist_social_banner.jpg",
@@ -200,7 +200,7 @@
                   <div class="mb-2"><i data-sc="ShitCoin was deployed on 2015-11-03 by the Ethereum team. The creator is German — he knew exactly what 'Mist' means.">MistCoin is the prototype the author of ERC-20 built to test the standard, deployed 2015-11-03, sixteen days before he filed the proposal.</i></div>
                   {% set token_label = name if cg_available else contract[:10] ~ '...' %}
                   {% set token_symbol = symbol if cg_available else '' %}
-                  {% set share_url = 'https://www.mistcoineth.com/origin-checker?contract=' ~ contract ~ '&chain=' ~ chain %}
+                  {% set share_url = 'https://mistcoineth.com/origin-checker?contract=' ~ contract ~ '&chain=' ~ chain %}
                   <div class="d-flex gap-2 mt-2 flex-wrap">
                     <a href="https://twitter.com/intent/tweet?text=%F0%9F%95%B5%EF%B8%8F%20Curious%20about%20the%20true%20origin%20of%20%24{{ token_symbol }}%3F%0A%0ACompare%20{{ token_label }}%20to%20the%20legendary%20MistCoin%20$WMC%20%E2%80%94the%20coin%20deployed%20BY%20Ethereum%20in%202015%20to%20test%20ERC-20!%0A%0ASee%20the%20blockchain%20history%20instantly%3A%20{{ share_url|urlencode }}" target="_blank" class="btn btn-outline-primary"><i class="bi bi-twitter-x"></i> Share on X</a>
                     <a href="https://swap.cow.fi/#/1/swap/WETH/WMC" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="bi bi-cart"></i> Buy $WMC</a>

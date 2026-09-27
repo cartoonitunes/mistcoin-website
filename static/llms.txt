@@ -95,9 +95,9 @@ The contract published in the Ethereum Foundation's December 3, 2015 tutorial (g
 
 ## Website
 
-- Homepage: https://www.mistcoineth.com
-- How to buy: https://www.mistcoineth.com/how-to-buy
-- Origin Checker (compare any token to MistCoin): https://www.mistcoineth.com/origin-checker
-- Mist Browser Simulator: https://www.mistcoineth.com/mist-simulator
-- Full documentation: https://www.mistcoineth.com/llms-full.txt
-- Token List (Uniswap standard): https://www.mistcoineth.com/tokenlist.json
+- Homepage: https://mistcoineth.com
+- How to buy: https://mistcoineth.com/how-to-buy
+- Origin Checker (compare any token to MistCoin): https://mistcoineth.com/origin-checker
+- Mist Browser Simulator: https://mistcoineth.com/mist-simulator
+- Full documentation: https://mistcoineth.com/llms-full.txt
+- Token List (Uniswap standard): https://mistcoineth.com/tokenlist.json
