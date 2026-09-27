@@ -1,16 +1,40 @@
 {
   "builds": [
-    { "src": "api/index.py", "use": "@vercel/python" }
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "www.mistcoineth.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mistcoineth.com"
+        }
+      ],
       "status": 301,
-      "headers": { "Location": "https://mistcoineth.com/$1" },
+      "headers": {
+        "Location": "https://mistcoineth.com/$1"
+      },
       "continue": false
     },
-    { "src": "/static/(.*)", "dest": "/api/index.py" },
-    { "src": "/(.*)", "dest": "/api/index.py" }
+    {
+      "src": "/(deck|history-deck)/?",
+      "status": 301,
+      "headers": {
+        "Location": "/pitch-deck"
+      },
+      "continue": false
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.py"
+    }
   ]
 }
